@@ -1,0 +1,85 @@
+<div class="hold-transition register-page main-container">
+  <div class="register-box">
+    <div class="register-logo">
+      <H1><b>Palindrome</b></H1>
+      <H2><b>Sign-up</b></H2>
+    </div>
+
+    <div class="card">
+      <div class="card-body register-card-body">
+        <p class="login-box-msg">Register a new membership</p>
+
+        <form #frm="ngForm">
+          <div class="input-group mb-3">
+            <input class="form-control"(input)="findUser()" #txtUsername name="txt-username" required [minlength]="3" pattern="[A-Za-z]+" [(ngModel)]="username" id="txt-username" type="text"
+                   placeholder="Enter username">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+            <small [style.color]="'red'" *ngIf="userExists">Username is already taken</small>
+          </div>
+          <div class="input-group mb-3">
+            <input class="form-control" name="txt-email" required [minlength]="3" pattern="[A-Za-z]+" [(ngModel)]="email" id="txt-email" type="email"
+                   placeholder="Enter email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input class="form-control" name="txt-password" required [minlength]="3" [(ngModel)]="password" id="txt-password" type="password" placeholder="Enter password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input class="form-control" name="txt-confirm-password" required [minlength]="3" [(ngModel)]="confirmPassword" id="txt-confirm-password" type="password"
+                   placeholder="Enter password again">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+            <small [style.color]="'red'" *ngIf="password.length > 0 && confirmPassword.length > 0 && password !== confirmPassword">Mismatched Password</small>
+          </div>
+          <div class="row">
+<!--            <div class="col-8">-->
+<!--              <div class="icheck-primary">-->
+<!--                <input type="checkbox" id="agreeTerms" name="terms" value="agree">-->
+<!--                <label for="agreeTerms">-->
+<!--                  I agree to the <a href="#">terms</a>-->
+<!--                </label>-->
+<!--              </div>-->
+<!--            </div>-->
+            <!-- /.col -->
+            <div class="col-4">
+              <button class="btn btn-block btn-outline-warning" [disabled]="!(frm.valid && (password === confirmPassword) && !userExists)" (click)="createAccount()">Sign-up</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+        <!--<div class="social-auth-links text-center">
+          <p>- OR -</p>
+          <a href="#" class="btn btn-block btn-primary">
+            <i class="fab fa-facebook mr-2"></i>
+            Sign up using Facebook
+          </a>
+          <a href="#" class="btn btn-block btn-danger">
+            <i class="fab fa-google-plus mr-2"></i>
+            Sign up using Google+
+          </a>
+        </div>-->
+
+        <a routerLink="/sign-in" class="text-center">I already have a membership</a>
+      </div>
+      <!-- /.form-box -->
+    </div><!-- /.card -->
+  </div>
+  <!-- /.register-box -->
+</div>

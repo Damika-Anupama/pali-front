@@ -1,0 +1,59 @@
+:host {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.sub-container {
+  border: 20px solid darkorange;
+  border-radius: 15%;
+  line-height: 1.5;
+  padding: 30px 30px 5px;
+  text-align: center;
+  height: 700px;
+  width: 400px;
+  background-color: transparent;
+}
+
+.search-box {
+  border: 8px solid #3FA511;
+  border-radius: 20px;
+  height: 40px;
+  margin: 20px;
+  background-color: transparent;
+}
+
+.sub1 {
+  float: left;
+  height: 100%;
+  width: 80px;
+  border-right: 3px green dotted;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub2 {
+  height: 100%;
+  float: right;
+}
+
+input {
+  font-size: 16px;
+  transition: 0.6s;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  background-color: transparent;
+  outline: none;
+  height: 100%;
+}
+
+.content-box {
+  border: 7px dotted lightseagreen;
+  height: 500px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+

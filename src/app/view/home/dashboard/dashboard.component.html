@@ -1,0 +1,26 @@
+
+<div class="sub-container">
+  <div class="main-content" *ngFor="let launch of launches">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img src="data:image/png;base64,{{launch.file}}" class="image-view">
+<!--      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+<!--      <div [innerHTML]="launch.file"></div>-->
+      <mat-card-content>
+        <p [innerText]="launch.description"></p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button class="mat-button" color="warn" aria-label="Example icon button with a heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button class="mat-button" color="warn" aria-label="Example icon button with a heart icon">
+          <mat-icon>share</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
