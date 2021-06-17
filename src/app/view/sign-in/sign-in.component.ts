@@ -38,7 +38,6 @@ export class SignInComponent implements OnInit {
   authenticate(): void {
     this.userService.authenticate(this.username, this.password)
       .subscribe(token => {
-        console.log(token)
         sessionStorage.setItem(`token`, token.jwt);
         sessionStorage.setItem(`userId`, token.userId);
         sessionStorage.setItem('uname', this.username);

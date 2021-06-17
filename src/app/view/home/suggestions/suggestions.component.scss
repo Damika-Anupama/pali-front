@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+H1{
+  font-family: 'Indie Flower', cursive;
+  font-size: 70px;
+  color: chocolate;
+  text-align: center;
+}
+
 .heading{
   font-size: 28px;
 }
@@ -186,6 +195,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
   .emoji-container{
     border: 2px saddlebrown dotted;
@@ -194,6 +204,11 @@
     display: inline-block;
     padding: 10px;
   }
+}
+
+.card{
+  margin-top: 50px;
+  margin-bottom: 49px;
 }
 
 

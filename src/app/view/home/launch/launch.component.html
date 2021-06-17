@@ -41,7 +41,7 @@
     <emoji-mart set="facebook" color="red" class="emoji-mart" *ngIf="isEmojiPickerVisible" title="Choose your emoji" (emojiClick)="addEmoji($event)" (emojiClick)="  isEmojiPickerVisible = !isEmojiPickerVisible" emoji="point_up"></emoji-mart>
   </div>
   <div class="slider">
-    <mat-slider min="1" max="1000" step="4" value="1.5" (input)="pitch($event)"></mat-slider>
+    <mat-slider [displayWith]="formatLabel" min="1" max="1000" step="4" value="1.5" (input)="pitch($event)"></mat-slider>
   </div>
 </div>
 

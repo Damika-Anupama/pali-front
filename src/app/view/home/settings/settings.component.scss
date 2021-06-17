@@ -8,6 +8,7 @@
   border-bottom: 0;
   font-family: 'Permanent Marker', cursive;
   font-size: 52px;
+  text-align: center;
 }
 .main-container{
   display: flex;
@@ -19,7 +20,6 @@
   height: 420px;
   width: 420px;
   border-radius: 20%;
-  border: 2px solid brown;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,4 +88,58 @@
 }
 .resp-textbox > input[type=text]::placeholder {
   color: #fff8;
+}
+
+
+.card{
+  padding: 20px;
+}
+
+
+//callout text
+.input-data{
+  height: 40px;
+  width: 100%;
+  position: relative;
+}
+.input-data input{
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 17px;
+  outline: none;
+  border-bottom: 2px solid silver;
+}
+.input-data input:focus ~ label,
+.input-data input:valid ~ label{
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #4158d0;
+}
+.input-data label{
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.input-data .underline{
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 100%;
+  background: #4158d0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before{
+  transform: scaleX(1);
 }

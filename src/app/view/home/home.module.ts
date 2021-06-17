@@ -19,6 +19,10 @@ import {SuggestionsComponent} from './suggestions/suggestions.component';
 import {ChatterBoxComponent} from './chatter-box/chatter-box.component';
 import {PagesComponent} from "@src/app/view/home/pages/pages.component";
 import {ComradesComponent} from "@src/app/view/home/comrades/comrades.component";
+import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatOptionModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -45,6 +49,8 @@ import {ComradesComponent} from "@src/app/view/home/comrades/comrades.component"
     MatSnackBarModule,
     PickerModule,
     CommonModule,
+    NgbCarouselModule,
+    MatOptionModule
   ],
   providers: []
 })

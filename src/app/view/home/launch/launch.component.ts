@@ -24,6 +24,13 @@ export class LaunchComponent implements OnInit {
   constructor(private launchService: LaunchService, private snackBar: MatSnackBar) {
   }
 
+  formatLabel(value: number): any {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return value;
+  }
 // for image upload
   readURL(event: Event): void {
     // @ts-ignore
