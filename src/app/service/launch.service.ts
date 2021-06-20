@@ -27,7 +27,7 @@ export class LaunchService {
   }
 
   getRelevantLaunches(): Observable<any> {
-    let id = sessionStorage.getItem("userId");
+    const id = sessionStorage.getItem('userId');
     return this.http.get<LaunchBody>(environment.baseUrl + `/api/v1/launches/user/${id}`)
   }
 }

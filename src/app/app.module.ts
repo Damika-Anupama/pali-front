@@ -31,6 +31,8 @@ import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'a
 import {environment} from '../environments/environment';
 import {httpInterceptorProvider} from '@src/app/service/interceptors/interceptor-barrel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatRadioModule,
     ReactiveFormsModule,
     SocialLoginModule,
-    NgbModule
+    NgbModule,
+    MatProgressBarModule,
+    MatMenuModule
   ],
   providers: [
     httpInterceptorProvider,

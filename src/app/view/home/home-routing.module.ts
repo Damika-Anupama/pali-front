@@ -12,6 +12,7 @@ import {SuggestionsComponent} from './suggestions/suggestions.component';
 import {ChatterBoxComponent} from './chatter-box/chatter-box.component';
 import {PagesComponent} from '@src/app/view/home/pages/pages.component';
 import {ComradesComponent} from "@src/app/view/home/comrades/comrades.component";
+import {ShopComponent} from "@src/app/view/home/shop/shop.component";
 
 const heroRoutes: Routes = [
   {
@@ -30,6 +31,7 @@ const heroRoutes: Routes = [
       {component: ChatterBoxComponent, path: 'chatter-box'},
       {component: PagesComponent, path: 'pages'},
       {component: ComradesComponent, path: 'comrades'},
+      {component: ShopComponent, path: 'shop'},
     ]
   }
 ];

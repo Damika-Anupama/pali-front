@@ -23,6 +23,7 @@ import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
+import {ShopComponent} from "@src/app/view/home/shop/shop.component";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {MatOptionModule} from "@angular/material/core";
     SuggestionsComponent,
     ChatterBoxComponent,
     PagesComponent,
-    ComradesComponent
+    ComradesComponent,
+    ShopComponent
 
   ],
   imports: [

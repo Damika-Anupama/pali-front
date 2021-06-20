@@ -43,7 +43,9 @@ export class SignInComponent implements OnInit {
         sessionStorage.setItem('uname', this.username);
         this.router.navigateByUrl('/home');
       }, error => {
-        this.snackBar.open('Invalid username and password', 'Dismiss');
+        this.snackBar.open('Invalid username and password', 'Dismiss', {
+          duration: 1500
+        });
         this.username = '';
         this.password = '';
         this.frmSignIn.reset();

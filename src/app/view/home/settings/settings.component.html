@@ -13,6 +13,7 @@
           name="file-input"
           id="file-input"
           class="file-input__input"
+          (change)="readURL($event);"
         />
         <label class="file-input__label" for="file-input">
           <svg
@@ -32,21 +33,23 @@
           </svg>
           <span>Upload Your Profile Picture</span></label
         >
-        <img src="assets/img/avatar-female.png" alt="profile-picture">
+        <img [src]="img||'assets/img/avatar-other.png'" alt="profile-picture">
       </div>
       <hr>
+      <div class="callout callout-info">
+        <h5>Yourself shortly 😇 </h5>
+        <div class="input-data">
+          <input type="text" required>
+          <div class="underline"></div>
+        </div>
+      </div>
+
     </div>
   </div>
   <div class="main-container col-lg-6 col-12">
     <div class="card card-default col-md-9">
       <div class="card-body">
-        <div class="callout callout-info">
-          <h5>Yourself shortly 😇 </h5>
-          <div class="input-data">
-            <input type="text" required>
-            <div class="underline"></div>
-          </div>
-        </div>
+
         <div class="callout callout-info">
           <h5>UserName: </h5>
           <div class="input-data">
@@ -54,15 +57,15 @@
             <div class="underline"></div>
           </div>
         </div>
-        <div class="callout callout-warning">
-          <h5>Password</h5>
+        <div class="callout callout-success">
+          <h5>Email</h5>
           <div class="input-data">
             <input type="text" required>
             <div class="underline"></div>
           </div>
         </div>
-        <div class="callout callout-success">
-          <h5>Email</h5>
+        <div class="callout callout-danger">
+          <h5>Phone Number</h5>
           <div class="input-data">
             <input type="text" required>
             <div class="underline"></div>
@@ -76,6 +79,6 @@
 
 <div class="main-container">
   <div class="col-md-12 main-container">
-    <button type="button" class="btn btn-block btn-outline-success btn-lg col-md-3">Change Your Details</button>
+    <button type="button" class="btn btn-block btn-outline-success btn-lg col-md-3" (click)="updateUserDetails()">Change Your Details</button>
   </div>
 </div>

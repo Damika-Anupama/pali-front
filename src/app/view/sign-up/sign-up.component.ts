@@ -2,30 +2,35 @@ import {Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../service/user.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {ThemePalette} from '@angular/material/core';
+
+declare var require: any;
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
-export class SignUpComponent implements OnInit, DoCheck {
 
+
+export class SignUpComponent implements OnInit, DoCheck {
   username = '';
-  selectedGender = '';
   email = '';
   password = '';
   confirmPassword = '';
   @ViewChild('txtUsername')
   txtUsername!: ElementRef;
   userExists = false;
+  selectedGender = '';
   genders: string[] = ['Male', 'Female', 'Other'];
+  color: ThemePalette = 'accent';
+  showUserPic = false;
 
   constructor(private userService: UserService, private router: Router,
               private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
-    console.log(this.selectedGender, this.email);
   }
 
   createAccount(): void {

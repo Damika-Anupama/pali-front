@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+:host{
+  margin-right: 0px;
+}
+
 .main-header-container{
   display: flex;
   justify-content: center;

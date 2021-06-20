@@ -17,3 +17,15 @@ H2{
 .btn{
   margin-bottom: 10px;
 }
+
+#example-radio-group-label{
+  font-weight: normal;
+}
+.example-radio-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+mat-radio-button{
+  margin-right: 10px;
+}

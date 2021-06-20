@@ -57,7 +57,7 @@ export class LaunchComponent implements OnInit {
       } else {
         this.snackBar.open('500 Something went wrong!', 'Dismiss', {duration: 2000});
       }
-    })
+    });
   }
 
   pitch(event: any): void {

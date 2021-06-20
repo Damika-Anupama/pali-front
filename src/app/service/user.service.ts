@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from '../../environments/environment';
-import {User} from "@src/app/model/User";
+import {environment} from '@src/environments/environment';
+import {User} from '@src/app/model/User';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,24 +13,30 @@ export class UserService {
   }
 
   createAccount(uname: string, email: string, sex: string, pwd: string): Observable<HttpResponse<any>> {
-    const createdAt = new Date();
-    let gender: number;
+    let createdAt = new Date();
+    // @ts-ignore
+    createdAt = createdAt.toLocaleString();
+    console.log(createdAt);
+    let gender: string;
     if (sex === 'Male') {
-      gender = 0;
+      gender = 'MALE';
     } else if (sex === 'Female') {
-      gender = 1;
+      gender = 'FEMALE';
     } else {
-      gender = 2;
+      gender = 'OTHER';
     }
-    const body = {
-      username: uname,
-      password: pwd,
-      email: email,
-      gender: gender,
-      createdAt: createdAt,
-      role: 3
-    };
-    console.log(body);
+
+    const body: FormData = new FormData();
+    body.append('username', uname);
+    body.append('password', pwd);
+    body.append('email', email);
+    // @ts-ignore
+    body.append('gender', gender);
+    // @ts-ignore
+    body.append('createdAt', createdAt);
+    // @ts-ignore
+    body.append('role', 'USER');
+    body.append('shortDes', 'new Buddy 🐰');
     return this.http.post<HttpResponse<any>>(environment.baseUrl + `/api/v1/users`, body, {
       observe: 'response'
     });
@@ -38,9 +45,7 @@ export class UserService {
   findUser(query: string): Observable<string> {
     const httpParams = new HttpParams().append('q', query)
       .append('ignoreProgressBar', '');
-    return this.http.get<string>(environment.baseUrl + `/api/v1/users/${query}`, {
-      params: httpParams
-    });
+    return this.http.get<string>(environment.baseUrl + `/api/v1/users/name/` + query);
   }
 
   getUserDetailsById(query: string): Observable<User> {
@@ -56,5 +61,18 @@ export class UserService {
       password: pwd
     };
     return this.http.post(environment.baseUrl + `/api/v1/authenticate`, body);
+  }
+
+  updateUser(userId: string | null, profilePic: string, shortDes: string, username: string, email: string, phoneNumber: string): Observable<any> {
+    const body: FormData = new FormData();
+    // @ts-ignore
+    body.append('userId', userId);
+    body.append('username', username);
+    body.append('email', email);
+    // @ts-ignore
+    body.append('shortDes', shortDes);
+    body.append('profilePic', profilePic);
+    body.append('phoneNum', phoneNumber);
+    return this.http.put<User>(environment.baseUrl + `/api/v1/users/` + userId, body);
   }
 }
