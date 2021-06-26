@@ -1,39 +1,46 @@
-<div class="heading">
-  <div>Welcome to Palindrome</div>
-</div>
-<div class="button-pad">
-  <div>
-    <span>
-      <button class="button1" (click)="LoadSignIn()">Sign in</button>
-    </span>
-    <span>
-      <button class="button2" (click)="LoadSignUp()">Sign up</button>
-    </span>
-  </div>
-</div>
-<div class="main">
-  <div class="penguin">
-    <div class="penguin-bottom">
-      <div class="right-hand"></div>
-      <div class="left-hand"></div>
-      <div class="right-feet"></div>
-      <div class="left-feet"></div>
-    </div>
-    <div class="penguin-top">
-      <div class="right-cheek"></div>
-      <div class="left-cheek"></div>
-      <div class="belly"></div>
-      <div class="right-eye">
-        <div class="sparkle"></div>
+<div class="main-container">
+  <div class="xx">
+    <div class="row">
+      <div class="heading">
+        <div>Welcome to Palindrome</div>
       </div>
-      <div class="left-eye">
-        <div class="sparkle"></div>
-      </div>
-      <div class="blush-right"></div>
-      <div class="blush-left"></div>
-      <div class="beak-top"></div>
-      <div class="beak-bottom"></div>
     </div>
-  </div>
-</div>
 
+    <div class="button-pad">
+        <div class="button-container">
+          <button type="button" (click)="LoadSignIn()" class="btn btn-block btn-outline-warning btn-lg">Sign In</button>
+      </div>
+        <div>
+          <button type="button" (click)="LoadSignUp()" class="btn btn-block btn-outline-warning btn-lg">Sign Up</button>
+        </div>
+    </div>
+
+
+    <div class="main">
+      <div class="penguin">
+        <div class="penguin-bottom">
+          <div class="right-hand"></div>
+          <div class="left-hand"></div>
+          <div class="right-feet"></div>
+          <div class="left-feet"></div>
+        </div>
+        <div class="penguin-top">
+          <div class="right-cheek"></div>
+          <div class="left-cheek"></div>
+          <div class="belly"></div>
+          <div class="right-eye">
+            <div class="sparkle"></div>
+          </div>
+          <div class="left-eye">
+            <div class="sparkle"></div>
+          </div>
+          <div class="blush-right"></div>
+          <div class="blush-left"></div>
+          <div class="beak-top"></div>
+          <div class="beak-bottom"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

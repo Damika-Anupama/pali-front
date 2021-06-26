@@ -5,10 +5,13 @@
 
 export class Suggestion {
   constructor(
-    public message: string,
-    public priority: string,
-    public feeling: string,
-    public userId: number,
+  public feeling: string,
+  public id: number,
+  public message: string,
+  public priority: string,
+  public profilePicture: string,
+  public userId: number,
+  public username: string
   ) {
   }
 

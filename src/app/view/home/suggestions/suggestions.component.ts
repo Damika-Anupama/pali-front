@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SuggestionService} from '@src/app/service/suggestion.service';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {environment} from "@src/environments/environment";
+import {Suggestion} from "@src/app/model/Suggestion";
 
 @Component({
   selector: 'app-suggestions',
@@ -14,6 +15,8 @@ export class SuggestionsComponent implements OnInit {
   priority = 'PRIORITY1';
   feeling = '🥰';
   ableToPreview = false;
+  rows: Suggestion[] = [];
+  row = null;
 
   constructor(private suggestionService: SuggestionService, private snackBar: MatSnackBar) {
   }
@@ -24,7 +27,8 @@ export class SuggestionsComponent implements OnInit {
       this.ableToPreview = true;
     }
     this.suggestionService.getAllSuggestions().subscribe(value => {
-      console.log(value);
+      this.rows = value;
+      console.log(this.rows);
     });
   }
 
@@ -63,11 +67,13 @@ export class SuggestionsComponent implements OnInit {
           });
         }
       });
-    }else {
+    } else {
       this.snackBar.open('Please Fill Your Suggestion', 'Dismiss', {
         duration: 2000
       });
     }
   }
 
+  deleteRow(id: number): void {
+  }
 }

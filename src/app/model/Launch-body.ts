@@ -5,6 +5,11 @@
 
 export interface LaunchBody {
   file: File;
+  mediaType: string;
   description: string;
   feeling: string;
+  userId: number;
+  userName: string;
+  shortDescription: string;
+  profilePicture: string;
 }

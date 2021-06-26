@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '@src/environments/environment';
-import {LaunchBody} from '../model/Launch-body';
+import {LaunchBody} from '@src/app/model/Launch-body';
 
 @Injectable({
   providedIn: 'root'
@@ -13,10 +13,13 @@ export class LaunchService {
   }
 
   createLaunch(file: File, description: string, feeling: string): Observable<HttpResponse<any>> {
+    const userId: string | null = sessionStorage.getItem('userId');
     const body: FormData = new FormData();
     body.append('file', file);
     body.append('description', description);
     body.append('feeling', feeling);
+    // @ts-ignore
+    body.append('user', userId);
     return this.http.post<HttpResponse<any>>(environment.baseUrl + '/api/v1/launches', body, {
       observe: 'response'
     });
@@ -28,7 +31,7 @@ export class LaunchService {
 
   getRelevantLaunches(): Observable<any> {
     const id = sessionStorage.getItem('userId');
-    return this.http.get<LaunchBody>(environment.baseUrl + `/api/v1/launches/user/${id}`)
+    return this.http.get<LaunchBody>(environment.baseUrl + `/api/v1/launches/user/${id}`);
   }
 }
 

@@ -21,9 +21,12 @@ import {PagesComponent} from "@src/app/view/home/pages/pages.component";
 import {ComradesComponent} from "@src/app/view/home/comrades/comrades.component";
 import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatSelectModule} from "@angular/material/select";
 import {MatOptionModule} from "@angular/material/core";
 import {ShopComponent} from "@src/app/view/home/shop/shop.component";
+import {MatInputModule} from "@angular/material/input";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -41,19 +44,24 @@ import {ShopComponent} from "@src/app/view/home/shop/shop.component";
     ShopComponent
 
   ],
-  imports: [
-    MatSliderModule,
-    MatIconModule,
-    MatBadgeModule,
-    MatCardModule,
-    HomeRoutingModule,
-    FormsModule,
-    MatSnackBarModule,
-    PickerModule,
-    CommonModule,
-    NgbCarouselModule,
-    MatOptionModule
-  ],
+    imports: [
+        MatSliderModule,
+        MatIconModule,
+        MatBadgeModule,
+        MatCardModule,
+        HomeRoutingModule,
+        FormsModule,
+        MatSnackBarModule,
+        PickerModule,
+        CommonModule,
+        NgbCarouselModule,
+        MatOptionModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatMenuModule,
+        MatExpansionModule,
+        MatButtonModule
+    ],
   providers: []
 })
 export class HomeModule {

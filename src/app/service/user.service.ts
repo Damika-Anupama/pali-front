@@ -12,11 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  createAccount(uname: string, email: string, sex: string, pwd: string): Observable<HttpResponse<any>> {
-    let createdAt = new Date();
-    // @ts-ignore
-    createdAt = createdAt.toLocaleString();
-    console.log(createdAt);
+  createAccount(uname: string, email: string, contactNumber: string, sex: string, pwd: string): Observable<HttpResponse<any>> {
     let gender: string;
     if (sex === 'Male') {
       gender = 'MALE';
@@ -26,17 +22,16 @@ export class UserService {
       gender = 'OTHER';
     }
 
-    const body: FormData = new FormData();
-    body.append('username', uname);
-    body.append('password', pwd);
-    body.append('email', email);
-    // @ts-ignore
-    body.append('gender', gender);
-    // @ts-ignore
-    body.append('createdAt', createdAt);
-    // @ts-ignore
-    body.append('role', 'USER');
-    body.append('shortDes', 'new Buddy 🐰');
+    const body = {
+      username: uname,
+      password: pwd,
+      role: 'USER',
+      email,
+      gender,
+      shortDescription: 'Hello, I\'m a newbie 🐰',
+      contactNum: contactNumber
+    };
+    console.log(body);
     return this.http.post<HttpResponse<any>>(environment.baseUrl + `/api/v1/users`, body, {
       observe: 'response'
     });
@@ -48,11 +43,12 @@ export class UserService {
     return this.http.get<string>(environment.baseUrl + `/api/v1/users/name/` + query);
   }
 
-  getUserDetailsById(query: string): Observable<User> {
-    const httpParams = new HttpParams().append('q', query);
-    return this.http.get<User>(environment.baseUrl + `/api/v1/users/${query}`, {
-      params: httpParams
-    });
+  getUserDetailsById(query: string | null): Observable<any> {
+    return this.http.get<any>(environment.baseUrl + `/api/v1/users/${query}`);
+  }
+
+  getProfilePic(query: string | null): Observable<any> {
+    return this.http.get<any>(environment.baseUrl + `/api/v1/users/picture/` + query);
   }
 
   authenticate(uname: string, pwd: string): Observable<any> {
@@ -69,7 +65,6 @@ export class UserService {
     body.append('userId', userId);
     body.append('username', username);
     body.append('email', email);
-    // @ts-ignore
     body.append('shortDes', shortDes);
     body.append('profilePic', profilePic);
     body.append('phoneNum', phoneNumber);

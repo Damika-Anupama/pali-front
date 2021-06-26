@@ -38,6 +38,12 @@
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "webpack.config.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "$.widget.bridge('uibutton', $.ui.button)",
+              "admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js",
+              "admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "admin-lte/dist/js/adminlte.js"
             ]
           },
           "configurations": {

@@ -15,16 +15,16 @@ export class SuggestionService {
   saveSuggestion(message: string, priority: string, feeling: string): Observable<HttpResponse<any>> {
     const user = sessionStorage.getItem('userId');
     const body = {
-      message: message,
-      priority: priority,
-      feeling: feeling,
-      user: user,
+      message,
+      priority,
+      feeling,
+      user,
     };
-    console.log(body)
+    console.log(body);
     return this.http.post<any>(environment.baseUrl + `/api/v1/suggestion`, body);
   }
 
   getAllSuggestions(): Observable<any> {
-    return this.http.get(environment.baseUrl + `/api/v1/suggestion`);
+    return this.http.get(environment.baseUrl + `/api/v1/suggestion/user`);
   }
 }

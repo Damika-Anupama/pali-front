@@ -16,6 +16,7 @@ declare var require: any;
 export class SignUpComponent implements OnInit, DoCheck {
   username = '';
   email = '';
+  contactNumber = '';
   password = '';
   confirmPassword = '';
   @ViewChild('txtUsername')
@@ -34,7 +35,7 @@ export class SignUpComponent implements OnInit, DoCheck {
   }
 
   createAccount(): void {
-    this.userService.createAccount(this.username, this.email, this.selectedGender, this.password).subscribe(value => {
+    this.userService.createAccount(this.username, this.email, this.contactNumber, this.selectedGender, this.password).subscribe(value => {
       this.router.navigateByUrl('/sign-in');
     }, error => {
       if (error.status === 400) {

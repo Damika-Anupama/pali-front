@@ -1,26 +1,124 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <section class="col-lg-2 connectedSortable">
+        <div class="bubble-bar">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi incidunt maiores nam nihil
+          repellendus sapiente? A consectetur eaque error labore minima odio quae sapiente suscipit! Harum nam officia
+          ratione!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi incidunt maiores nam nihil
+          repellendus sapiente? A consectetur eaque error labore minima odio quae sapiente suscipit! Harum nam officia
+          ratione!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi incidunt maiores nam nihil
+          repellendus sapiente? A consectetur eaque error labore minima odio quae sapiente suscipit! Harum nam of
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi incidunt maiores nam nihil
+          repellendus sapiente? A consectetur eaque error labore minima odio quae sapiente suscipit! Harum nam officia
+          ratione!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi incidunt maiores nam nihil
+          repellendus sapiente? A consectetur eaque error labore minima odio quae sapiente suscipit! Harum nam officia
+          ratione!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi incidunt maiores nam nihil
+          repellendus sapiente? A consectetur eaque error labore minima odio quae sapiente suscipit! Harum nam officia
+          ratione!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi incidunt maiores nam nihil
+          repellendus sapiente? A consectetur eaque error labore minima odio quae sapiente suscipit! Harum nam officia
+          ratione!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci eligendi incidunt maiores nam nihil
+          repellendus sapiente? A consectetur eaque error labore minima odio quae sapiente suscipit! Harum nam officia
+          ratione!
+        </div>
+      </section>
+      <section class="col-lg-10 connectedSortable">
+        <div class="main-content" *ngFor="let launch of launches">
+          <mat-card class="example-card">
+            <div class="ribbon-wrapper ribbon-xl">
+              <div class="menu-container">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>dialpad</mat-icon>
+                    <span>Redial</span>
+                  </button>
+                  <button mat-menu-item disabled>
+                    <mat-icon>voicemail</mat-icon>
+                    <span>Check voice mail</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>notifications_off</mat-icon>
+                    <span>Disable alerts</span>
+                  </button>
+                </mat-menu>
+              </div>
+              <div class="ribbon bg-danger text-xl">
+                Ribbon
+              </div>
+            </div>
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image">
+                <img [src]="'data:image/png;base64,' + launch.profilePicture|| 'assets/img/avatar-other.png'"
+                     alt="launch-owner-profile-picture" class="launch-owner-profile-picture">
+              </div>
+              <mat-card-title class="float-right">{{launch.userName}}</mat-card-title>
+              <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle>
 
-<div class="sub-container">
-  <div class="main-content" *ngFor="let launch of launches">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img src="data:image/png;base64,{{launch.file}}" class="image-view">
-<!--      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-<!--      <div [innerHTML]="launch.file"></div>-->
-      <mat-card-content>
-        <p [innerText]="launch.description"></p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button class="mat-button" color="warn" aria-label="Example icon button with a heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button class="mat-button" color="warn" aria-label="Example icon button with a heart icon">
-          <mat-icon>share</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
+            </mat-card-header>
+            <img src="data:image/png;base64,{{launch.file}}" class="image-view">
+            <mat-card-content>
+              <p [innerText]="launch.description"></p>
+            </mat-card-content>
+            <mat-card-actions>
+              <div>
+                <nav class="row expanded">
+                  <ul>
+                    <li>
+                      <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                        <mat-icon>favorite</mat-icon>
+                      </button>
+                      <nav class="row">
+                        <ul>
+                          <li>
+                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                              <mat-icon>favorite</mat-icon>
+                            </button>
+                          </li>
+                          <li>
+                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                              <mat-icon>local_fire_department</mat-icon>
+                            </button>
+                          </li>
+                          <li>
+                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                              <mat-icon>sentiment_very_dissatisfied</mat-icon>
+                            </button>
+                          </li>
+                          <li>
+                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                              <mat-icon>auto_awesome</mat-icon>
+                            </button>
+                          </li>
+                          <li>
+                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                              <mat-icon>sick</mat-icon>
+                            </button>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+                  </ul>
+                </nav>
+                <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                  <mat-icon>textsms</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                  <mat-icon>share</mat-icon>
+                </button>
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </section>
+    </div>
   </div>
-</div>
+</section>

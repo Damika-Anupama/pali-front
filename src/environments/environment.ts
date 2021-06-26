@@ -5,7 +5,10 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
-  googleClientId: '984835281675-bqj86ani4p5im5rqrnej7lk76a4riiph.apps.googleusercontent.com',
+  // googleClientId: '984835281675-bqj86ani4p5im5rqrnej7lk76a4riiph.apps.googleusercontent.com',
+  googleClientId: '',
+  facebookAppId: 0,
+  // facebookAppId: 933217367459459,
   OwnerId: '5'
 };
 

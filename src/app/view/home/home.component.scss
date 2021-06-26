@@ -37,20 +37,18 @@ footer{
   display:table;
   margin:0 auto;
   position:absolute ;
-  height: 180px;
+  height: 100px;
   width: 180px;
-  background-color: yellow;
   border-radius: 50%;
-  left: 100px; right: 0; top: 5px ; bottom: 0;
+  left: 0; right: 0; top: 5px ; bottom: 0;
   cursor: alias;
+  overflow: hidden;
 }
 
 .profile-pic{
   height: 180px;
-  width: 180px;
-  background-color: yellow;
+  width: 100%;
   border-radius: 50%;
-  left: 100px; right: 0; top: 5px ; bottom: 0;
   cursor: alias;
 }
 

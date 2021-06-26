@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {LaunchService} from '../../../service/launch.service';
-import {LaunchBody} from "@src/app/model/Launch-body";
+import {LaunchService} from '@src/app/service/launch.service';
+import {LaunchBody} from '@src/app/model/Launch-body';
 
 @Component({
   selector: 'app-launch',
@@ -12,14 +12,18 @@ import {LaunchBody} from "@src/app/model/Launch-body";
 export class LaunchComponent implements OnInit {
   imageSrc = '';
   description = '';
-  public isEmojiPickerVisible = false;
   emoji = null;
-  emojiObject = null;
   // @ts-ignore
   mediaFile: FileList;
   launches: LaunchBody[] = [];
   launch!: LaunchBody;
   launchImg = '';
+  emojis = ['😃', '😍', '😴', '😎', '😡', '🥶', '😞', '🤔', '😶'];
+  visibleImage = true;
+  visibleVideo = false;
+  videoSrc = '';
+  visibleAudio = false;
+  audioSrc = '';
 
   constructor(private launchService: LaunchService, private snackBar: MatSnackBar) {
   }
@@ -31,18 +35,46 @@ export class LaunchComponent implements OnInit {
 
     return value;
   }
+
 // for image upload
   readURL(event: Event): void {
+    // @ts-ignore
+    const file = event.target.files[0];
+    if (file.size / 1000000 > 100) {
+      this.snackBar.open('The input media should be less than 100MB 🤕', 'Dismiss', {duration: 2000});
+      return;
+    }
     // @ts-ignore
     this.mediaFile = event.target.files[0];
     // @ts-ignore
     if (event.target.files && event.target.files[0]) {
-      // @ts-ignore
-      const file = event.target.files[0];
-      console.log(file);
       const reader = new FileReader();
-      // @ts-ignore
-      reader.onload = e => this.imageSrc = reader.result;
+      const mediaType = file.type.substring(0, 5);
+      if (mediaType === 'image') {
+        this.visibleImage = true;
+        this.visibleAudio = false;
+        this.visibleVideo = false;
+        this.videoSrc = '';
+        this.audioSrc = '';
+        // @ts-ignore
+        reader.onload = e => this.imageSrc = reader.result;
+      } else if (mediaType === 'video') {
+        this.visibleVideo = true;
+        this.visibleImage = false;
+        this.visibleAudio = false;
+        this.imageSrc = '';
+        this.audioSrc = '';
+        // @ts-ignore
+        reader.onload = e => this.videoSrc = reader.result;
+      } else if (mediaType === 'audio') {
+        this.visibleAudio = true;
+        this.visibleVideo = false;
+        this.visibleImage = false;
+        this.imageSrc = '';
+        this.videoSrc = '';
+        // @ts-ignore
+        reader.onload = e => this.audioSrc = reader.result;
+      }
       reader.readAsDataURL(file);
     }
   }
@@ -73,7 +105,10 @@ export class LaunchComponent implements OnInit {
   createLaunch(): void {
     // @ts-ignore
     this.launchService.createLaunch(this.mediaFile, this.description, this.emoji).subscribe(value => {
-      console.log('Launch created in the backend ;)');
+      this.snackBar.open('Congratulations 🤠\n Launch created Successfully !!', 'Dismiss', {duration: 2000});
+      // this.mediaFile = null;
+      this.description = '';
+      this.emoji = null;
     }, error => {
       if (error.status === 400) {
         this.snackBar.open('Invalid details!', 'Dismiss', {duration: 2000});
@@ -83,8 +118,7 @@ export class LaunchComponent implements OnInit {
     });
   }
 
-  addEmoji($event: any): void {
-    this.emojiObject = $event.emoji.native;
-    this.emoji = $event.emoji.name;
+  addEmoji(emoji: any): void {
+    this.emoji = emoji;
   }
 }

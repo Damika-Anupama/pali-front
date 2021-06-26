@@ -9,17 +9,17 @@ import {UserService} from "@src/app/service/user.service";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  imgSrc = '';
+
   constructor(public dialog: MatDialog, private userService: UserService) {
   }
 
 
   ngOnInit(): void {
     const item = sessionStorage.getItem('userId');
-    // @ts-ignore
-    const userDetailsById = this.userService.getUserDetailsById(item.toString()).subscribe((value => {
-      console.log(value);
+    this.userService.getProfilePic(item).subscribe((value => {
+      this.imgSrc = 'data:image/png;base64,' + value.profilePic;
     }));
-    console.log(userDetailsById);
   }
 
   openDialog(): void {

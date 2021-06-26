@@ -90,14 +90,14 @@
               <!--                </p>-->
               <!--              </a>-->
               <!--            </li>-->
-              <li class="nav-item">
-                <a routerLink="ads" class="nav-link" routerLinkActive="active">
-                  <i class="nav-icon fas  fa-globe"></i>
-                  <p>
-                    Ads
-                  </p>
-                </a>
-              </li>
+              <!--              <li class="nav-item">-->
+              <!--                <a routerLink="ads" class="nav-link" routerLinkActive="active">-->
+              <!--                  <i class="nav-icon fas  fa-globe"></i>-->
+              <!--                  <p>-->
+              <!--                    Ads-->
+              <!--                  </p>-->
+              <!--                </a>-->
+              <!--              </li>-->
               <li class="nav-item">
                 <a routerLink="report" class="nav-link" routerLinkActive="active">
                   <i class="nav-icon fas  fa-exclamation-triangle"></i>
@@ -114,14 +114,14 @@
                   </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a routerLink="shop" class="nav-link" routerLinkActive="active">
-                  <i class="nav-icon fas  fa-shopping-basket"></i>
-                  <p>
-                    Shop
-                  </p>
-                </a>
-              </li>
+              <!--              <li class="nav-item">-->
+              <!--                <a routerLink="shop" class="nav-link" routerLinkActive="active">-->
+              <!--                  <i class="nav-icon fas  fa-shopping-basket"></i>-->
+              <!--                  <p>-->
+              <!--                    Shop-->
+              <!--                  </p>-->
+              <!--                </a>-->
+              <!--              </li>-->
 
             </ul>
           </nav>
@@ -142,83 +142,21 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <mat-icon matBadgeColor="warn">account_circle</mat-icon>
-          </a>
-        </li>
-        <li class="nav-item">
           <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-lg">
             Launch Large Modal
           </button>
-<!--          <a class="nav-link" data-toggle="dropdown" href="#" (click)="openDialog()  data-target="#modal-lg">-->
-<!--            <mat-icon matBadgeColor="warn">search</mat-icon>-->
-<!--          </a>-->
+          <!--          <a class="nav-link" data-toggle="dropdown" href="#" (click)="openDialog()  data-target="#modal-lg">-->
+          <!--            <mat-icon matBadgeColor="warn">search</mat-icon>-->
+          <!--          </a>-->
         </li>
         <li class="nav-item">
         </li>
       </ul>
-      <span class="profile">
-      <img src="assets/img/avatar-male.png" alt="" class="profile-pic">
-    </span>
+      <div class="profile">
+        <img [src]="imgSrc|| 'assets/img/avatar-other.png'" alt="user-profile-pic" class="profile-pic">
+      </div>
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
-        <!-- Messages Dropdown Menu -->
-        <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" href="#">
-            <mat-icon matBadge="15" matBadgeColor="warn">star</mat-icon>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Brad Diesel
-                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">Call me whenever you can...</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    John Pierce
-                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">I got your message bro</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item">
-              <!-- Message Start -->
-              <div class="media">
-                <img src="assets/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                <div class="media-body">
-                  <h3 class="dropdown-item-title">
-                    Nora Silvester
-                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                  </h3>
-                  <p class="text-sm">The subject goes here</p>
-                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                </div>
-              </div>
-              <!-- Message End -->
-            </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-          </div>
-        </li>
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link" data-toggle="dropdown" href="#">
@@ -246,7 +184,8 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" data-toggle="dropdown" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <a class="nav-link" data-toggle="dropdown" mat-icon-button [matMenuTriggerFor]="menu"
+             aria-label="Example icon-button with a menu">
             <mat-icon>more_vert</mat-icon>
           </a>
           <mat-menu #menu="matMenu">
@@ -266,9 +205,9 @@
         </li>
       </ul>
     </nav>
-    <mat-progress-bar
-      mode="indeterminate"
-    ></mat-progress-bar>
+    <!--    <mat-progress-bar-->
+    <!--      mode="indeterminate"-->
+    <!--    ></mat-progress-bar>-->
     <!-- Content Wrapper. Contains page content -->
     <div id="content-wrapper">
       <div class="content-wrapper">
@@ -301,11 +240,6 @@
     <!-- ./wrapper -->
   </div>
 </div>
-
-
-
-
-
 
 
 <div class="modal fade" id="modal-lg" style="z-index: 200000">

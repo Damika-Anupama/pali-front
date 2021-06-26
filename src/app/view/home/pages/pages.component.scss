@@ -1,12 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Mountains+of+Christmas:wght@700&display=swap');
 
-.card-header{
+.header-container {
+  margin-bottom: 40px;
+}
+
+.words {
+  font-family: 'Monoton', cursive;
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 70px;
+  text-space: 5px;
+}
+
+.create-launch-theme {
+  font-family: 'Anton', sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+
+.card-header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.card-title{
+
+.card-title {
   font-family: 'Pacifico', cursive;
   font-size: 30px;
   color: #722257;
+}
+
+.direct-chat {
+  margin-left: 20px;
+}
+
+.direct-chat-messages {
+  height: auto;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  overflow: hidden;
+}
+
+ngb-carousel {
+  padding: 20px 0;
+}
+
+.card-carousal {
+  margin-right: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
 }
