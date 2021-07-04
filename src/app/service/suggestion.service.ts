@@ -20,11 +20,14 @@ export class SuggestionService {
       feeling,
       user,
     };
-    console.log(body);
     return this.http.post<any>(environment.baseUrl + `/api/v1/suggestion`, body);
   }
 
   getAllSuggestions(): Observable<any> {
     return this.http.get(environment.baseUrl + `/api/v1/suggestion/user`);
+  }
+
+  deleteSuggestion(id: number): Observable<any> {
+    return this.http.delete(environment.baseUrl + `/api/v1/suggestion/user/` + id);
   }
 }

@@ -1,13 +1,13 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgbCarousel, NgbSlideEvent, NgbSlideEventSource} from '@ng-bootstrap/ng-bootstrap';
+import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-pages',
-  templateUrl: './pages.component.html',
-  styleUrls: ['./pages.component.scss']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss']
 })
-export class PagesComponent implements OnInit {
-
+export class MenuComponent implements OnInit {
   images = [62, 83, 466, 965, 982, 1043].map((n) => `assets/img/${n}-900x500.jpg`);
   paused = false;
   unpauseOnArrow = false;
@@ -18,7 +18,7 @@ export class PagesComponent implements OnInit {
   @ViewChild('carousel', {static: true}) carousel: NgbCarousel;
   step = 0;
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
@@ -53,5 +53,9 @@ export class PagesComponent implements OnInit {
 
   prevStep(): void {
     this.step--;
+  }
+
+  routToBuildPage(): void {
+    this.router.navigateByUrl('/home/com/build');
   }
 }

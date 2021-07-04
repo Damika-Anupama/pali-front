@@ -1,0 +1,51 @@
+<div class="main-container">
+  <H1>Let's build a Community 🥰 #🚀</H1>
+</div>
+<div class="main-container">
+  <div class="col-md-6">
+    <div class="card card-primary">
+      <form>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="exampleInputTitle">Community Title</label>
+            <input type="text" class="form-control" id="exampleInputTitle" placeholder="Enter title" name="title"
+                   [(ngModel)]="description">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputDescription">Description</label>
+            <input type="text" class="form-control" id="exampleInputDescription" placeholder="Description">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">Community Group Icon</label>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="exampleInputFile">
+                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text">Upload</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">Wall Icon</label>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="exampleInputFile1">
+                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+              </div>
+              <div class="input-group-append">
+                <span class="input-group-text">Upload</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary" (click)="createCommunityPage()">Create My Community</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="header-container">
+      <h1 class="create-launch-theme">👪<span class="words">Communities</span>😉 #🚀
+      </h1>
+    </div>
+
+    <div class="row">
+      <section class="col-lg-5 connectedSortable">
+        <div class="card direct-chat direct-chat-primary">
+          <div class="card-header">
+            <h3 class="card-title">Your Communities</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <!-- Conversations are loaded here -->
+            <div class="direct-chat-messages">
+              <div class="callout callout-danger">
+                <h5>I am a danger callout!</h5>
+
+                <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
+                  soul,
+                  like these sweet mornings of spring which I enjoy with my whole heart.
+                </p>
+              </div>
+              <div class="callout callout-danger">
+                <h5>I am a danger callout!</h5>
+
+                <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
+                  soul,
+                  like these sweet mornings of spring which I enjoy with my whole heart.
+                </p>
+              </div>
+              <div class="callout callout-info">
+                <h5>I am an info callout!</h5>
+
+                <p>Follow the steps to continue to payment.</p>
+              </div>
+              <div class="callout callout-warning">
+                <h5>I am a warning callout!</h5>
+
+                <p>This is a yellow callout.</p>
+              </div>
+              <div class="callout callout-success">
+                <h5>I am a success callout!</h5>
+
+                <p>This is a green callout.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="col-lg-7 connectedSortable">
+        <div class="card card-carousal">
+          <div class="main-container">
+            <ngb-carousel class="col-md-11" #carousel [interval]="3000" [pauseOnHover]="pauseOnHover"
+              [pauseOnFocus]="pauseOnFocus"
+              (slide)="onSlide($event)">
+              <ng-template ngbSlide *ngFor="let img of images; index as i">
+                <div class="carousel-caption">
+                  <h3>My slide {{i + 1}} title</h3>
+                </div>
+                <div class="picsum-img-wrapper" style="overflow: hidden">
+                  <img [src]="img" alt="My image {{i + 1}} description">
+                </div>
+              </ng-template>
+            </ngb-carousel>
+          </div>
+        </div>
+        <div class="card btn-container">
+          <div class="btn-container">
+            <button _ngcontent-lac-c183="" type="submit" data-toggle="modal" data-target="#modal-xl"
+                    class="btn btn-primary col-lg-5">Search Communities
+            </button>
+          </div>
+          <div class="btn-container">
+            <a _ngcontent-lac-c183="" (click)="routToBuildPage()" type="submit" data-toggle="modal" data-target="#modal-xl"
+                    class="btn btn-danger col-lg-5">Make a new Community
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

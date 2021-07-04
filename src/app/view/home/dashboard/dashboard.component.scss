@@ -1,9 +1,30 @@
+//.bubble-bar-container{
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//}
+.add-bubble-container{
+  position: relative;
+  display: block;
+}
+.add-bubble{
+  border-radius: 50%;
+  height: 100px;
+  position: absolute;
+  right: -30px;
+  text-align: center;
+  font-size: 72px;
+  top: -30px;
+  width: 100px;
+  background-color: #BB371A;
+}
 .bubble-bar{
   background-color: #722257;
-  height: 100vh;
-  position: -webkit-sticky;
+  height: 900px;
   position: sticky;
-  top: 0;
+  top: 30px;
+  margin-left: 15px;
+  border-radius: 550px;
 }
 .main-content{
   display: flex;

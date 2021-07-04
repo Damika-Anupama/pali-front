@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SuggestionService} from '@src/app/service/suggestion.service';
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {environment} from "@src/environments/environment";
-import {Suggestion} from "@src/app/model/Suggestion";
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {environment} from '@src/environments/environment';
+import {Suggestion} from '@src/app/model/Suggestion';
 
 @Component({
   selector: 'app-suggestions',
@@ -75,5 +75,19 @@ export class SuggestionsComponent implements OnInit {
   }
 
   deleteRow(id: number): void {
+    this.suggestionService.deleteSuggestion(id).subscribe(value => {
+      this.snackBar.open('Suggestion Deleted Successfully !!', 'Dismiss', {duration: 2000});
+      window.location.reload();
+    }, error => {
+      if (error.status === 400) {
+        this.snackBar.open('Invalid details!', 'Dismiss', {
+          duration: 2000
+        });
+      } else {
+        this.snackBar.open('500 Something went wrong! Please try again in little bit later', 'Dismiss', {
+          duration: 2000
+        });
+      }
+    });
   }
 }

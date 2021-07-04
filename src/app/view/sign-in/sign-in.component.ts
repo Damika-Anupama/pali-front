@@ -22,6 +22,8 @@ export class SignInComponent implements OnInit {
   socialUser: SocialUser;
   // @ts-ignore
   isLoggedin: boolean;
+  profilePicture = null;
+  userName = '';
 
   constructor(private userService: UserService, private router: Router,
               private snackBar: MatSnackBar, private socialAuthService: SocialAuthService) {
@@ -40,7 +42,8 @@ export class SignInComponent implements OnInit {
       .subscribe(token => {
         sessionStorage.setItem(`token`, token.jwt);
         sessionStorage.setItem(`userId`, token.userId);
-        // sessionStorage.setItem('uname', this.username);
+        this.profilePicture = token.profilePicture;
+        this.userName = token.userName;
         this.router.navigateByUrl('/home');
       }, error => {
         this.snackBar.open('Invalid username and password', 'Dismiss', {

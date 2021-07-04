@@ -70,4 +70,8 @@ export class UserService {
     body.append('phoneNum', phoneNumber);
     return this.http.put<User>(environment.baseUrl + `/api/v1/users/` + userId, body);
   }
+
+  getProfileInfo(userId: string | null): Observable<any> {
+    return this.http.get(environment.baseUrl + '/api/v1/users/info/' + userId);
+  }
 }
