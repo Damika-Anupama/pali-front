@@ -33,7 +33,7 @@
                 </mat-menu>
               </div>
               <div class="ribbon bg-danger text-xl">
-                Ribbon
+                <span class="feeling">{{launch.feeling}}</span>
               </div>
             </div>
             <mat-card-header>
@@ -55,34 +55,14 @@
                 <nav class="row expanded">
                   <ul>
                     <li>
-                      <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
-                        <mat-icon>favorite</mat-icon>
+                      <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon" (click)="changeColor()">
+                        <mat-icon>{{react}}</mat-icon>
                       </button>
                       <nav class="row">
                         <ul>
-                          <li>
-                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
-                              <mat-icon>favorite</mat-icon>
-                            </button>
-                          </li>
-                          <li>
-                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
-                              <mat-icon>local_fire_department</mat-icon>
-                            </button>
-                          </li>
-                          <li>
-                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
-                              <mat-icon>sentiment_very_dissatisfied</mat-icon>
-                            </button>
-                          </li>
-                          <li>
-                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
-                              <mat-icon>auto_awesome</mat-icon>
-                            </button>
-                          </li>
-                          <li>
-                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
-                              <mat-icon>sick</mat-icon>
+                          <li *ngFor="let react of reacts">
+                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon" (click)="changeReactType(react)">
+                              <mat-icon>{{react}}</mat-icon>
                             </button>
                           </li>
                         </ul>
@@ -90,7 +70,7 @@
                     </li>
                   </ul>
                 </nav>
-                <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">
+                <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click)="(comment.focus())">
                   <mat-icon>textsms</mat-icon>
                 </button>
                 <button mat-icon-button aria-label="Example icon-button with a heart icon">
@@ -100,7 +80,7 @@
             </mat-card-actions>
             <hr>
             <div class="comment-box-container">
-              <input type="text">
+              <input type="text" #comment>
             </div>
           </mat-card>
         </div>

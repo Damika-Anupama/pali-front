@@ -9,7 +9,7 @@
         <video class="blah" *ngIf="visibleVideo" width="320" height="240" controls [src]="videoSrc" autoplay>
           Your browser does not support the video tag.
         </video>
-        <audio class="blah" *ngIf="visibleAudio"  controls autoplay [src]="audioSrc">
+        <audio class="blah" *ngIf="visibleAudio" controls autoplay [src]="audioSrc">
           <source [src]="audioSrc">
           Your browser does not support the audio element.
         </audio>
@@ -47,7 +47,8 @@
         <div class="launch-description">
           <mat-form-field class="example-full-width">
             <mat-label># Give Description to your launch 😉</mat-label>
-            <textarea matInput class="example-full-width" name="launch-description" [(ngModel)]="description"></textarea>
+            <textarea matInput class="example-full-width" name="launch-description"
+                      [(ngModel)]="description"></textarea>
           </mat-form-field>
         </div>
       </div>
@@ -59,7 +60,7 @@
           <div class="mat-menu-container">
             <mat-menu #menu="matMenu">
               <div class="mat-menu-panel">
-                <button *ngFor="let emoji of emojis" class="emojis" (click)="addEmoji(emoji)">{{emoji}}</button>
+                <button *ngFor="let emoji of emojis" class="emojis" (click)="addEmoji (emoji)">{{emoji}}</button>
               </div>
             </mat-menu>
           </div>
@@ -80,32 +81,18 @@
 <h1 class="create-launch-theme">😇 <span class="words"> Let's Watch Your Latest Launches</span>😉 #🚀</h1>
 <div class="latest-launches"></div>
 <hr>
-<div class="sub-container">
-  <div class="main-content" *ngFor="let launch of launches">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img src="data:image/png;base64,{{launch.file}}" class="image-view">
-      <!--      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
-      <!--      <div [innerHTML]="launch.file"></div>-->
-      <mat-card-content>
-        <p [innerText]="launch.description"></p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button class="mat-button" color="warn" aria-label="Example icon button with a heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button class="mat-button" color="warn" aria-label="Example icon button with a heart icon">
-          <mat-icon>share</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</div>
 
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let launch of launches">
+          <div class="col-lg-3 col-6">
+            <img src="data:image/png;base64,{{launch.file}}" class="image-view-revise">
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
 
 
 

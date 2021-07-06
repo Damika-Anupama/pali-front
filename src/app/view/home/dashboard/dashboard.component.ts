@@ -11,6 +11,10 @@ export class DashboardComponent implements OnInit {
   launches: LaunchBody[] = [];
   launch!: LaunchBody;
   imgSrc = '';
+  reactColor = 'black';
+  changeReact = false;
+  react = 'favorite';
+  reacts = ['favorite', 'local_fire_department', 'sentiment_very_dissatisfied', 'auto_awesome', 'sick'];
 
   constructor(public launchService: LaunchService) {
   }
@@ -21,4 +25,19 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  changeColor(): void {
+    this.changeReact = !(this.changeReact);
+    if (!this.changeReact) {
+      this.reactColor = 'black';
+      this.react = 'favorite';
+    } else {
+      this.reactColor = 'warn';
+    }
+  }
+
+  changeReactType(react: string): void {
+    this.react = react;
+    this.reactColor = 'warn';
+    this.changeReact = true;
+  }
 }

@@ -3,11 +3,12 @@
 //  justify-content: center;
 //  align-items: center;
 //}
-.add-bubble-container{
+.add-bubble-container {
   position: relative;
   display: block;
 }
-.add-bubble{
+
+.add-bubble {
   border-radius: 50%;
   height: 100px;
   position: absolute;
@@ -17,16 +18,21 @@
   top: -30px;
   width: 100px;
   background-color: #BB371A;
+  :hover{
+    cursor: pointer;
+  }
 }
-.bubble-bar{
+
+.bubble-bar {
   background-color: #722257;
   height: 900px;
   position: sticky;
-  top: 30px;
+  top: 45px;
   margin-left: 15px;
   border-radius: 550px;
 }
-.main-content{
+
+.main-content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,24 +41,29 @@
   font-weight: 26;
   margin: 10px;
 }
-.image-view{
+
+.image-view {
   width: 750px;
 }
-.example-header-image{
+
+.example-header-image {
   overflow: hidden;
   border-radius: 50%;
 }
-.launch-owner-profile-picture{
+
+.launch-owner-profile-picture {
   height: 40px;
   width: 40px;
   border-radius: 50%;
 }
-mat-card-actions{
+
+mat-card-actions {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  div{
+
+  div {
     width: 50%;
     display: flex;
     justify-content: space-between;
@@ -60,11 +71,13 @@ mat-card-actions{
     text-align: center;
   }
 }
-.mat-button{
+
+.mat-button {
   border: none;
   outline: none;
 }
-.menu-container{
+
+.menu-container {
   position: absolute;
   right: 16px;
   top: 13px;
@@ -75,6 +88,7 @@ mat-card-actions{
   transform-origin: top;
   transform: scaleY(0);
 }
+
 @mixin show() {
   transform: scaleY(1);
 }
@@ -89,6 +103,7 @@ nav {
   &.expanded {
     @include show();
   }
+
   &.row {
     > ul {
       > li {
@@ -127,3 +142,16 @@ nav {
 }
 
 
+.comment-box-container {
+  input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid;
+  }
+}
+
+.feeling {
+  transform: rotate(
+      134deg
+  );
+}

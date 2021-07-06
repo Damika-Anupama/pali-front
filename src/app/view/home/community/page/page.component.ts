@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page.component.scss']
 })
 export class PageComponent implements OnInit {
+  heading: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.heading = localStorage.getItem('comName') + ' community';
   }
 
 }

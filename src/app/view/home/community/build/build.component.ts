@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./build.component.scss']
 })
 export class BuildComponent implements OnInit {
-  description =  '';
+  description = '';
 
   constructor(private router: Router) {
   }
@@ -16,6 +16,7 @@ export class BuildComponent implements OnInit {
   }
 
   createCommunityPage(): void {
-    this.router.navigateByUrl('/home/com/page/' + this.description);
+    localStorage.setItem('comName', this.description);
+    this.router.navigateByUrl('/home/com/page/' + localStorage.getItem('comName'));
   }
 }
