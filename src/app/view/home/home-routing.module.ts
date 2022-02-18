@@ -11,15 +11,17 @@ import {SuggestionsComponent} from './suggestions/suggestions.component';
 import {ChatterBoxComponent} from './chatter-box/chatter-box.component';
 import {ComradesComponent} from '@src/app/view/home/comrades/comrades.component';
 import {ShopComponent} from '@src/app/view/home/shop/shop.component';
+import { PagesComponent } from './pages/pages.component';
 
 const heroRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [
-      {path: 'home', redirectTo: 'd', pathMatch: 'prefix'},
-      {component: DashboardComponent, path: 'd'},
-      {component: ProfileComponent, path: 'profile/:userId'},
+      {path: '', redirectTo: 'home', pathMatch: 'prefix'},
+      {component: DashboardComponent, path: 'home'},
+      {component: ProfileComponent, path: 'profile'},
+      // {component: ProfileComponent, path: 'profile/:userId'},
       {component: SettingsComponent, path: 'settings'},
       {component: LaunchComponent, path: 'launch'},
       {component: AdsComponent, path: 'ads'},
@@ -28,6 +30,7 @@ const heroRoutes: Routes = [
       {component: ChatterBoxComponent, path: 'chatter-box'},
       {component: ComradesComponent, path: 'comrades/:userId'},
       {component: ShopComponent, path: 'shop'},
+      {component: PagesComponent, path: 'pages'},
       {
         path: 'com',
         loadChildren: () => import('./community/community.module').then(value => value.CommunityModule)

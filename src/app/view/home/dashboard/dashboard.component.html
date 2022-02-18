@@ -1,4 +1,4 @@
-<section class="content">
+<!-- <section class="content">
   <div class="container-fluid">
     <div class="row">
       <section class="col-lg-2 connectedSortable bubble-bar-container">
@@ -87,4 +87,268 @@
       </section>
     </div>
   </div>
+</section> -->
+<section class="content">
+  <div class="container-fluid">
+    <!-- Main row -->
+    <div class="row">
+      <!-- Left col -->
+      <div class="col-md-8">
+        <!-- /.card -->
+
+        <!-- TABLE: LATEST ORDERS -->
+        <!-- <div class="main-content" *ngFor="let launch of launches">-->
+        <!-- <div class="main-content"> -->
+        <mat-card class="example-card">
+          <div class="ribbon-wrapper ribbon-xl">
+            <div class="menu-container">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>dialpad</mat-icon>
+                  <span>Redial</span>
+                </button>
+                <button mat-menu-item disabled>
+                  <mat-icon>voicemail</mat-icon>
+                  <span>Check voice mail</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button>
+              </mat-menu>
+            </div>
+            <div class="ribbon bg-danger text-xl">
+              <span class="feeling">COOL</span>
+              <!-- <span class="feeling">{{launch.feeling}}</span> -->
+            </div>
+          </div>
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+              <!-- <img src="assets/img/avatar-other.png" alt="profile"> -->
+              <!-- <img [src]="'data:image/png;base64,' + launch.profilePicture|| 'assets/img/avatar-other.png'" alt="launch-owner-profile-picture" class="launch-owner-profile-picture"> -->
+              <img [src]="'assets/img/avatar-other.png'" alt="launch-owner-profile-picture" class="launch-owner-profile-picture">
+            </div>
+            <!-- <mat-card-title class="float-right">{{launch.userName}}</mat-card-title> -->
+            <mat-card-title class="float-right">Damiboy</mat-card-title>
+            <!-- <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle> -->
+            <mat-card-subtitle>Lorem</mat-card-subtitle>
+
+          </mat-card-header>
+          <!-- <img src="data:image/png;base64,{{launch.file}}" class="image-view"> -->
+          <img src="assets\img\62-900x500.jpg" class="image-view">
+          <!-- <mat-card-content>
+            <p [innerText]="launch.description"></p>
+          </mat-card-content> -->
+          <mat-card-content>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, iste nulla. Animi earum suscipit eveniet maxime, quam quia aut, libero et porro quisquam delectus quos repudiandae, perferendis eaque nostrum sunt.
+            </p>
+          </mat-card-content>
+          <hr>
+          <mat-card-actions>
+            <div>
+              <nav class="row expanded">
+                <ul>
+                  <li>
+                    <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon"
+                      (click)="changeColor()">
+                      <mat-icon>{{react}}</mat-icon>
+                    </button>
+                    <nav class="row">
+                      <ul>
+                        <li *ngFor="let react of reacts">
+                          <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
+                            (click)="changeReactType(react)">
+                            <mat-icon>{{react}}</mat-icon>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                  </li>
+                </ul>
+              </nav>
+              <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
+                (click)="(comment.focus())">
+                <mat-icon>textsms</mat-icon>
+              </button>
+              <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon>share</mat-icon>
+              </button>
+            </div>
+          </mat-card-actions>
+          <hr>
+          <div class="comment-box-container">
+            <input type="text" #comment>
+          </div>
+        </mat-card>
+        <!-- </div> -->
+        <!-- /.card -->
+        <mat-card class="example-card">
+          <div class="ribbon-wrapper ribbon-xl">
+            <div class="menu-container">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>dialpad</mat-icon>
+                  <span>Redial</span>
+                </button>
+                <button mat-menu-item disabled>
+                  <mat-icon>voicemail</mat-icon>
+                  <span>Check voice mail</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button>
+              </mat-menu>
+            </div>
+            <div class="ribbon bg-danger text-xl">
+              <span class="feeling">COOL</span>
+              <!-- <span class="feeling">{{launch.feeling}}</span> -->
+            </div>
+          </div>
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+              <!-- <img src="assets/img/avatar-other.png" alt="profile"> -->
+              <!-- <img [src]="'data:image/png;base64,' + launch.profilePicture|| 'assets/img/avatar-other.png'" alt="launch-owner-profile-picture" class="launch-owner-profile-picture"> -->
+              <img [src]="'assets/img/avatar-other.png'" alt="launch-owner-profile-picture" class="launch-owner-profile-picture">
+            </div>
+            <!-- <mat-card-title class="float-right">{{launch.userName}}</mat-card-title> -->
+            <mat-card-title class="float-right">Damiboy</mat-card-title>
+            <!-- <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle> -->
+            <mat-card-subtitle>Lorem</mat-card-subtitle>
+
+          </mat-card-header>
+          <!-- <img src="data:image/png;base64,{{launch.file}}" class="image-view"> -->
+          <img src="assets\img\62-900x500.jpg" class="image-view">
+          <!-- <mat-card-content>
+            <p [innerText]="launch.description"></p>
+          </mat-card-content> -->
+          <mat-card-content>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, iste nulla. Animi earum suscipit eveniet maxime, quam quia aut, libero et porro quisquam delectus quos repudiandae, perferendis eaque nostrum sunt.
+            </p>
+          </mat-card-content>
+          <hr>
+          <mat-card-actions>
+            <div>
+              <nav class="row expanded">
+                <ul>
+                  <li>
+                    <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon"
+                      (click)="changeColor()">
+                      <mat-icon>{{react}}</mat-icon>
+                    </button>
+                    <nav class="row">
+                      <ul>
+                        <li *ngFor="let react of reacts">
+                          <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
+                            (click)="changeReactType(react)">
+                            <mat-icon>{{react}}</mat-icon>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                  </li>
+                </ul>
+              </nav>
+              <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
+                (click)="(comment.focus())">
+                <mat-icon>textsms</mat-icon>
+              </button>
+              <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon>share</mat-icon>
+              </button>
+            </div>
+          </mat-card-actions>
+          <hr>
+          <div class="comment-box-container">
+            <input type="text" #comment>
+          </div>
+        </mat-card>
+      </div>
+      <!-- /.col -->
+
+      <div class="col-md-4">
+
+        <div class="card sticky-card card-status">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="chart-responsive">
+                  <canvas id="pieChart" height="150"></canvas>
+                </div>
+                <!-- ./chart-responsive -->
+              </div>
+              <!-- /.col -->
+              <div class="col-md-4">
+                <ul class="chart-legend clearfix">
+                  <li><i class="far fa-circle text-danger"></i> Chrome</li>
+                  <li><i class="far fa-circle text-success"></i> IE</li>
+                  <li><i class="far fa-circle text-warning"></i> FireFox</li>
+                  <li><i class="far fa-circle text-info"></i> Safari</li>
+                  <li><i class="far fa-circle text-primary"></i> Opera</li>
+                  <li><i class="far fa-circle text-secondary"></i> Navigator</li>
+                </ul>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+        <!-- PRODUCT LIST -->
+        <div class="card sticky-card card-leaderboard">
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table m-0">
+                <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Item</th>
+                  <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                  <td>alpha</td>
+                  <td><span class="badge badge-success">Shipped</span></td>
+                </tr>
+                <tr>
+                  <td><a href="pages/examples/invoice.html">OR1848</a></td>
+                  <td>beta</td>
+                  <td><span class="badge badge-warning">Pending</span></td>
+                </tr>
+                <tr>
+                  <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                  <td>gamma</td>
+                  <td><span class="badge badge-danger">Delivered</span></td>
+                </tr>
+                <tr>
+                  <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                  <td>ceta</td>
+                  <td><span class="badge badge-info">Processing</span></td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.table-responsive -->
+          </div>  
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!--/. container-fluid -->
 </section>

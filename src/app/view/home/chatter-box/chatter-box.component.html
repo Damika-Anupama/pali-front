@@ -1,14 +1,14 @@
-<section class="content">
+<section class="content text-sm">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3 name-list">
+      <div class="col-md-2 name-list">
         <div class="card" id="vert-tabs-list">
           <div class="card-body p-0">
             <ul class="nav nav-pills flex-column">
               <li class="nav-item">
                 <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab"
                    aria-controls="vert-tabs-home" aria-selected="true">
-                  <i class="far fa-circle text-danger"></i>
+                   <img class="direct-chat-img" src="assets/img/avatar-male.png" alt="Message User Image">  
                   Important
                 </a>
               </li>
@@ -39,18 +39,9 @@
         <!-- /.card -->
       </div>
       <!-- /.col -->
-      <div class="col-md-9">
+      <div class="col-md-7">
         <div class="card card-primary card-outline tab-pane text-left fade show active" id="vert-tabs-home"
              role="tabpanel" aria-labelledby="vert-tabs-home-tab">
-          <div class="img-container">
-            <img src="assets/img/avatar-other.png" alt="profile-pic">
-          </div>
-          <div class="name-container"><strong>Alexander Pierce</strong></div>
-          <div class="control-panel">
-            <mat-icon aria-hidden="false" aria-label="Example home icon">phone</mat-icon>
-            <mat-icon aria-hidden="false" aria-label="Example home icon">videocam</mat-icon>
-            <mat-icon aria-hidden="false" aria-label="Example home icon">more_vert</mat-icon>
-          </div>
           <div class="direct-chat-messages card-body">
             <!-- Message. Default to the left -->
             <div class="direct-chat-msg">
@@ -113,39 +104,7 @@
               <!-- /.direct-chat-text -->
             </div>
             <!-- /.direct-chat-msg --><!-- Message. Default to the left -->
-            <div class="direct-chat-msg">
-              <div class="direct-chat-infos clearfix">
-                <span class="direct-chat-name float-left">Alexander Pierce</span>
-                <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-              </div>
-              <!-- /.direct-chat-infos -->
-              <img class="direct-chat-img" src="assets/img/avatar-male.png" alt="Message User Image">
-              <!-- /.direct-chat-img -->
-              <div class="direct-chat-text">
-                Is this template really for free? That's unbelievable!
-              </div>
-              <!-- /.direct-chat-text -->
-            </div>
-            <!-- /.direct-chat-msg -->
-
-            <!-- Message to the right -->
-            <div class="direct-chat-msg right">
-              <div class="direct-chat-infos clearfix">
-                <span class="direct-chat-name float-right">Sarah Bullock</span>
-                <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-              </div>
-              <!-- /.direct-chat-infos -->
-              <img class="direct-chat-img" src="assets/img/avatar-female.png" alt="Message User Image">
-              <!-- /.direct-chat-img -->
-              <div class="direct-chat-text">
-                You better believe it!
-              </div>
-              <!-- /.direct-chat-text -->
-            </div>
-            <!-- /.direct-chat-msg -->
           </div>
-        </div>
-        <div class="card">
           <div class="card-footer">
             <form action="#" method="post">
               <div class="input-group">
@@ -157,6 +116,43 @@
             </form>
           </div>
         </div>
+      </div>
+      <div class="col-md-3 name-list">
+        <div class="card" id="vert-tabs-list">
+          <div class="card-body p-0">
+            <ul class="nav nav-pills flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab"
+                   aria-controls="vert-tabs-home" aria-selected="true">
+                   <img class="direct-chat-img" src="assets/img/avatar-male.png" alt="Message User Image">  
+                  Important
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab"
+                   aria-controls="vert-tabs-profile" aria-selected="false">
+                  <i class="far fa-circle text-warning"></i> Promotions
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab"
+                   aria-controls="vert-tabs-messages" aria-selected="false">
+                  <i class="far fa-circle text-primary"></i>
+                  Social
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="vert-tabs-settings-tab" data-toggle="pill" href="#vert-tabs-settings" role="tab"
+                   aria-controls="vert-tabs-settings" aria-selected="false">
+                  <i class="far fa-circle text-danger"></i>
+                  Important
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
       </div>
     </div>
     <!-- /.row -->

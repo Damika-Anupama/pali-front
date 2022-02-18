@@ -1,24 +1,16 @@
-<div  class="hold-transition login-page">
+<section class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">
-      <H1><b>Palindrome</b></H1>
-      <H2><b>Sign-in</b></H2>
+      <a href="../../index2.html"><b>Admin</b>LTE</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>
-
-        <form #frm="ngForm" (ngSubmit)="authenticate()">
+  
+        <form action="../../index3.html" method="post">
           <div class="input-group mb-3">
-            <input class="form-control" #txtUsername name="txt-username"  #usernameModel="ngModel" [(ngModel)]="username" required minlength="3" pattern="[A-Za-z]+"
-                   id="txt-username" type="text" placeholder="Enter username">
-            <small [style.color]="'red'" *ngIf="usernameModel.hasError('minlength') && usernameModel.touched">
-              Username should be at least 3 letters
-            </small>
-            <small [style.color]="'red'" *ngIf="usernameModel.hasError('pattern')  && usernameModel.touched">
-              Username can contain only [A-Za-z] letters
-            </small>
+            <input type="email" class="form-control" placeholder="Email">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-envelope"></span>
@@ -26,9 +18,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input class="form-control" name="txt-password" #passwordModel="ngModel" [(ngModel)]="password" required minlength="3"
-                   id="txt-password" type="password" placeholder="Enter password">
-            <small [style.color]="'red'" *ngIf="passwordModel.invalid && passwordModel.dirty">Password should be at least 3 letters</small>
+            <input type="password" class="form-control" placeholder="Password">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-lock"></span>
@@ -36,43 +26,33 @@
             </div>
           </div>
           <div class="row">
-            <!--<div class="col-8">
+            <div class="col-8">
               <div class="icheck-primary">
                 <input type="checkbox" id="remember">
                 <label for="remember">
                   Remember Me
                 </label>
               </div>
-            </div>-->
+            </div>
             <!-- /.col -->
             <div class="col-4">
-              <button type="submit" class="btn btn-block btn-outline-warning" [disabled]="frm.invalid">Sign In</button>
+              <button type="submit" (click)="navigatetohome()" class="btn btn-primary btn-block">Sign In</button>
             </div>
             <!-- /.col -->
           </div>
         </form>
-
+  
         <div class="social-auth-links text-center mb-3">
           <p>- OR -</p>
-          <div
-            class="fb-login-button"
-            data-width=""
-            data-size="large"
-            data-button-type="continue_with"
-            data-layout="default"
-            data-auto-logout-link="false"
-            data-use-continue-as="false"
-            scope="public_profile,email"
-            onlogin="checkLoginState();"
-          >
-          </div>
-          <br>
-          <button type="button" class="sign-in-with-google-btn" (click)="loginWithGoogle()">
-             Sign in using Google
-          </button>
+          <a href="#" class="btn btn-block btn-primary">
+            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+          </a>
+          <a href="#" class="btn btn-block btn-danger">
+            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+          </a>
         </div>
         <!-- /.social-auth-links -->
-
+  
         <p class="mb-1">
           <a href="forgot-password.html">I forgot my password</a>
         </p>
@@ -83,13 +63,4 @@
       <!-- /.login-card-body -->
     </div>
   </div>
-  <!-- /.login-box -->
-</div>
-<!--<script>-->
-<!--  function checkLoginState() {-->
-<!--    FB.getLoginStatus(function(response) {-->
-<!--      statusChangeCallback(response);-->
-<!--      console.log(response)-->
-<!--    });-->
-<!--  }-->
-<!--</script>-->
+</section>

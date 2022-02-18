@@ -15,7 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
-import {SearchTabComponent} from './view/search-tab/search-tab.component';
+import {SearchTabComponent} from './view/pop-ups/search-tab/search-tab.component';
 import {WelcomeComponent} from './view/welcome/welcome.component';
 import {SignInComponent} from './view/sign-in/sign-in.component';
 import {SignUpComponent} from './view/sign-up/sign-up.component';
@@ -30,7 +30,7 @@ import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from '@angular/material/radio
 import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {environment} from '../environments/environment';
 import {httpInterceptorProvider} from '@src/app/service/interceptors/interceptor-barrel';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatMenuModule} from "@angular/material/menu";
 
@@ -63,7 +63,8 @@ import {MatMenuModule} from "@angular/material/menu";
     SocialLoginModule,
     NgbModule,
     MatProgressBarModule,
-    MatMenuModule
+    MatMenuModule,
+    NgbCarouselModule,
   ],
   providers: [
     httpInterceptorProvider,

@@ -4,154 +4,175 @@
 //  align-items: center;
 //}
 .add-bubble-container {
-  position: relative;
-  display: block;
-}
-
-.add-bubble {
-  border-radius: 50%;
-  height: 100px;
-  position: absolute;
-  right: -30px;
-  text-align: center;
-  font-size: 72px;
-  top: -30px;
-  width: 100px;
-  background-color: #BB371A;
-  :hover{
-    cursor: pointer;
+    position: relative;
+    display: block;
   }
-}
-
-.bubble-bar {
-  background-color: #722257;
-  height: 900px;
-  position: sticky;
-  top: 45px;
-  margin-left: 15px;
-  border-radius: 550px;
-}
-
-.main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: Ubuntu, serif;
-  font-weight: 26;
-  margin: 10px;
-}
-
-.image-view {
-  width: 750px;
-}
-
-.example-header-image {
-  overflow: hidden;
-  border-radius: 50%;
-}
-
-.launch-owner-profile-picture {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-}
-
-mat-card-actions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  div {
-    width: 50%;
+  
+  .add-bubble {
+    border-radius: 50%;
+    height: 100px;
+    position: absolute;
+    right: -30px;
+    text-align: center;
+    font-size: 72px;
+    top: -30px;
+    width: 100px;
+    background-color: #BB371A;
+    :hover{
+      cursor: pointer;
+    }
+  }
+  
+  .bubble-bar {
+    background-color: #722257;
+    height: 900px;
+    position: sticky;
+    top: 45px;
+    margin-left: 15px;
+    border-radius: 550px;
+  }
+  
+  .main-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    font-family: Ubuntu, serif;
+    font-weight: 26;
+    margin: 10px;
   }
-}
-
-.mat-button {
-  border: none;
-  outline: none;
-}
-
-.menu-container {
-  position: absolute;
-  right: 16px;
-  top: 13px;
-}
-
-/*styles for dropdown of feeling*/
-@mixin hide() {
-  transform-origin: top;
-  transform: scaleY(0);
-}
-
-@mixin show() {
-  transform: scaleY(1);
-}
-
-nav {
-  //position: fixed;
-  display: inline-block;
-  transition: all 0.3s ease-out;
-  z-index: 1;
-  @include hide();
-
-  &.expanded {
-    @include show();
+  
+  .image-view {
+    width: 100%;
   }
-
-  &.row {
-    > ul {
-      > li {
-        display: inline-block;
-
-        > nav {
-          position: absolute;
-          top: 100%;
-          left: 0;
+  
+  .example-header-image {
+    overflow: hidden;
+    border-radius: 50%;
+  }
+  
+  .launch-owner-profile-picture {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  
+    div {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  
+  .mat-button {
+    border: none;
+    outline: none;
+  }
+  
+  .menu-container {
+    position: absolute;
+    right: 16px;
+    top: 13px;
+  }
+  
+  /*styles for dropdown of feeling*/
+  @mixin hide() {
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+  
+  @mixin show() {
+    transform: scaleY(1);
+  }
+  
+  nav {
+    //position: fixed;
+    display: inline-block;
+    transition: all 0.3s ease-out;
+    z-index: 1;
+    @include hide();
+  
+    &.expanded {
+      @include show();
+    }
+  
+    &.row {
+      > ul {
+        > li {
+          display: inline-block;
+  
+          > nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+          }
         }
       }
     }
-  }
-
-
-  ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    li {
-      position: relative;
-      padding: 0.5em;
-      white-space: nowrap;
-
-      &:hover {
-        cursor: pointer;
+  
+  
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+  
+      li {
+        position: relative;
+        padding: 0.5em;
+        white-space: nowrap;
+  
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
+  
+    nav:hover,
+    li:hover > nav {
+      @include show();
+    }
+  }
+  
+  
+  .comment-box-container {
+    input {
+      outline: none;
+      border: none;
+      border-bottom: 1px solid;
+    }
+  }
+  
+  .feeling {
+    transform: rotate(
+        134deg
+    );
   }
 
-  nav:hover,
-  li:hover > nav {
-    @include show();
+
+  .sticky-card{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
   }
-}
-
-
-.comment-box-container {
-  input {
-    outline: none;
-    border: none;
-    border-bottom: 1px solid;
+  .card-status{
+    top: 20px
   }
-}
+  .card-leaderboard{
+    top:280px
+  }
 
-.feeling {
-  transform: rotate(
-      134deg
-  );
-}
+  .mat-card{
+    margin-bottom: 20px;
+    &.mat-card-content{
+      text-align: center;
+    }
+  }

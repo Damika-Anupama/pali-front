@@ -23,7 +23,7 @@
                   like these sweet mornings of spring which I enjoy with my whole heart.
                 </p>
               </div>
-              <div class="callout callout-danger">
+              <div class="callout callout-danger" (click)="gotopage()">
                 <h5>I am a danger callout!</h5>
 
                 <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire
@@ -52,7 +52,7 @@
       </section>
       <section class="col-lg-7 connectedSortable">
         <div class="card card-carousal">
-          <div class="main-container">
+          <!-- <div class="main-container">
             <ngb-carousel class="col-md-11" #carousel [interval]="3000" [pauseOnHover]="pauseOnHover"
               [pauseOnFocus]="pauseOnFocus"
               (slide)="onSlide($event)">
@@ -65,7 +65,7 @@
                 </div>
               </ng-template>
             </ngb-carousel>
-          </div>
+          </div> -->
         </div>
         <div class="card btn-container">
           <div class="btn-container">

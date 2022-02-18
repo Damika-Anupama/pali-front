@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgbCarousel, NgbSlideEvent, NgbSlideEventSource} from '@ng-bootstrap/ng-bootstrap';
-import {Router} from "@angular/router";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   pauseOnHover = true;
   pauseOnFocus = true;
   // @ts-ignore
-  @ViewChild('carousel', {static: true}) carousel: NgbCarousel;
+  @ViewChild('carousel', { static: true }) carousel: NgbCarousel;
   step = 0;
 
   constructor(private router: Router) {
@@ -33,6 +33,9 @@ export class MenuComponent implements OnInit {
     this.paused = !this.paused;
   }
 
+  gotopage(): any {
+    this.router.navigateByUrl('/home/com/page/ff')
+  }
   onSlide(slideEvent: NgbSlideEvent): void {
     if (this.unpauseOnArrow && slideEvent.paused &&
       (slideEvent.source === NgbSlideEventSource.ARROW_LEFT || slideEvent.source === NgbSlideEventSource.ARROW_RIGHT)) {

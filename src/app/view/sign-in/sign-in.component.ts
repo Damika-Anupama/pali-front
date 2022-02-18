@@ -56,6 +56,9 @@ export class SignInComponent implements OnInit {
       });
   }
 
+  navigatetohome(): void{
+    this.router.navigateByUrl('/home');
+  }
   loginWithGoogle(): void {
     const socialUserPromise = this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
     console.log(socialUserPromise);

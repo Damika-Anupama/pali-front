@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
-import {SearchTabComponent} from '../search-tab/search-tab.component';
-import {UserService} from "@src/app/service/user.service";
+import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SearchTabComponent } from '../pop-ups/search-tab/search-tab.component';
+import { UserService } from "@src/app/service/user.service";
 
 @Component({
   selector: 'app-home',
@@ -22,14 +22,22 @@ export class HomeComponent implements OnInit {
     }));
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(SearchTabComponent, {
-      height: '800px',
-    });
+  openDialog() {
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed & result is :' + result);
-    });
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.position = {
+      // 'top': '0',
+      // left: '0',
+      // right: '0',
+      // bottom: '0'
+    };
+    
+
+    this.dialog.open(SearchTabComponent, dialogConfig);
+
   }
 
   logout(): void {

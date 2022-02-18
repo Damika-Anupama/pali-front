@@ -5,64 +5,6 @@
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700';
 @import 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
 
-.version{
-  position: absolute;
-  bottom: 15px;
-}
-
-.container-fluid{
-  padding-left: 50px;
-}
-.main-footer{
-  background-color: transparent;
-  border: none;
-}
-footer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  letter-spacing: 3px;
-  background-color: transparent;
-  color: #869099;
-  padding: 1rem;
-}
-.d-block {
-  height: 500px;
-  width: 100px;
-}
-
-.profile{
-  display:table;
-  margin:0 auto;
-  position:absolute ;
-  height: 100px;
-  width: 180px;
-  border-radius: 50%;
-  left: 0; right: 0; top: 5px ; bottom: 0;
-  cursor: alias;
-  overflow: hidden;
-}
-
-.profile-pic{
-  height: 180px;
-  width: 100%;
-  border-radius: 50%;
-  cursor: alias;
-}
-
-.material-icons{
-  display:table;
-  margin:5px auto ;
-}
-.mat-icon {
-  background-repeat: no-repeat;
-  display: inline-block;
-  fill: currentColor;
-  height: 24px;
-  width: 24px;
-}
 .dropdown-menu{
   border-radius: 15%;
   overflow: hidden;
@@ -98,7 +40,10 @@ mat-card-actions{
   border: none;
   outline: none;
 }
+.mat-menu-sub-button:focus{
+  outline: none;
+}
 
-.content-wrapper{
-
+#content-wrapper{
+  padding-top: 10px;
 }

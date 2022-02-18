@@ -5,13 +5,14 @@ import {SignUpComponent} from './view/sign-up/sign-up.component';
 import {SignInComponent} from './view/sign-in/sign-in.component';
 import {NotFoundComponent} from './view/not-found/not-found.component';
 import {HomeGuard} from './guard/home.guard';
+import { HomeComponent } from './view/home/home.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/welcome'
-  },
+    {
+      path: '',
+      pathMatch: 'full',
+      redirectTo: '/welcome'
+    },
   {
     component: WelcomeComponent,
     path: 'welcome'
@@ -28,7 +29,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./view/home/home.module').then(m => m.HomeModule),
     data: { preload: true },
-    canActivate: [HomeGuard]
+    // canActivate: [HomeGuard]
   },
   {
     path: '**',
