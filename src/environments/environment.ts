@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
-  // googleClientId: '984835281675-bqj86ani4p5im5rqrnej7lk76a4riiph.apps.googleusercontent.com',
-  googleClientId: '',
+  googleClientId: '16810714377-hllaj610rvug0n6rum38epvu96tn7954.apps.googleusercontent.com',
+  googleClientSecret: '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',
+  //from test-palindrom
   facebookAppId: 0,
   // facebookAppId: 933217367459459,
   OwnerId: '5'

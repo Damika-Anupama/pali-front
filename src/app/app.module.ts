@@ -27,12 +27,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from '@angular/material/radio';
 
-import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
+import {GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {environment} from '../environments/environment';
 import {httpInterceptorProvider} from '@src/app/service/interceptors/interceptor-barrel';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatMenuModule} from "@angular/material/menu";
+import { ForgotPasswordComponent } from './view/forgot-password/forgot-password.component';
+import { ServerErrorComponent } from './view/server-error/server-error.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import {MatMenuModule} from "@angular/material/menu";
     SignInComponent,
     SignUpComponent,
     NotFoundComponent,
+    ForgotPasswordComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -60,11 +64,14 @@ import {MatMenuModule} from "@angular/material/menu";
     MatSnackBarModule,
     MatRadioModule,
     ReactiveFormsModule,
-    SocialLoginModule,
     NgbModule,
     MatProgressBarModule,
     MatMenuModule,
     NgbCarouselModule,
+    ReactiveFormsModule,
+    //for google authentication
+    SocialLoginModule,
+    
   ],
   providers: [
     httpInterceptorProvider,

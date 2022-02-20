@@ -55,6 +55,9 @@ export class SignInComponent implements OnInit {
         (this.txtUsername.nativeElement as HTMLInputElement).focus();
       });
   }
+  googleSignin(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
 
   navigatetohome(): void{
     this.router.navigateByUrl('/home');
