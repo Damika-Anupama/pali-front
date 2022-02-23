@@ -8,13 +8,13 @@
 .words {
   font-family: 'Monoton', cursive;
   font-family: 'Mountains of Christmas', cursive;
-  font-size: 70px;
+  font-size: 55px;
   text-space: 5px;
 }
 
 .create-launch-theme {
   font-family: 'Anton', sans-serif;
-  font-size: 50px;
+  font-size:  35px;
   text-align: center;
 }
 
@@ -26,7 +26,7 @@
 
 .card-title {
   font-family: 'Pacifico', cursive;
-  font-size: 30px;
+  font-size: 22px;
   color: #722257;
 }
 
@@ -35,7 +35,9 @@
 }
 
 .direct-chat-messages {
-  height: auto;
+  height: 375px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .main-container {
@@ -73,4 +75,9 @@ ngb-carousel {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#carousel-content{
+  width: 500px;
+  height: 500px;
 }

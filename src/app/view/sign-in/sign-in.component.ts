@@ -24,7 +24,7 @@ export class SignInComponent implements OnInit {
   isLoggedin: boolean;
   profilePicture = null;
   userName = '';
-
+  public user: SocialUser = new SocialUser;
   constructor(private userService: UserService, private router: Router,
               private snackBar: MatSnackBar, private socialAuthService: SocialAuthService) {
   }
@@ -34,6 +34,10 @@ export class SignInComponent implements OnInit {
       this.socialUser = user;
       this.isLoggedin = (user != null);
       console.log(this.socialUser);
+    });
+    this.socialAuthService.authState.subscribe(user => {
+      this.user = user;
+      console.log(user);
     });
   }
 
@@ -54,9 +58,6 @@ export class SignInComponent implements OnInit {
         this.frmSignIn.reset();
         (this.txtUsername.nativeElement as HTMLInputElement).focus();
       });
-  }
-  googleSignin(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
   navigatetohome(): void{

@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
-  googleClientId: '16810714377-hllaj610rvug0n6rum38epvu96tn7954.apps.googleusercontent.com',
-  googleClientSecret: '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',
+  googleClientId: '74469964484-jfr2akr576c1ie02emvoin531jk1ojsv.apps.googleusercontent.com',
+  googleClientSecret: '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',
   //from test-palindrom
   facebookAppId: 0,
   // facebookAppId: 933217367459459,

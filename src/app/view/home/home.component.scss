@@ -49,6 +49,11 @@ mat-card-actions{
 }
 
 .list-group {
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   height: 400px;
+}
+
+mat-slider {
+  width: 50px;
 }
