@@ -57,3 +57,15 @@ mat-card-actions{
 mat-slider {
   width: 50px;
 }
+
+.badge-danger{
+  margin: 10px;
+    /* margin-left: 10px; */
+    /* height: 25px; */
+  font-size: 15px;
+}
+.top-nav-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

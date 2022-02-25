@@ -43,6 +43,9 @@ export class HomeComponent implements OnInit {
   gotoads(): void{
     this.router.navigateByUrl('/home/ads')
   }
+  gotosuggestions(): void{
+    this.router.navigateByUrl('/home/suggestions')
+  }
 
   logout(): void {
     sessionStorage.clear();
