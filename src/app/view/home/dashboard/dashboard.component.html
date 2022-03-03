@@ -1,93 +1,3 @@
-<!-- <section class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <section class="col-lg-2 connectedSortable bubble-bar-container">
-        <div class="bubble-bar">
-          <div class="add-bubble-container">
-            <div class="add-bubble">+
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="col-lg-10 connectedSortable">
-        <div class="main-content" *ngFor="let launch of launches">
-          <mat-card class="example-card">
-            <div class="ribbon-wrapper ribbon-xl">
-              <div class="menu-container">
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                  <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item>
-                    <mat-icon>dialpad</mat-icon>
-                    <span>Redial</span>
-                  </button>
-                  <button mat-menu-item disabled>
-                    <mat-icon>voicemail</mat-icon>
-                    <span>Check voice mail</span>
-                  </button>
-                  <button mat-menu-item>
-                    <mat-icon>notifications_off</mat-icon>
-                    <span>Disable alerts</span>
-                  </button>
-                </mat-menu>
-              </div>
-              <div class="ribbon bg-danger text-xl">
-                <span class="feeling">{{launch.feeling}}</span>
-              </div>
-            </div>
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image">
-                <img [src]="'data:image/png;base64,' + launch.profilePicture|| 'assets/img/avatar-other.png'"
-                     alt="launch-owner-profile-picture" class="launch-owner-profile-picture">
-              </div>
-              <mat-card-title class="float-right">{{launch.userName}}</mat-card-title>
-              <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle>
-
-            </mat-card-header>
-            <img src="data:image/png;base64,{{launch.file}}" class="image-view">
-            <mat-card-content>
-              <p [innerText]="launch.description"></p>
-            </mat-card-content>
-            <hr>
-            <mat-card-actions>
-              <div>
-                <nav class="row expanded">
-                  <ul>
-                    <li>
-                      <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon" (click)="changeColor()">
-                        <mat-icon>{{react}}</mat-icon>
-                      </button>
-                      <nav class="row">
-                        <ul>
-                          <li *ngFor="let react of reacts">
-                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon" (click)="changeReactType(react)">
-                              <mat-icon>{{react}}</mat-icon>
-                            </button>
-                          </li>
-                        </ul>
-                      </nav>
-                    </li>
-                  </ul>
-                </nav>
-                <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click)="(comment.focus())">
-                  <mat-icon>textsms</mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon-button with a heart icon">
-                  <mat-icon>share</mat-icon>
-                </button>
-              </div>
-            </mat-card-actions>
-            <hr>
-            <div class="comment-box-container">
-              <input type="text" #comment>
-            </div>
-          </mat-card>
-        </div>
-      </section>
-    </div>
-  </div>
-</section> -->
 <section class="content">
   <div class="container-fluid">
     <!-- Main row -->
@@ -95,124 +5,12 @@
       <!-- Left col -->
       <div class="col-md-8">
         <!-- /.card -->
+        <div class="centering_container">
+          <button id="posts-adding-button" data-bs-toggle="tooltip" data-bs-placement="right" title="add a post">+</button>
+        </div>
 
         <!-- TABLE: LATEST ORDERS -->
-        <!-- <div class="main-content" *ngFor="let launch of launches">-->
-        <!-- <div class="main-content"> -->
-          <div id="accordion">
-            <mat-card class="example-card">
-              <div class="ribbon-wrapper ribbon-xl">
-                <div class="menu-container">
-                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                    <mat-icon>more_vert</mat-icon>
-                  </button>
-                  <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
-                      <mat-icon>bookmark_border</mat-icon>
-                      <span>Save</span>
-                    </button>
-                    <button mat-menu-item>
-                      <mat-icon>flag_circle</mat-icon>
-                      <span>Report</span>
-                    </button>
-                  </mat-menu>
-                </div>
-                <div class="ribbon bg-danger text-xl">
-                  <span class="feeling">COOL</span>
-                  <!-- <span class="feeling">{{launch.feeling}}</span> -->
-                </div>
-              </div>
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image">
-                  <!-- <img src="assets/img/avatar-other.png" alt="profile"> -->
-                  <!-- <img [src]="'data:image/png;base64,' + launch.profilePicture|| 'assets/img/avatar-other.png'" alt="launch-owner-profile-picture" class="launch-owner-profile-picture"> -->
-                  <img [src]="'assets/img/avatar-other.png'" alt="launch-owner-profile-picture"
-                    class="launch-owner-profile-picture">
-                </div>
-                <!-- <mat-card-title class="float-right">{{launch.userName}}</mat-card-title> -->
-                <mat-card-title class="float-right">Damiboy</mat-card-title>
-                <!-- <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle> -->
-                <mat-card-subtitle>Lorem</mat-card-subtitle>
-  
-              </mat-card-header>
-              <!-- <img src="data:image/png;base64,{{launch.file}}" class="image-view"> -->
-              <img src="assets\img\62-900x500.jpg" class="image-view">
-              <!-- <mat-card-content>
-              <p [innerText]="launch.description"></p>
-            </mat-card-content> -->
-              <mat-card-content>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, iste nulla. Animi earum suscipit
-                  eveniet maxime, quam quia aut, libero et porro quisquam delectus quos repudiandae, perferendis eaque
-                  nostrum sunt.
-                </p>
-              </mat-card-content>
-              <hr>
-              <mat-card-actions>
-                <div>
-                  <nav class="row expanded">
-                    <ul>
-                      <li>
-                        <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon"
-                          (click)="changeColor()">
-                          <mat-icon>{{react}}</mat-icon>
-                        </button>
-                        <nav class="row">
-                          <ul>
-                            <li *ngFor="let react of reacts">
-                              <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
-                                (click)="changeReactType(react)">
-                                <mat-icon>{{react}}</mat-icon>
-                              </button>
-                            </li>
-                          </ul>
-                        </nav>
-                      </li>
-                    </ul>
-                  </nav>
-                  <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
-                    data-toggle="collapse" href="#collapseOne" >
-                    <mat-icon>textsms</mat-icon>
-                  </button>
-                  <button mat-icon-button aria-label="Example icon-button with a heart icon">
-                    <mat-icon>share</mat-icon>
-                  </button>
-                </div>
-              </mat-card-actions>
-              <div id="collapseOne" class="collapse" data-parent="#accordion">
-                <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                  3
-                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                  laborum
-                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                  nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                  nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer
-                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                  labore sustainable VHS.
-                </div>
-              </div>
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <div class="input-group">
-                    <span class="input-group-append"
-                      style="display: flex; justify-content: center; align-items: center;margin-right: 15px;">
-                      <mat-icon matBadgeColor="warn" style="cursor: pointer;">sentiment_very_satisfied</mat-icon>
-                    </span>
-                    <input type="text" name="message" placeholder="Comment here..." class="form-control">
-                    <span class="input-group-append">
-                      <button type="submit" class="btn btn-primary">Send</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-            </mat-card>
-          </div>
-        <!-- </div> -->
-        <!-- /.card -->
-        <div id="accordion">
+        <div class="main-content" *ngFor="let launch of launches" id="accordion">
           <mat-card class="example-card">
             <div class="ribbon-wrapper ribbon-xl">
               <div class="menu-container">
@@ -231,34 +29,22 @@
                 </mat-menu>
               </div>
               <div class="ribbon bg-danger text-xl">
-                <span class="feeling">COOL</span>
-                <!-- <span class="feeling">{{launch.feeling}}</span> -->
+                <span class="feeling">{{launch.feeling}}</span>
               </div>
             </div>
             <mat-card-header>
               <div mat-card-avatar class="example-header-image">
                 <!-- <img src="assets/img/avatar-other.png" alt="profile"> -->
-                <!-- <img [src]="'data:image/png;base64,' + launch.profilePicture|| 'assets/img/avatar-other.png'" alt="launch-owner-profile-picture" class="launch-owner-profile-picture"> -->
-                <img [src]="'assets/img/avatar-other.png'" alt="launch-owner-profile-picture"
-                  class="launch-owner-profile-picture">
+                <img [src]="'data:image/png;base64,' + launch.profilePicture|| '../../../../assets/img/user6-128x128.jpg'"
+                  alt="launch-owner-profile-picture" class="launch-owner-profile-picture">
               </div>
-              <!-- <mat-card-title class="float-right">{{launch.userName}}</mat-card-title> -->
-              <mat-card-title class="float-right">Damiboy</mat-card-title>
-              <!-- <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle> -->
-              <mat-card-subtitle>Lorem</mat-card-subtitle>
+              <mat-card-title class="float-right">{{launch.userName}}</mat-card-title>
+              <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle>
 
             </mat-card-header>
-            <!-- <img src="data:image/png;base64,{{launch.file}}" class="image-view"> -->
-            <img src="assets\img\62-900x500.jpg" class="image-view">
-            <!-- <mat-card-content>
-            <p [innerText]="launch.description"></p>
-          </mat-card-content> -->
+            <img src="data:image/png;base64,{{launch.file}}" class="image-view">
             <mat-card-content>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, iste nulla. Animi earum suscipit
-                eveniet maxime, quam quia aut, libero et porro quisquam delectus quos repudiandae, perferendis eaque
-                nostrum sunt.
-              </p>
+              <p [innerText]="launch.description"></p>
             </mat-card-content>
             <hr>
             <mat-card-actions>
@@ -284,7 +70,7 @@
                   </ul>
                 </nav>
                 <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
-                  data-toggle="collapse" href="#collapseOne" >
+                  data-toggle="collapse" href="#collapseOne">
                   <mat-icon>textsms</mat-icon>
                 </button>
                 <button mat-icon-button aria-label="Example icon-button with a heart icon">
@@ -314,9 +100,9 @@
                     style="display: flex; justify-content: center; align-items: center;margin-right: 15px;">
                     <mat-icon matBadgeColor="warn" style="cursor: pointer;">sentiment_very_satisfied</mat-icon>
                   </span>
-                  <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                  <input type="text" name="message" placeholder="Comment here..." class="form-control">
                   <span class="input-group-append">
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" class="btn btn-primary">Comment</button>
                   </span>
                 </div>
               </form>
@@ -334,50 +120,155 @@
             <h3 class="card-title">Status</h3>
           </div>
           <!-- /.card-header -->
-          <div class="card-body p-0">
-            <ul class="users-list clearfix">
-              <li>
-                <img src="../../../../assets/img/user1-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Alexander Pierce</a>
-                <span class="users-list-date">Today</span>
-              </li>
-              <li>
-                <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Norman</a>
-                <span class="users-list-date">Yesterday</span>
-              </li>
-              <li>
-                <img src="../../../../assets/img/user7-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Jane</a>
-                <span class="users-list-date">12 Jan</span>
-              </li>
-              <li>
-                <img src="../../../../assets/img/user6-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">John</a>
-                <span class="users-list-date">12 Jan</span>
-              </li>
-              <li>
-                <img src="../../../../assets/img/user2-160x160.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Alexander</a>
-                <span class="users-list-date">13 Jan</span>
-              </li>
-              <li>
-                <img src="../../../../assets/img/user5-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Sarah</a>
-                <span class="users-list-date">14 Jan</span>
-              </li>
-              <li>
-                <img src="../../../../assets/img/user4-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Nora</a>
-                <span class="users-list-date">15 Jan</span>
-              </li>
-              <li>
-                <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
-                <a class="users-list-name" href="#">Nadia</a>
-                <span class="users-list-date">15 Jan</span>
-              </li>
-            </ul>
-            <!-- /.users-list -->
+          <div class="card-body">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <ul class="users-list clearfix">
+                    <li>
+                      <img src="../../../../assets/img/user1-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander Pierce</a>
+                      <span class="users-list-date">Today</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Norman</a>
+                      <span class="users-list-date">Yesterday</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user7-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Jane</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user6-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">John</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user2-160x160.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander</a>
+                      <span class="users-list-date">13 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user5-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Sarah</a>
+                      <span class="users-list-date">14 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user4-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nora</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nadia</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="carousel-item">
+                  <ul class="users-list clearfix">
+                    <li>
+                      <img src="../../../../assets/img/user1-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander Pierce</a>
+                      <span class="users-list-date">Today</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Norman</a>
+                      <span class="users-list-date">Yesterday</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user7-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Jane</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">John</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander</a>
+                      <span class="users-list-date">13 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Sarah</a>
+                      <span class="users-list-date">14 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nora</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nadia</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="carousel-item">
+                  <ul class="users-list clearfix">
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander Pierce</a>
+                      <span class="users-list-date">Today</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Norman</a>
+                      <span class="users-list-date">Yesterday</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Jane</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">John</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user2-160x160.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander</a>
+                      <span class="users-list-date">13 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user5-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Sarah</a>
+                      <span class="users-list-date">14 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user4-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nora</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nadia</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-custom-icon" aria-hidden="true">
+                  <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-custom-icon" aria-hidden="true">
+                  <i class="fas fa-chevron-right"></i>
+                </span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           </div>
           <!-- /.card-body -->
         </div>

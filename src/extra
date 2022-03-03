@@ -1,3 +1,96 @@
+<!-- Dashboard -->
+<!-- <section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <section class="col-lg-2 connectedSortable bubble-bar-container">
+        <div class="bubble-bar">
+          <div class="add-bubble-container">
+            <div class="add-bubble">+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="col-lg-10 connectedSortable">
+        <div class="main-content" *ngFor="let launch of launches">
+          <mat-card class="example-card">
+            <div class="ribbon-wrapper ribbon-xl">
+              <div class="menu-container">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>dialpad</mat-icon>
+                    <span>Redial</span>
+                  </button>
+                  <button mat-menu-item disabled>
+                    <mat-icon>voicemail</mat-icon>
+                    <span>Check voice mail</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon>notifications_off</mat-icon>
+                    <span>Disable alerts</span>
+                  </button>
+                </mat-menu>
+              </div>
+              <div class="ribbon bg-danger text-xl">
+                <span class="feeling">{{launch.feeling}}</span>
+              </div>
+            </div>
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image">
+                <img [src]="'data:image/png;base64,' + launch.profilePicture|| 'assets/img/avatar-other.png'"
+                     alt="launch-owner-profile-picture" class="launch-owner-profile-picture">
+              </div>
+              <mat-card-title class="float-right">{{launch.userName}}</mat-card-title>
+              <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle>
+
+            </mat-card-header>
+            <img src="data:image/png;base64,{{launch.file}}" class="image-view">
+            <mat-card-content>
+              <p [innerText]="launch.description"></p>
+            </mat-card-content>
+            <hr>
+            <mat-card-actions>
+              <div>
+                <nav class="row expanded">
+                  <ul>
+                    <li>
+                      <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon" (click)="changeColor()">
+                        <mat-icon>{{react}}</mat-icon>
+                      </button>
+                      <nav class="row">
+                        <ul>
+                          <li *ngFor="let react of reacts">
+                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon" (click)="changeReactType(react)">
+                              <mat-icon>{{react}}</mat-icon>
+                            </button>
+                          </li>
+                        </ul>
+                      </nav>
+                    </li>
+                  </ul>
+                </nav>
+                <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon" (click)="(comment.focus())">
+                  <mat-icon>textsms</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                  <mat-icon>share</mat-icon>
+                </button>
+              </div>
+            </mat-card-actions>
+            <hr>
+            <div class="comment-box-container">
+              <input type="text" #comment>
+            </div>
+          </mat-card>
+        </div>
+      </section>
+    </div>
+  </div>
+</section> -->
+
+
 <!-- home -->
 
 <div class="wrapper ">

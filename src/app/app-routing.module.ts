@@ -39,7 +39,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./view/home/home.module').then(m => m.HomeModule),
     data: { preload: true },
-    // canActivate: [HomeGuard]
+    canActivate: [HomeGuard]
   },
   {
     path: '**',

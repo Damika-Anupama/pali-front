@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
   logout(): void {
     sessionStorage.clear();
     localStorage.clear();
+    this.router.navigateByUrl('/welcome')
   }
   formatLabel(value: number) {
     if (value >= 1000) {
