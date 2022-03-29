@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {UserService} from '@src/app/service/user.service';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '@src/app/service/user.service';
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { environment } from '@src/environments/environment';
 
 @Component({
   selector: 'app-settings',
@@ -9,7 +10,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class SettingsComponent implements OnInit {
 
-  profilePic = '';
+  profilePic = environment.defaultDP;
   shortDes = '';
   username = '';
   email = '';
@@ -24,13 +25,16 @@ export class SettingsComponent implements OnInit {
 
     this.userService.getUserDetailsById(this.userId)
       .subscribe(value => {
-        this.profilePic = 'data:image/png;base64,' + value.profilePicture;
+        if (value.profilePicture !== null) {
+          this.profilePic = 'data:image/png;base64,' + value.profilePicture;
+        }
         this.shortDes = value.shortDescription;
         this.username = value.username;
         this.email = value.email;
         this.phoneNumber = value.contactNum;
         this.password = value.password;
       }, error => {
+        console.log(error)
         if (error.status === 400) {
           this.snackBar.open('Invalid details! 🤐', 'Dismiss', {
             duration: 2000
@@ -59,9 +63,12 @@ export class SettingsComponent implements OnInit {
   }
 
   updateUserDetails(): void {
+    if (this.userId === null){
+      this.userId = 'no-userId'
+    }
     this.userService.updateUser(this.userId, this.profilePic, this.shortDes, this.username, this.email, this.phoneNumber)
       .subscribe(value => {
-        this.snackBar.open('Your changes saved successfully 😊', 'Dismiss', {duration: 2000});
+        this.snackBar.open('Your changes saved successfully 😊', 'Dismiss', { duration: 2000 });
         this.userService.authenticate(this.username, this.password)
           .subscribe(token => {
             sessionStorage.clear();

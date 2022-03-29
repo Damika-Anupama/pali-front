@@ -47,6 +47,18 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/home/suggestions')
   }
 
+  gotocontactus(): void{
+    this.router.navigateByUrl('/home/contact-us')
+  }
+
+  gotodonate(): void{
+    this.router.navigateByUrl('/home/donate')
+  }
+
+  gotomoreinfo(): void{
+    this.router.navigateByUrl('/home/more-info')
+  }
+
   logout(): void {
     sessionStorage.clear();
     localStorage.clear();

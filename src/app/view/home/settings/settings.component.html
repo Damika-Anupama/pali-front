@@ -1,11 +1,5 @@
 <section class="content">
   <div class="container-fluid">
-    <div class="main-header-container">
-      <h1 class="main-header">Update Your Profile Settings
-        <!-- <i class="fa fa-cog fa-spin fa-1x fa-fw"></i> -->
-      </h1>
-    </div>
-    <hr>
     <div class="row">
       <div class="main-container col-lg-6 col-12">
         <div class="card">
@@ -36,7 +30,7 @@
               </svg>
               <span>Upload Your Profile Picture</span></label
             >
-            <img [src]="profilePic||'assets/img/avatar-other.png'" alt="profile-picture">
+            <img src="{{profilePic}}" alt="profile-picture">
           </div>
           <hr>
           <div class="callout callout-info">
@@ -90,3 +84,5 @@
     </div>
   </div>
 </section>
+
+

@@ -6,7 +6,8 @@
       <div class="col-md-8">
         <!-- /.card -->
         <div class="centering_container">
-          <button id="posts-adding-button" data-bs-toggle="tooltip" data-bs-placement="right" title="add a post">+</button>
+          <button id="posts-adding-button" data-bs-toggle="tooltip" data-bs-placement="right" title="add a post"
+            data-toggle="modal" data-target="#modal-lg">+</button>
         </div>
 
         <!-- TABLE: LATEST ORDERS -->
@@ -34,9 +35,14 @@
             </div>
             <mat-card-header>
               <div mat-card-avatar class="example-header-image">
-                <!-- <img src="assets/img/avatar-other.png" alt="profile"> -->
-                <img [src]="'data:image/png;base64,' + launch.profilePicture|| '../../../../assets/img/user6-128x128.jpg'"
-                  alt="launch-owner-profile-picture" class="launch-owner-profile-picture">
+                <img *ngIf="launch.profilePicture == null ; else elseBlock"
+                  src="{{userDP}}" alt="launch-owner-profile-picture"
+                  class="launch-owner-profile-picture" style="height: 40px; width: 40px;">
+
+                <ng-template #elseBlock>
+                  <img [src]="('data:image/png;base64,' + launch.profilePicture)" alt="launch-owner-profile-picture"
+                    class="launch-owner-profile-picture" style="height: 40px; width: 40px;">
+                </ng-template>
               </div>
               <mat-card-title class="float-right">{{launch.userName}}</mat-card-title>
               <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle>
@@ -116,9 +122,10 @@
 
 
         <div class="card sticky-card card-status">
-          <div class="card-header">
-            <h3 class="card-title">Status</h3>
-          </div>
+          <h3 class="card-title">
+            Status
+            <button type="button" class="btn btn-outline-danger btn-sm add-status">+</button>
+          </h3>
           <!-- /.card-header -->
           <div class="card-body">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -322,3 +329,89 @@
   </div>
   <!--/. container-fluid -->
 </section>
+
+
+<div class="modal fade" id="modal-lg">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Large Modal</h4>
+      </div>
+      <div class="modal-body">
+        <div class="header-container">
+          <h1 class="create-launch-theme">😇 <span class="words"> Let's make a Launch</span>😉 #🚀</h1>
+        </div>
+        <div class="launch-creating-area">
+          <div class="card">
+            <div class="upload-media">
+              <div class="sub-upload-media">
+                <img class="blah" *ngIf="visibleImage" [src]="imageSrc || 'assets/img/default.png'" alt="your image" />
+                <video class="blah" *ngIf="visibleVideo" width="320" height="240" controls [src]="videoSrc" autoplay>
+                  Your browser does not support the video tag.
+                </video>
+                <audio class="blah" *ngIf="visibleAudio" controls autoplay [src]="audioSrc">
+                  <source [src]="audioSrc">
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+              <div class="uploading-button-container">
+                <input type="file" name="file-input" id="file-input" class="file-input__input"
+                  (change)="readURL($event);" />
+                <label class="file-input__label" for="file-input">
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload"
+                    class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
+                    <path fill="currentColor"
+                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z">
+                    </path>
+                  </svg>
+                </label>
+              </div>
+            </div>
+            <form>
+              <div class="form-group">
+                <div class="launch-description">
+                  <mat-form-field class="example-full-width">
+                    <mat-label># Give Description to your launch 😉</mat-label>
+                    <textarea matInput class="example-full-width" name="launch-description"
+                      [(ngModel)]="description"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="feeling-container">
+                  Feeling with Launch :
+                  <button mat-button [matMenuTriggerFor]="menu" class=".btn"
+                    style="border: 0; background-color: transparent">
+                    <strong>🤗</strong></button>
+                  <div class="mat-menu-container" style="z-index: 1;">
+                    <mat-menu #menu="matMenu">
+                      <div class="mat-menu-panel">
+                        <button *ngFor="let emoji of emojis" class="emojis"
+                          (click)="addEmoji (emoji)">{{emoji}}</button>
+                      </div>
+                    </mat-menu>
+                  </div>
+                  <span class="float-right">{{emoji}}</span>
+                </div>
+              </div>
+              <div class="sub-container">
+                <mat-slider class="form-control" [displayWith]="formatLabel" min="1" max="1000" step="4" value="1.5"
+                  (input)="pitch($event)">
+                  🚀
+                </mat-slider>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

@@ -37,6 +37,9 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { PagesComponent } from './pages/pages.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { DonateComponent } from './donate/donate.component';
+import { MoreInfoComponent } from './more-info/more-info.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { PagesComponent } from './pages/pages.component';
     ComradesComponent,
     ShopComponent,
     CommunityComponent,
-    PagesComponent
+    PagesComponent,
+    ContactUsComponent,
+    DonateComponent,
+    MoreInfoComponent
   ],exports: [
     // MatSlideToggleModule,
   ],

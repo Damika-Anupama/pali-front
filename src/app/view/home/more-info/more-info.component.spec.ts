@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WatchBubbleComponent } from './watch-bubble.component';
+import { MoreInfoComponent } from '@src/app/view/home/more-info/more-info.component';
 
-describe('WatchBubbleComponent', () => {
-  let component: WatchBubbleComponent;
-  let fixture: ComponentFixture<WatchBubbleComponent>;
+describe('MoreInfoComponent', () => {
+  let component: MoreInfoComponent;
+  let fixture: ComponentFixture<MoreInfoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WatchBubbleComponent ]
+      declarations: [ MoreInfoComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WatchBubbleComponent);
+    fixture = TestBed.createComponent(MoreInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -31,7 +31,6 @@ export class UserService {
       shortDescription: 'Hello, I\'m a newbie 🐰',
       contactNum: contactNumber
     };
-    console.log(body);
     return this.http.post<HttpResponse<any>>(environment.baseUrl + `/api/v1/users`, body, {
       observe: 'response'
     });
@@ -59,16 +58,17 @@ export class UserService {
     return this.http.post(environment.baseUrl + `/api/v1/authenticate`, body);
   }
 
-  updateUser(userId: string | null, profilePic: string, shortDes: string, username: string, email: string, phoneNumber: string): Observable<any> {
+  updateUser(userId: string, profilePic: string, shortDes: string, username: string, email: string, phoneNumber: string): Observable<any> {
     const body: FormData = new FormData();
-    // @ts-ignore
     body.append('userId', userId);
     body.append('username', username);
     body.append('email', email);
     body.append('shortDes', shortDes);
     body.append('profilePic', profilePic);
     body.append('phoneNum', phoneNumber);
-    return this.http.put<User>(environment.baseUrl + `/api/v1/users/` + userId, body);
+    return this.http.put<HttpResponse<any>>(environment.baseUrl + `/api/v1/users/` + userId, body,{
+      observe: 'response'
+    });
   }
 
   getProfileInfo(userId: string | null): Observable<any> {

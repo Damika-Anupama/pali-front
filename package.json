@@ -70,5 +70,8 @@
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
   },
-  "main": "main.tns.js"
+  "main": "main.tns.js",
+  "nativescript": {
+    "id": "org.organization.app"
+  }
 }

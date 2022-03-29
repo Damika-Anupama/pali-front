@@ -72,7 +72,7 @@
             <mat-icon>more_vert</mat-icon>
           </a>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item class="mat-menu-sub-button">
+            <button mat-menu-item class="mat-menu-sub-button" (click)="gotomoreinfo()">
               <mat-icon> dialpad</mat-icon>
               <span>More Info</span>
             </button>
@@ -80,7 +80,7 @@
               <mat-icon> campaign</mat-icon>
               <span>Ads</span>
             </button>
-            <button mat-menu-item class="mat-menu-sub-button">
+            <button mat-menu-item class="mat-menu-sub-button" (click)="gotodonate()">
               <mat-icon> money</mat-icon>
               <span>Donate</span>
             </button>
@@ -88,7 +88,7 @@
               <mat-icon>alternate_email</mat-icon>
               <span>Suggetions</span>
             </button>
-            <button mat-menu-item class="mat-menu-sub-button">
+            <button mat-menu-item class="mat-menu-sub-button" (click)="gotocontactus()">
               <mat-icon>support_agent</mat-icon>
               <span>Contact Us</span>
             </button>
@@ -136,7 +136,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a routerLink="profile/{{userId}}" class="nav-link" routerLinkActive="active">
+              <a routerLink="profile" class="nav-link" routerLinkActive="active">
                 <i class="nav-icon far fa-user-circle"></i>
                 <p>
                   Profile

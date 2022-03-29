@@ -20,6 +20,7 @@ export class LaunchService {
     body.append('feeling', feeling);
     // @ts-ignore
     body.append('user', userId);
+    console.log(body)
     return this.http.post<HttpResponse<any>>(environment.baseUrl + '/api/v1/launches', body, {
       observe: 'response'
     });

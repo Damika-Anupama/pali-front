@@ -12,6 +12,9 @@ import {ChatterBoxComponent} from './chatter-box/chatter-box.component';
 import {ComradesComponent} from '@src/app/view/home/comrades/comrades.component';
 import {ShopComponent} from '@src/app/view/home/shop/shop.component';
 import { PagesComponent } from './pages/pages.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MoreInfoComponent } from './more-info/more-info.component';
+import { DonateComponent } from './donate/donate.component';
 
 const heroRoutes: Routes = [
   {
@@ -28,9 +31,12 @@ const heroRoutes: Routes = [
       {component: ReportComponent, path: 'report'},
       {component: SuggestionsComponent, path: 'suggestions'},
       {component: ChatterBoxComponent, path: 'chatter-box'},
-      {component: ComradesComponent, path: 'comrades/:userId'},
+      {component: ComradesComponent, path: 'comrades'},
       {component: ShopComponent, path: 'shop'},
       {component: PagesComponent, path: 'pages'},
+      {component: ContactUsComponent, path: 'contact-us'},
+      {component: MoreInfoComponent, path: 'more-info'},
+      {component: DonateComponent, path: 'donate'},
       {
         path: 'com',
         loadChildren: () => import('./community/community.module').then(value => value.CommunityModule)

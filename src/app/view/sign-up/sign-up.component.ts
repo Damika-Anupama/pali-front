@@ -1,8 +1,8 @@
-import {Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {UserService} from '../../service/user.service';
-import {Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {ThemePalette} from '@angular/material/core';
+import { Component, DoCheck, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { UserService } from '../../service/user.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ThemePalette } from '@angular/material/core';
 
 declare var require: any;
 
@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit, DoCheck {
   showUserPic = false;
 
   constructor(private userService: UserService, private router: Router,
-              private snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -36,7 +36,17 @@ export class SignUpComponent implements OnInit, DoCheck {
 
   createAccount(): void {
     this.userService.createAccount(this.username, this.email, this.contactNumber, this.selectedGender, this.password).subscribe(value => {
-      this.router.navigateByUrl('/sign-in');
+      this.userService.authenticate(this.username, this.password)
+      .subscribe(token => {
+        sessionStorage.setItem(`token`, token.jwt);
+        sessionStorage.setItem(`userId`, token.userId);
+        this.router.navigateByUrl('/home');
+      }, error => {
+        this.snackBar.open('Invalid username and password', 'Dismiss', {
+          duration: 1500
+        });
+        (this.txtUsername.nativeElement as HTMLInputElement).focus();
+      });
     }, error => {
       if (error.status === 400) {
         this.snackBar.open('Invalid details!', 'Dismiss', {

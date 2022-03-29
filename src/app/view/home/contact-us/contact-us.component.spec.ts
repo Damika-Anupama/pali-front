@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CreateBubbleComponent } from './create-bubble.component';
+import { ContactUsComponent } from '@src/app/view/home/contact-us/contact-us.component';
 
-describe('CreateBubbleComponent', () => {
-  let component: CreateBubbleComponent;
-  let fixture: ComponentFixture<CreateBubbleComponent>;
+describe('ContactUsComponent', () => {
+  let component: ContactUsComponent;
+  let fixture: ComponentFixture<ContactUsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateBubbleComponent ]
+      declarations: [ ContactUsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateBubbleComponent);
+    fixture = TestBed.createComponent(ContactUsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
