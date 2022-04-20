@@ -60,12 +60,13 @@ export class UserService {
 
   updateUser(userId: string, profilePic: string, shortDes: string, username: string, email: string, phoneNumber: string): Observable<any> {
     const body: FormData = new FormData();
-    body.append('userId', userId);
+    body.append('id', userId);
     body.append('username', username);
     body.append('email', email);
     body.append('shortDes', shortDes);
     body.append('profilePic', profilePic);
     body.append('phoneNum', phoneNumber);
+    console.log(userId,username,)
     return this.http.put<HttpResponse<any>>(environment.baseUrl + `/api/v1/users/` + userId, body,{
       observe: 'response'
     });
