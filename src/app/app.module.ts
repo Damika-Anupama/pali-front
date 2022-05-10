@@ -82,7 +82,7 @@ import { ServerErrorComponent } from './view/server-error/server-error.component
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
-        autoLogin: true,
+        autoLogin: false,
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
@@ -90,7 +90,10 @@ import { ServerErrorComponent } from './view/server-error/server-error.component
               environment.googleClientId
             )
           }
-        ]
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
       } as SocialAuthServiceConfig,
     }],
   bootstrap: [AppComponent]

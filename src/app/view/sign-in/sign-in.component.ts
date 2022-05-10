@@ -30,15 +30,6 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.socialAuthService.authState.subscribe((user) => {
-      this.socialUser = user;
-      this.isLoggedin = (user != null);
-      console.log(this.socialUser);
-    });
-    this.socialAuthService.authState.subscribe(user => {
-      this.user = user;
-      console.log(user);
-    });
   }
 
   authenticate(): void {
@@ -63,8 +54,14 @@ export class SignInComponent implements OnInit {
   navigatetohome(): void{
     this.router.navigateByUrl('/home');
   }
+
+  googleLoginOptions = {
+    scope: 'profile email'
+  }; // https://developers.google.com/api-client-library/javascript/reference/referencedocs#gapiauth2clientconfig
+  
   loginWithGoogle(): void {
-    const socialUserPromise = this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    console.log(socialUserPromise);
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID, this.googleLoginOptions).then(data =>{
+      console.log(data)
+    });
   }
 }

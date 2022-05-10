@@ -59,11 +59,10 @@
           <a href="#" class="btn btn-block btn-primary">
             <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
           </a>
-          <a class="btn btn-block btn-danger g-signin2">
-            <i class="fab fa-google-plus mr-2 "></i> Sign in using Google+
+          <a class="btn btn-block btn-danger" (click)="loginWithGoogle()">
+            <i class="fab fa-google-plus mr-2 "></i> Sign in using Google
           </a>
         </div>
-        <div class="g-signin2" data-onsuccess="onSignIn">Sign-in</div>
         <!-- /.social-auth-links -->
   
         <p class="mb-1">
