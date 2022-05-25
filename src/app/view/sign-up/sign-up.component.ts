@@ -27,6 +27,7 @@ export class SignUpComponent implements OnInit, DoCheck {
   genders: string[] = ['Male', 'Female', 'Other'];
   color: ThemePalette = 'accent';
   showUserPic = false;
+  gender =""
 
   constructor(private userService: UserService, private router: Router,
     private snackBar: MatSnackBar, private socialAuthService: SocialAuthService) {
