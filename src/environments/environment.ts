@@ -8,7 +8,7 @@ export const environment = {
   googleClientId: '74469964484-jfr2akr576c1ie02emvoin531jk1ojsv.apps.googleusercontent.com',
   googleClientSecret: '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',
   //from test-palindrom
-  facebookAppId: 0,
+  facebookAppId: '933217367459459',
   // facebookAppId: 933217367459459,
   OwnerId: '5',
   defaultDP: 'assets/img/avatar-other.png'

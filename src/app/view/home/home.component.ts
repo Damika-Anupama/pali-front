@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SearchTabComponent } from '../pop-ups/search-tab/search-tab.component';
 import { UserService } from "@src/app/service/user.service";
+import {SocialAuthService} from 'angularx-social-login';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   imgSrc = '';
   userId = sessionStorage.getItem('userId');
 
-  constructor(public dialog: MatDialog, private userService: UserService, private router: Router) {
+  constructor(public dialog: MatDialog, private userService: UserService, private router: Router,private authService: SocialAuthService) {
   }
 
 
@@ -62,6 +63,7 @@ export class HomeComponent implements OnInit {
   logout(): void {
     sessionStorage.clear();
     localStorage.clear();
+    this.authService.signOut();
     this.router.navigateByUrl('/welcome')
   }
   formatLabel(value: number) {

@@ -27,7 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from '@angular/material/radio';
 
-import {GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
+import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {environment} from '../environments/environment';
 import {httpInterceptorProvider} from '@src/app/service/interceptors/interceptor-barrel';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -84,6 +84,12 @@ import { ServerErrorComponent } from './view/server-error/server-error.component
       useValue: {
         autoLogin: false,
         providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(
+              environment.facebookAppId
+              ),
+          },
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(

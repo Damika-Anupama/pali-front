@@ -3,6 +3,7 @@ import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ThemePalette } from '@angular/material/core';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
 
 declare var require: any;
 
@@ -28,7 +29,7 @@ export class SignUpComponent implements OnInit, DoCheck {
   showUserPic = false;
 
   constructor(private userService: UserService, private router: Router,
-    private snackBar: MatSnackBar) {
+    private snackBar: MatSnackBar, private socialAuthService: SocialAuthService) {
   }
 
   ngOnInit(): void {
@@ -69,6 +70,69 @@ export class SignUpComponent implements OnInit, DoCheck {
       this.userExists = true;
     }, error => {
       this.userExists = false;
+    });
+  }
+
+  login(userName: string, password: string): void {
+    this.userService.authenticate(userName, password)
+      .subscribe(token => {
+        sessionStorage.setItem(`token`, token.jwt);
+        sessionStorage.setItem(`userId`, token.userId);
+        this.router.navigateByUrl('/home');
+      }, error => {
+        this.snackBar.open('Invalid username and password', 'Dismiss', {
+          duration: 1500
+        });
+        (this.txtUsername.nativeElement as HTMLInputElement).focus();
+      });
+  }
+
+  loginWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(data => {
+
+      this.userService.findUser(data.name).subscribe(value => {
+        this.login(data.name, data.id)
+      }, error => {
+        this.userService.createAccount(data.name, data.email, this.contactNumber, this.gender, data.id).subscribe(value => {
+          this.login(data.name, data.id)
+        }, error => {
+          if (error.status === 400) {
+            this.snackBar.open('Invalid details!', 'Dismiss', {
+              duration: 2000
+            });
+            (this.txtUsername.nativeElement as HTMLInputElement).select();
+          } else {
+            this.snackBar.open('500 Something went wrong!', 'Dismiss', {
+              duration: 2000
+            });
+          }
+        });
+      });
+
+    });
+  }
+
+  loginWithFacebook(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(data => {
+      this.userService.findUser(data.name).subscribe(value => {
+        this.login(data.name, data.id)
+      }, error => {
+        this.userService.createAccount(data.name, data.email, this.contactNumber, this.gender, data.id).subscribe(value => {
+          this.login(data.name, data.id)
+        }, error => {
+          if (error.status === 400) {
+            this.snackBar.open('Invalid details!', 'Dismiss', {
+              duration: 2000
+            });
+            (this.txtUsername.nativeElement as HTMLInputElement).select();
+          } else {
+            this.snackBar.open('500 Something went wrong!', 'Dismiss', {
+              duration: 2000
+            });
+          }
+        });
+      });
+
     });
   }
 }
