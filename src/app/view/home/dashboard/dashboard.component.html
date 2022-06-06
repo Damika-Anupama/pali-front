@@ -35,9 +35,9 @@
             </div>
             <mat-card-header>
               <div mat-card-avatar class="example-header-image">
-                <img *ngIf="launch.profilePicture == null ; else elseBlock"
-                  src="{{userDP}}" alt="launch-owner-profile-picture"
-                  class="launch-owner-profile-picture" style="height: 40px; width: 40px;">
+                <img *ngIf="launch.profilePicture == null ; else elseBlock" src="{{userDP}}"
+                  alt="launch-owner-profile-picture" class="launch-owner-profile-picture"
+                  style="height: 40px; width: 40px;">
 
                 <ng-template #elseBlock>
                   <img [src]="('data:image/png;base64,' + launch.profilePicture)" alt="launch-owner-profile-picture"
@@ -46,11 +46,13 @@
               </div>
               <mat-card-title class="float-right">{{launch.userName}}</mat-card-title>
               <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle>
-
             </mat-card-header>
-            <img src="data:image/png;base64,{{launch.file}}" class="image-view">
             <mat-card-content>
               <p [innerText]="launch.description"></p>
+            </mat-card-content>
+            <img src="data:image/png;base64,{{launch.file}}" class="image-view">
+            <mat-card-content>
+              <!-- <p [innerText]="launch.description"></p> -->
             </mat-card-content>
             <hr>
             <mat-card-actions>
