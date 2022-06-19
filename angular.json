@@ -141,6 +141,7 @@
   },
   "defaultProject": "Chess-Cabin-Front",
   "cli": {
-    "defaultCollection": "@nativescript/schematics"
+    "defaultCollection": "@nativescript/schematics",
+    "analytics": false
   }
 }
