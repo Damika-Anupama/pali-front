@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from "@angular/router";
+import {MatDialog} from '@angular/material/dialog';
+import { searchCommunityContentComponent } from './searchCommunityDialogBox/searchCommunityContent.component';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +20,7 @@ export class MenuComponent implements OnInit {
   @ViewChild('carousel', { static: true }) carousel: NgbCarousel;
   step = 0;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -60,5 +62,13 @@ export class MenuComponent implements OnInit {
 
   routToBuildPage(): void {
     this.router.navigateByUrl('/home/com/build');
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(searchCommunityContentComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }

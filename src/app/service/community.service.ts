@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '@src/environments/environment';
+import { ComBody } from '../model/ComBody';
 @Injectable({
     providedIn: 'root'
 })
@@ -24,10 +25,10 @@ export class communityService {
             observe: 'response'
         });
     }
-/* 
     getAllCommunities(): Observable<any> {
-        return this.http.get<LaunchBody>(environment.baseUrl + `/api/v1/launches`);
+        return this.http.get<ComBody>(environment.baseUrl + `/api/v1/community`);
     }
+    /* 
 
     getCommunity(): Observable<any> {
         const id = sessionStorage.getItem('userId');

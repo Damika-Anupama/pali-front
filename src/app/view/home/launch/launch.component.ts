@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {LaunchService} from '@src/app/service/launch.service';
-import {LaunchBody} from '@src/app/model/Launch-body';
+import {LaunchBody} from '@src/app/model/LaunchBody';
 
 @Component({
   selector: 'app-launch',

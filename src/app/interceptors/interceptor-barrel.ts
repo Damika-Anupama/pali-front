@@ -1,7 +1,7 @@
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {TokenInterceptorService} from "@src/app/service/interceptors/token-interceptor.service";
-import {LoggingInterceptorService} from "@src/app/service/interceptors/logging-interceptor.service";
-import {CustomJsonInterceptor} from "@src/app/service/interceptors/custom-json-interceptor.service";
+import {TokenInterceptorService} from "@src/app/interceptors/token-interceptor.service";
+import {LoggingInterceptorService} from "@src/app/interceptors/logging-interceptor.service";
+import {CustomJsonInterceptor} from "@src/app/interceptors/custom-json-interceptor.service";
 
 /**
  * @author : Damika Anuapama Nanayakkara <damikaanupama@gmail.com>

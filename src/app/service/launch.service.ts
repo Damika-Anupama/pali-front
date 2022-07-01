@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '@src/environments/environment';
-import {LaunchBody} from '@src/app/model/Launch-body';
+import {LaunchBody} from '@src/app/model/LaunchBody';
 
 @Injectable({
   providedIn: 'root'

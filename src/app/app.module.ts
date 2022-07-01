@@ -29,7 +29,7 @@ import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from '@angular/material/radio
 
 import {FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
 import {environment} from '../environments/environment';
-import {httpInterceptorProvider} from '@src/app/service/interceptors/interceptor-barrel';
+import {httpInterceptorProvider} from '@src/app/interceptors/interceptor-barrel';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatMenuModule} from "@angular/material/menu";

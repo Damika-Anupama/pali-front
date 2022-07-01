@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LaunchBody } from '@src/app/model/Launch-body';
+import { LaunchBody } from '@src/app/model/LaunchBody';
 
 @Component({
   selector: 'app-page',

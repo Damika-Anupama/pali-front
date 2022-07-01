@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LaunchService } from '../../../service/launch.service';
-import { LaunchBody } from '../../../model/Launch-body';
+import { LaunchBody } from '../../../model/LaunchBody';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '@src/environments/environment';
 @Component({
