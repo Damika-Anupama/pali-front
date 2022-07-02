@@ -327,15 +327,12 @@
 </section>
 
 
-<div class="modal fade" id="modal-lg">
-  <div class="modal-dialog modal-lg">
+<div class="modal fade " id="modal-lg" onClose={handleClose}>
+  <div class="modal-dialog modal-lg search-box">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Large Modal</h4>
-      </div>
       <div class="modal-body">
         <div class="header-container">
-          <h1 class="create-launch-theme">😇 <span class="words"> Let's make a Launch</span>😉 #🚀</h1>
+          <h1 class="create-launch-theme">😇 <span class="words"> Let's make a Launch</span>😉🚀</h1>
         </div>
         <div class="launch-creating-area">
           <div class="card">
@@ -368,8 +365,8 @@
               <div class="form-group">
                 <div class="launch-description">
                   <mat-form-field class="example-full-width">
-                    <mat-label># Give Description to your launch 😉</mat-label>
-                    <textarea matInput class="example-full-width" name="launch-description"
+                    <mat-label>Describe your launch 😉</mat-label>
+                    <textarea matInput class="example-full-width description" name="launch-description"
                       [(ngModel)]="description"></textarea>
                   </mat-form-field>
                 </div>
@@ -379,8 +376,8 @@
                   Feeling with Launch :
                   <button mat-button [matMenuTriggerFor]="menu" class=".btn"
                     style="border: 0; background-color: transparent">
-                    <strong>🤗</strong></button>
-                  <div class="mat-menu-container" style="z-index: 1;">
+                    <strong class="feeling-with-launch-icon">🤗</strong></button>
+                  <div class="mat-menu-container">
                     <mat-menu #menu="matMenu">
                       <div class="mat-menu-panel">
                         <button *ngFor="let emoji of emojis" class="emojis"
@@ -400,10 +397,6 @@
             </form>
           </div>
         </div>
-      </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
     <!-- /.modal-content -->
