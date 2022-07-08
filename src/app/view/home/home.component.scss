@@ -5,16 +5,17 @@
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700';
 @import 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css';
 
-.dropdown-menu{
+.dropdown-menu {
   border-radius: 15%;
   overflow: hidden;
 }
-.nav-link:hover{
+
+.nav-link:hover {
   cursor: pointer;
 }
 
 
-mat-card-header{
+mat-card-header {
   display: flex;
   //justify-content: center;
   align-items: center;
@@ -30,17 +31,18 @@ mat-card-header{
   background-size: cover;
 }
 
-mat-card-actions{
+mat-card-actions {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.mat-button{
+.mat-button {
   border: none;
   outline: none;
 }
-.mat-menu-sub-button:focus{
+
+.mat-menu-sub-button:focus {
   outline: none;
 }
 
@@ -58,14 +60,25 @@ mat-slider {
   width: 50px;
 }
 
-.badge-danger{
+.badge-danger {
   margin: 10px;
-    /* margin-left: 10px; */
-    /* height: 25px; */
+  /* margin-left: 10px; */
+  /* height: 25px; */
   font-size: 15px;
 }
-.top-nav-item{
+
+.top-nav-item {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.popup-box {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  // overflow: hidden;
+  border-radius: 20px;
 }

@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {SuggestionService} from '@src/app/service/suggestion.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {environment} from '@src/environments/environment';
-import {Suggestion} from '@src/app/model/Suggestion';
+import { Component, OnInit } from '@angular/core';
+import { SuggestionService } from '@src/app/service/suggestion.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '@src/environments/environment';
+import { Suggestion } from '@src/app/model/Suggestion';
 
 @Component({
   selector: 'app-suggestions',
@@ -13,6 +13,7 @@ export class SuggestionsComponent implements OnInit {
 
   message = '';
   priority = 'PRIORITY1';
+  priValue = 0;
   feeling = '🥰';
   ableToPreview = false;
   rows: Suggestion[] = [];
@@ -55,7 +56,7 @@ export class SuggestionsComponent implements OnInit {
   saveSuggestion(): void {
     if (this.message !== '') {
       this.suggestionService.saveSuggestion(this.message, this.priority, this.feeling).subscribe(value => {
-        this.snackBar.open('Thanks for your suggestion 😊 We\'ll consider it as soon as possible', 'Dismiss', {duration: 2000});
+        this.snackBar.open('Thanks for your suggestion 😊 We\'ll consider it as soon as possible', 'Dismiss', { duration: 2000 });
       }, error => {
         if (error.status === 400) {
           this.snackBar.open('Invalid details!', 'Dismiss', {
@@ -76,7 +77,7 @@ export class SuggestionsComponent implements OnInit {
 
   deleteRow(id: number): void {
     this.suggestionService.deleteSuggestion(id).subscribe(value => {
-      this.snackBar.open('Suggestion Deleted Successfully !!', 'Dismiss', {duration: 2000});
+      this.snackBar.open('Suggestion Deleted Successfully !!', 'Dismiss', { duration: 2000 });
       window.location.reload();
     }, error => {
       if (error.status === 400) {
@@ -89,5 +90,21 @@ export class SuggestionsComponent implements OnInit {
         });
       }
     });
+  }
+
+  setValuePriority(value: string): number {
+    switch (value) {
+      case 'PRIORITY1':
+        return 20
+      case 'PRIORITY2':
+        return 40
+      case 'PRIORITY3':
+        return 60
+      case 'PRIORITY4':
+        return 80
+      case 'PRIORITY5':
+        return 100
+    }
+    return 0;
   }
 }

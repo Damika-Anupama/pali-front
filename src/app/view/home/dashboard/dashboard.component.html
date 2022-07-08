@@ -11,6 +11,95 @@
         </div>
 
         <!-- TABLE: LATEST ORDERS -->
+        <div class="card card-widget" *ngFor="let launch of launches">
+          <div class="ribbon-wrapper ribbon-xl">
+            <div class="menu-container">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>bookmark_border</mat-icon>
+                  <span>Save</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>flag_circle</mat-icon>
+                  <span>Report</span>
+                </button>
+              </mat-menu>
+            </div>
+            <div class="ribbon bg-danger text-xl">
+              <span class="feeling">{{launch.feeling}}</span>
+            </div>
+          </div>
+          <div class="card-header">
+            <div class="user-block">
+              <img class="img-circle" *ngIf="launch.profilePicture == null ; else elseBlock" src="{{userDP}}" alt="User Image">
+              <ng-template #elseBlock>
+                <img class="img-circle"  [src]="('data:image/png;base64,' + launch.profilePicture)" alt="User Image">
+              </ng-template>
+              <span class="username"><a href="#">{{launch.userName}}</a></span>
+              <span class="description">{{launch.shortDescription}}</span>
+              <span class="description">Shared publicly - 7:30 PM Today</span>
+            </div>
+            <!-- /.user-block -->
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <img class="img-fluid pad" src="data:image/png;base64,{{launch.file}}" alt="Photo">
+
+            <p [innerText]="launch.description"></p>
+            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+            <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+            <span class="float-right text-muted">127 likes - 3 comments</span>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer card-comments">
+            <div class="card-comment">
+              <!-- User image -->
+              <img class="img-circle img-sm" src="assets/img/user3-128x128.jpg" alt="User Image">
+
+              <div class="comment-text">
+                <span class="username">
+                  Maria Gonzales
+                  <span class="text-muted float-right">8:03 PM Today</span>
+                </span><!-- /.username -->
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+              </div>
+              <!-- /.comment-text -->
+            </div>
+            <!-- /.card-comment -->
+            <div class="card-comment">
+              <!-- User image -->
+              <img class="img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="User Image">
+
+              <div class="comment-text">
+                <span class="username">
+                  Luna Stark
+                  <span class="text-muted float-right">8:03 PM Today</span>
+                </span><!-- /.username -->
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+              </div>
+              <!-- /.comment-text -->
+            </div>
+            <!-- /.card-comment -->
+          </div>
+          <!-- /.card-footer -->
+          <div class="card-footer">
+            <form action="#" method="post">
+              <!-- <img class="img-fluid img-circle img-sm" src="data:image/png;base64,{{myDP}}" alt="Alt Text"> -->
+              <img class="img-fluid img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="Alt Text">
+              <!-- .img-push is used to add margin to elements next to floating images -->
+              <div class="img-push">
+                <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+              </div>
+            </form>
+          </div>
+          <!-- /.card-footer -->
+        </div>
+<!-- 
         <div class="main-content" *ngFor="let launch of launches" id="accordion">
           <mat-card class="example-card">
             <div class="ribbon-wrapper ribbon-xl">
@@ -52,7 +141,6 @@
             </mat-card-content>
             <img src="data:image/png;base64,{{launch.file}}" class="image-view">
             <mat-card-content>
-              <!-- <p [innerText]="launch.description"></p> -->
             </mat-card-content>
             <hr>
             <mat-card-actions>
@@ -117,6 +205,7 @@
             </div>
           </mat-card>
         </div>
+         -->
       </div>
       <!-- /.col -->
 
@@ -125,15 +214,54 @@
 
         <div class="card sticky-card card-status">
           <h3 class="card-title">
-            Status
-            <button type="button" class="btn btn-outline-danger btn-sm add-status">+</button>
+            <p class="center"> Who's online 🤠</p>
           </h3>
           <!-- /.card-header -->
-          <div class="card-body">
+          <div class="card-body" style="height: 500px;">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <ul class="users-list clearfix">
+                    <li>
+                      <img src="../../../../assets/img/user1-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander Pierce</a>
+                      <span class="users-list-date">Today</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Norman</a>
+                      <span class="users-list-date">Yesterday</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user7-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Jane</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user6-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">John</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user2-160x160.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander</a>
+                      <span class="users-list-date">13 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user5-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Sarah</a>
+                      <span class="users-list-date">14 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user4-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nora</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nadia</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
                     <li>
                       <img src="../../../../assets/img/user1-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Alexander Pierce</a>
@@ -218,6 +346,46 @@
                       <a class="users-list-name" href="#">Nadia</a>
                       <span class="users-list-date">15 Jan</span>
                     </li>
+                    <li>
+                      <img src="../../../../assets/img/user1-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander Pierce</a>
+                      <span class="users-list-date">Today</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Norman</a>
+                      <span class="users-list-date">Yesterday</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user7-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Jane</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">John</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander</a>
+                      <span class="users-list-date">13 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Sarah</a>
+                      <span class="users-list-date">14 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nora</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nadia</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
                   </ul>
                 </div>
                 <div class="carousel-item">
@@ -254,6 +422,46 @@
                     </li>
                     <li>
                       <img src="../../../../assets/img/user4-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nora</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Nadia</a>
+                      <span class="users-list-date">15 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user1-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander Pierce</a>
+                      <span class="users-list-date">Today</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user8-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Norman</a>
+                      <span class="users-list-date">Yesterday</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user7-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Jane</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">John</a>
+                      <span class="users-list-date">12 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Alexander</a>
+                      <span class="users-list-date">13 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
+                      <a class="users-list-name" href="#">Sarah</a>
+                      <span class="users-list-date">14 Jan</span>
+                    </li>
+                    <li>
+                      <img src="../../../../assets/img/user3-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Nora</a>
                       <span class="users-list-date">15 Jan</span>
                     </li>
@@ -327,78 +535,84 @@
 </section>
 
 
-<div class="modal fade " id="modal-lg" onClose={handleClose}>
-  <div class="modal-dialog modal-lg search-box">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="header-container">
-          <h1 class="create-launch-theme">😇 <span class="words"> Let's make a Launch</span>😉🚀</h1>
-        </div>
-        <div class="launch-creating-area">
-          <div class="card">
-            <div class="upload-media">
-              <div class="sub-upload-media">
-                <img class="blah" *ngIf="visibleImage" [src]="imageSrc || 'assets/img/default.png'" alt="your image" />
-                <video class="blah" *ngIf="visibleVideo" width="320" height="240" controls [src]="videoSrc" autoplay>
-                  Your browser does not support the video tag.
-                </video>
-                <audio class="blah" *ngIf="visibleAudio" controls autoplay [src]="audioSrc">
-                  <source [src]="audioSrc">
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
-              <div class="uploading-button-container">
-                <input type="file" name="file-input" id="file-input" class="file-input__input"
-                  (change)="readURL($event);" />
-                <label class="file-input__label" for="file-input">
-                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload"
-                    class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <path fill="currentColor"
-                      d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z">
-                    </path>
-                  </svg>
-                </label>
-              </div>
-            </div>
-            <form>
-              <div class="form-group">
-                <div class="launch-description">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Describe your launch 😉</mat-label>
-                    <textarea matInput class="example-full-width description" name="launch-description"
-                      [(ngModel)]="description"></textarea>
-                  </mat-form-field>
+<div class="modal fade" id="modal-lg" onClose={handleClose}>
+  <div class="modal-dialog modal-lg search-box" style="position: fixed;
+    left: 50%;
+    top: 54%;
+    transform: translate(-50%, -50%);">
+    <mat-dialog-content class="mat-typography">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="header-container">
+            <h1 class="create-launch-theme">😇 <span class="words"> Let's make a Launch</span>😉🚀</h1>
+          </div>
+          <div class="launch-creating-area">
+            <div class="card">
+              <div class="upload-media">
+                <div class="sub-upload-media">
+                  <img class="blah" *ngIf="visibleImage" [src]="imageSrc || 'assets/img/default.png'"
+                    alt="your image" />
+                  <video class="blah" *ngIf="visibleVideo" width="320" height="240" controls [src]="videoSrc" autoplay>
+                    Your browser does not support the video tag.
+                  </video>
+                  <audio class="blah" *ngIf="visibleAudio" controls autoplay [src]="audioSrc">
+                    <source [src]="audioSrc">
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+                <div class="uploading-button-container">
+                  <input type="file" name="file-input" id="file-input" class="file-input__input"
+                    (change)="readURL($event);" />
+                  <label class="file-input__label" for="file-input">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="upload"
+                      class="svg-inline--fa fa-upload fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 512">
+                      <path fill="currentColor"
+                        d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z">
+                      </path>
+                    </svg>
+                  </label>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="feeling-container">
-                  Feeling with Launch :
-                  <button mat-button [matMenuTriggerFor]="menu" class=".btn"
-                    style="border: 0; background-color: transparent">
-                    <strong class="feeling-with-launch-icon">🤗</strong></button>
-                  <div class="mat-menu-container">
-                    <mat-menu #menu="matMenu">
-                      <div class="mat-menu-panel">
-                        <button *ngFor="let emoji of emojis" class="emojis"
-                          (click)="addEmoji (emoji)">{{emoji}}</button>
-                      </div>
-                    </mat-menu>
+              <form>
+
+                <div class="form-group">
+                  <div class="launch-description">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Describe your launch 😉</mat-label>
+                      <textarea matInput class="example-full-width description" name="launch-description"
+                        [(ngModel)]="description"></textarea>
+                    </mat-form-field>
                   </div>
-                  <span class="float-right">{{emoji}}</span>
                 </div>
-              </div>
-              <div class="sub-container">
-                <mat-slider class="form-control" [displayWith]="formatLabel" min="1" max="1000" step="4" value="1.5"
-                  (input)="pitch($event)">
-                  🚀
-                </mat-slider>
-              </div>
-            </form>
+                <div class="form-group">
+                  <div class="feeling-container">
+                    Feeling with Launch :
+
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <strong class="feeling-with-launch-icon">{{emoji}}</strong>
+                      </button>
+                      <div class="dropdown-menu" role="menu">
+                        <a *ngFor="let emoji of emojis" class="emojis" (click)="addEmoji (emoji)">{{emoji}}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <angular-emojis [name]="emojivar" size="30" (mouseenter)="changeRoutine()" > </angular-emojis> -->
+
+                <div class="sub-container">
+                  <mat-slider class="form-control" [displayWith]="formatLabel" min="1" max="1000" step="4" value="1.5"
+                    (input)="pitch($event)">
+                    🚀
+                  </mat-slider>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </mat-dialog-content>
     <!-- /.modal-content -->
   </div>
   <!-- /.modal-dialog -->

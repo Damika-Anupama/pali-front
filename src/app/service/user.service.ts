@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '@src/environments/environment';
 import {User} from '@src/app/model/User';
@@ -64,14 +64,17 @@ export class UserService {
     body.append('username', username);
     body.append('email', email);
     body.append('shortDes', shortDes);
-    body.append('profilePic', profilePic);
+    // body.append('profilePic', profilePic);
     body.append('phoneNum', phoneNumber);
     console.log(userId,username,)
-    return this.http.put<HttpResponse<any>>(environment.baseUrl + `/api/v1/users/` + userId, body,{
-      observe: 'response'
+    return this.http.put(environment.baseUrl + `/api/v1/users/${userId}`, body,{
+      headers : new HttpHeaders({
+        // 'Content-Type': 'multipart/form-data'
+      })
     });
   }
-
+  // return this.http.put(environment.baseUrl + `/api/v1/users/${userId}`, body,{
+  
   getProfileInfo(userId: string | null): Observable<any> {
     return this.http.get(environment.baseUrl + '/api/v1/users/info/' + userId);
   }

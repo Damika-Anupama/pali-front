@@ -42,6 +42,8 @@ export class SignUpComponent implements OnInit, DoCheck {
       .subscribe(token => {
         sessionStorage.setItem(`token`, token.jwt);
         sessionStorage.setItem(`userId`, token.userId);
+        sessionStorage.setItem(`profilePicture`, token.profilePicture);
+        sessionStorage.setItem(`userName`, token.userName);
         this.router.navigateByUrl('/home');
       }, error => {
         this.snackBar.open('Invalid username and password', 'Dismiss', {
@@ -79,6 +81,8 @@ export class SignUpComponent implements OnInit, DoCheck {
       .subscribe(token => {
         sessionStorage.setItem(`token`, token.jwt);
         sessionStorage.setItem(`userId`, token.userId);
+        sessionStorage.setItem(`profilePicture`, token.profilePicture);
+        sessionStorage.setItem(`userName`, token.userName);
         this.router.navigateByUrl('/home');
       }, error => {
         this.snackBar.open('Invalid username and password', 'Dismiss', {

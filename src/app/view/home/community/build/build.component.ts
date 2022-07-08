@@ -11,8 +11,8 @@ import { communityService } from '@src/app/service/community.service';
 export class BuildComponent implements OnInit {
   description = '';
   title = '';
-  groupIcon = '';
-  wallIcon = '';
+  groupIcon: FileList | undefined;
+  wallIcon: FileList | undefined;
 
   constructor(private router: Router, private snackBar: MatSnackBar, private communityService: communityService) {
   }
@@ -21,33 +21,31 @@ export class BuildComponent implements OnInit {
   }
 
   // for image upload
-  // readURL(event: Event): void {
-  //   // @ts-ignore
-  //   const file = event.target.files[0];
-  //   if (file.size / 1000000 > 100) {
-  //     this.snackBar.open('The input media should be less than 100MB 🤕', 'Dismiss', { duration: 2000 });
-  //     return;
-  //   }
-  //   // @ts-ignore
-  //   this.mediaFile = event.target.files[0];
-  //   // @ts-ignore
-  //   if (event.target.files && event.target.files[0]) {
-  //     const reader = new FileReader();
-  //     const mediaType = file.type.substring(0, 5);
-  //     if (mediaType === 'image') {
-  //       // @ts-ignore
-  //       reader.onload = e => this.imageSrc = reader.result;
-  //     }
-  //     reader.readAsDataURL(file);
-  //   }
-  // }
-  setGroupIcon(event: Event):void{
+  readURL(event: Event, icon: string): void {
+    if (icon == "groupIcon") {
+      // @ts-ignore
+      this.groupIcon = event.target.files[0];
+      const reader = new FileReader();
+      // @ts-ignore
+      reader.onload = e => this.groupIcon = reader.result;
+    } else if (icon == "wallIcon") {
+      // @ts-ignore
+      this.wallIcon = event.target.files[0];
+      const reader = new FileReader();
+      // @ts-ignore
+      reader.onload = e => this.wallIcon = reader.result;
+    }
+  }
+
+
+
+  setGroupIcon(event: Event): void {
 
   }
 
   createCommunityPage(): void {
     //@ts-ignore 
-    this.communityService.createCommunity(this.description, this.title, this.groupIcon,this.wallIcon).subscribe(value => {
+    this.communityService.createCommunity(this.description, this.title, this.groupIcon, this.wallIcon).subscribe(value => {
       this.snackBar.open('Congratulations 🤠\n Community created Successfully !!', 'Dismiss', { duration: 2000 });
       // this.mediaFile = null;
       // this.description = '';

@@ -3,6 +3,7 @@ import { LaunchService } from '../../../service/launch.service';
 import { LaunchBody } from '../../../model/LaunchBody';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '@src/environments/environment';
+import { EmojiSlider } from 'emoji-slider';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -19,7 +20,7 @@ export class DashboardComponent implements OnInit {
   reacts = ['favorite', 'local_fire_department', 'sentiment_very_dissatisfied', 'auto_awesome', 'sick'];
   imageSrc = '';
   description = '';
-  emoji = null;
+  emoji = '😉';
   // @ts-ignore
   mediaFile: FileList;
   launchImg = '';
@@ -29,22 +30,23 @@ export class DashboardComponent implements OnInit {
   videoSrc = '';
   visibleAudio = false;
   audioSrc = '';
-  userDP = environment.defaultDP
+  userDP = environment.defaultDP;
+  myDP = sessionStorage.getItem('profilePicture')
 
 
   constructor(public launchService: LaunchService, private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
-    this.launchService.getAllLaunches().subscribe(launch => {
-      this.launches = launch;
-    }, error => {
-      if (error.status === 400) {
-        this.snackBar.open('Invalid details!', 'Dismiss', {duration: 2000});
-      } else {
-        this.snackBar.open('500 Something went wrong!', 'Dismiss', {duration: 2000});
-      }
-    });
+    // this.launchService.getAllLaunches().subscribe(launch => {
+    //   this.launches = launch;
+    // }, error => {
+    //   if (error.status === 400) {
+    //     this.snackBar.open('Invalid details!', 'Dismiss', {duration: 2000});
+    //   } else {
+    //     this.snackBar.open('500 Something went wrong!', 'Dismiss', {duration: 2000});
+    //   }
+    // });
   }
 
   formatLabel(value: number): any {
@@ -127,15 +129,19 @@ export class DashboardComponent implements OnInit {
   createLaunch(): void {
     // @ts-ignore
     this.launchService.createLaunch(this.mediaFile, this.description, this.emoji).subscribe(value => {
-      this.snackBar.open('Congratulations 🤠\n Launch created Successfully !!', 'Dismiss', {duration: 2000});
+      alert("Congratulations 🤠\n Launch created Successfully !!")
+      // this.snackBar.open('Congratulations 🤠\n Launch created Successfully !!', 'Dismiss', {duration: 2000});
+
       // this.mediaFile = null;
       this.description = '';
-      this.emoji = null;
+      this.emoji = '😉'; //default emoji
     }, error => {
       if (error.status === 400) {
-        this.snackBar.open('Invalid details!', 'Dismiss', {duration: 2000});
+        alert("Invalid details!")
+        // this.snackBar.open('Invalid details!', 'Dismiss', {duration: 2000});
       } else {
-        this.snackBar.open('500 Something went wrong!', 'Dismiss', {duration: 2000});
+        alert('500 Something went wrong!')
+        // this.snackBar.open('500 Something went wrong!', 'Dismiss', {duration: 2000});
       }
     });
   }

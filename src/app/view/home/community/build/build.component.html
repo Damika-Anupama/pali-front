@@ -20,9 +20,7 @@
             <label for="exampleInputFile">Community Group Icon</label>
             <div class="input-group">
               <div class="custom-file">
-                <input type="file" name="file-input" id="file-input" class="file-input__input"
-                  />
-                  <!-- (change)="readURL($event);" /> -->
+                <input type="file" class="custom-file-input" id="exampleInputFile1" (change)="readURL($event,'groupIcon');">
                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
               </div>
               <div class="input-group-append">
@@ -34,7 +32,7 @@
             <label for="exampleInputFile">Wall Icon</label>
             <div class="input-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="exampleInputFile1">
+                <input type="file" class="custom-file-input" id="exampleInputFile1" (change)="readURL($event,'wallIcon');">
                 <label class="custom-file-label" for="exampleInputFile">Choose file</label>
               </div>
               <div class="input-group-append">

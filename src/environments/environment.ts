@@ -10,7 +10,7 @@ export const environment = {
   //from test-palindrom
   facebookAppId: '933217367459459',
   // facebookAppId: 933217367459459,
-  OwnerId: '5',
+  OwnerId: '2',
   defaultDP: 'assets/img/avatar-other.png'
 };
 

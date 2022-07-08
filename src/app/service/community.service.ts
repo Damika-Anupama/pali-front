@@ -20,7 +20,7 @@ export class communityService {
         body.append('wallIcon', wallIcon);
         // @ts-ignore
         body.append('user', userId);
-        console.log(body)
+        console.log(groupIcon,wallIcon)
         return this.http.post<HttpResponse<any>>(environment.baseUrl + '/api/v1/community', body, {
             observe: 'response'
         });

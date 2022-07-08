@@ -7,11 +7,7 @@
         <mat-icon matBadgeColor="warn">reorder</mat-icon>
       </a>
     </li>
-    <li class="nav-item top-nav-item">
-      <a class="nav-link" data-toggle="modal" role="button" data-target="#modal-lg">
-        <mat-icon matBadgeColor="warn">search</mat-icon>
-      </a>
-    </li>
+    
     <!-- <li class="nav-item top-nav-item">
           <span class="right badge badge-danger">XP
             <span class="badge badge-warning badge">15</span>
@@ -27,9 +23,20 @@
         </li> -->
   </ul>
   <!-- Right navbar links -->
+  
   <ul class="navbar-nav ml-auto">
     <li class="nav-item top-nav-item">
-      <a class="nav-link" role="button" mat-button routerLink="/home/settings">
+      <a class="nav-link" data-toggle="modal" role="button" data-target="#search-box">
+        <mat-icon matBadgeColor="warn">search</mat-icon>
+      </a>
+    </li>
+    <li class="nav-item top-nav-item">
+      <a class="nav-link" role="button" mat-button routerLink="/home/comrades">
+        <mat-icon matBadgeColor="warn">diversity_2</mat-icon>
+      </a>
+    </li>
+    <li class="nav-item top-nav-item">
+      <a class="nav-link" data-toggle="modal" role="button" data-target="#popup-status">
         <mat-icon matBadgeColor="warn">emoji_symbols</mat-icon>
       </a>
     </li>
@@ -60,16 +67,26 @@
       </div>
     </li>
     <li class="nav-item top-nav-item">
+      <a class="nav-link" role="button" mat-button routerLink="/home" data-widget="fullscreen">
+        <!-- <mat-icon matBadgeColor="warn">fullscreen</mat-icon> -->
+        <i class="fas fa-expand-arrows-alt"></i>
+      </a>
+    </li>
+    <!-- <li class="nav-item top-nav-item">
       <a class="nav-link" role="button" mat-button routerLink="/home/settings">
         <mat-icon matBadgeColor="warn">settings</mat-icon>
       </a>
-    </li>
+    </li> -->
     <li class="nav-item dropdown top-nav-item">
       <a class="nav-link" data-toggle="dropdown" mat-icon-button [matMenuTriggerFor]="menu"
         aria-label="Example icon-button with a menu">
         <mat-icon>more_vert</mat-icon>
       </a>
       <mat-menu #menu="matMenu">
+        <button mat-menu-item class="mat-menu-sub-button" (click)="gotoSettings()">
+          <mat-icon> settings</mat-icon>
+          <span>Settings</span>
+        </button>
         <button mat-menu-item class="mat-menu-sub-button" (click)="gotomoreinfo()">
           <mat-icon> dialpad</mat-icon>
           <span>More Info</span>
@@ -78,18 +95,18 @@
               <mat-icon> campaign</mat-icon>
               <span>Ads</span>
             </button> -->
-        <button mat-menu-item class="mat-menu-sub-button" (click)="gotodonate()">
+        <!-- <button mat-menu-item class="mat-menu-sub-button" (click)="gotodonate()">
           <mat-icon> money</mat-icon>
           <span>Donate</span>
-        </button>
+        </button> -->
         <button mat-menu-item class="mat-menu-sub-button" (click)="gotosuggestions()">
           <mat-icon>alternate_email</mat-icon>
           <span>Suggetions</span>
         </button>
-        <button mat-menu-item class="mat-menu-sub-button" (click)="gotocontactus()">
+        <!-- <button mat-menu-item class="mat-menu-sub-button" (click)="gotocontactus()">
           <mat-icon>support_agent</mat-icon>
           <span>Contact Us</span>
-        </button>
+        </button> -->
         <button mat-menu-item class="mat-menu-sub-button" (click)="logout()">
           <mat-icon>exit_to_app</mat-icon>
           <span>Logout</span>
@@ -113,10 +130,10 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="assets\img\avatar-male.png" class="img-circle elevation-2" alt="User Image">
+        <img src="{{profilePicture}}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a routerLink="/home/profile" class="d-block">Alexander Pierce</a>
+        <a routerLink="/home/profile" class="d-block">{{userName}}</a>
       </div>
     </div>
 
@@ -194,35 +211,29 @@
 
   </div>
   <!-- ./wrapper -->
-</div>  
+</div>
 
 <!-- Search box -->
-<div class="modal fade" id="modal-lg" style="z-index: 100;">
-  <div class="modal-dialog modal-lg">
-    <app-search-tab></app-search-tab>
+<div class="modal fade" id="search-box">
+  <div class="popup-box">
+  <div class="modal-dialog modal-lg ">
     <div class="modal-content">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <div class="container-fluid">
-          <h2 class="text-center display-4">Search</h2>
-        </div>
-      </section>
-
-      <!-- Main content -->
-      <section class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <form action="simple-results.html">
-                <div class="input-group input-group-lg">
-                  <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here">
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-lg btn-default">
-                      <i class="fa fa-search"></i>
-                    </button>
+      <div class="modal-body">
+        <section class="content">
+          <div class="container-fluid">
+            <div class="row" style="margin-bottom: 10px;">
+              <div class="col-md-8 offset-md-2">
+                <form action="simple-results.html">
+                  <div class="input-group input-group-lg">
+                    <input type="search" class="form-control form-control-lg" placeholder="Type your keywords here">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-lg btn-default">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
           <div class="row">
@@ -230,97 +241,97 @@
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Tabs</h3>
                 <ul class="nav nav-pills ml-auto p-2">
-                  <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Tab 1</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Tab 2</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Tab 3</a></li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
-                      Dropdown <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" tabindex="-1" href="#">Action</a>
-                      <a class="dropdown-item" tabindex="-1" href="#">Another action</a>
-                      <a class="dropdown-item" tabindex="-1" href="#">Something else here</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" tabindex="-1" href="#">Separated link</a>
-                    </div>
-                  </li>
+                  <li class="nav-item"><a class="nav-link active" href="#All" data-toggle="tab">All</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#Posts" data-toggle="tab">Posts</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#Statuses" data-toggle="tab">Statuses</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#Users" data-toggle="tab">Users</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#Communties" data-toggle="tab">Communties</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">
-                    <div class="row mt-3">
-                      <div class="col-md-10 offset-md-1">
-                        <div class="list-group">
-                          <div class="list-group-item">
-                            <div class="row">
-                              <div class="col px-4">
-                                <div>
-                                  <div class="float-right">2021-04-20 04:04pm</div>
-                                  <h3>Lorem ipsum dolor sit amet</h3>
-                                  <p class="mb-0">consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                                    massa.
-                                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                    mus.</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="list-group-item">
-                            <div class="row">
-                              <div class="col-auto">
-                                <img class="img-fluid" src="../../dist/img/photo1.png" alt="Photo"
-                                  style="max-height: 160px;">
-                              </div>
-                              <div class="col px-4">
-                                <div>
-                                  <div class="float-right">2021-04-20 10:14pm</div>
-                                  <h3>Lorem ipsum dolor sit amet</h3>
-                                  <p class="mb-0">consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                                    massa.
-                                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                    mus.</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="list-group-item">
-                            <div class="row">
-                              <div class="col-auto">
-                                <iframe width="240" height="160"
-                                  src="https://www.youtube.com/embed/WEkSYw3o5is?controls=0"
-                                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                  class="border-0" allowfullscreen></iframe>
-                              </div>
-                              <div class="col px-4">
-                                <div>
-                                  <div class="float-right">2021-04-20 11:54pm</div>
-                                  <h3>Lorem ipsum dolor sit amet</h3>
-                                  <p class="mb-0">consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                                    massa.
-                                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus
-                                    mus.</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane active" id="All">
+                    <div class="card bg-gradient-primary">
+                      <div class="card-body">
+                        The body of the card
                       </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <div class="card bg-gradient-primary">
+                      <div class="card-body">
+                        The body of the card
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <div class="card bg-gradient-primary">
+                      <div class="card-body">
+                        The body of the card
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <div class="card bg-gradient-primary">
+                      <div class="card-body">
+                        The body of the card
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <div class="card bg-gradient-primary">
+                      <div class="card-body">
+                        The body of the card
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <div class="card bg-gradient-primary">
+                      <div class="card-body">
+                        The body of the card
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <div class="card bg-gradient-primary">
+                      <div class="card-body">
+                        The body of the card
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                    <div class="card bg-gradient-primary">
+                      <div class="card-body">
+                        The body of the card
+                      </div>
+                      <!-- /.card-body -->
                     </div>
                   </div>
                   <!-- /.tab-pane -->
-                  <div class="tab-pane" id="tab_2">
-                    The European languages are members of the same family. Their separate existence is a myth.
-                    For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                    in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                    new common language would be desirable: one could refuse to pay expensive translators. To
-                    achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                    words. If several languages coalesce, the grammar of the resulting language is more simple
-                    and regular than that of the individual languages.
+                  <div class="tab-pane" id="Users">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                  </div>
+                  <div class="tab-pane" id="Posts">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                  </div>
+                  <div class="tab-pane" id="Statuses">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
                   </div>
                   <!-- /.tab-pane -->
-                  <div class="tab-pane" id="tab_3">
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane" id="Communties">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -335,11 +346,42 @@
               </div><!-- /.card-body -->
             </div>
           </div>
-        </div>
+      <!-- </div> -->
       </section>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-danger right">Close</button>
+      </div>
     </div>
+    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-content -->
+</div>
   <!-- /.modal-dialog -->
 </div>
-<!-- /Search box -->
+
+<!-- ./Search box -->
+
+<!-- Status -->
+<div class="modal fade" id="popup-status">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Default Modal</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- ./Status -->
+

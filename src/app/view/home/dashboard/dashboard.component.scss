@@ -252,10 +252,13 @@ p {
   text-align: left;
 }
 
+.search-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .search-box {
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%, -2.8%);
   height: 700px;
   width: 480px;
 }
@@ -349,7 +352,7 @@ card {
 }
 
 .mat-menu-panel {
-  max-width: 500px;
+  max-width: 200px;
 }
 
 .mat-menu-container {
@@ -369,6 +372,7 @@ card {
   border: none;
   font-size: 22px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .feeling-container {
@@ -379,7 +383,8 @@ card {
   // margin-bottom: 50px; 
   font-family: 'Monoton', cursive;
   font-family: 'Mountains of Christmas', cursive;
-  .feeling-with-launch-icon{
+
+  .feeling-with-launch-icon {
     font-size: 25px;
   }
 }
@@ -405,4 +410,9 @@ card {
   img {
     width: 750px;
   }
+}
+
+.dropdown-toggle {
+  padding: 0;
+  border: none;
 }

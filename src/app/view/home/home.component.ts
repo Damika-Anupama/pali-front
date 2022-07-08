@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SearchTabComponent } from '../pop-ups/search-tab/search-tab.component';
 import { UserService } from "@src/app/service/user.service";
-import {SocialAuthService} from 'angularx-social-login';
+import { SocialAuthService } from 'angularx-social-login';
 import { Router } from '@angular/router';
+import { environment } from '@src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -11,17 +12,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  imgSrc = '';
+  profilePicture = '';
+  userName = sessionStorage.getItem('userName');
   userId = sessionStorage.getItem('userId');
 
-  constructor(public dialog: MatDialog, private userService: UserService, private router: Router,private authService: SocialAuthService) {
+  constructor(public dialog: MatDialog, private userService: UserService, private router: Router, private authService: SocialAuthService) {
   }
 
 
   ngOnInit(): void {
-    this.userService.getProfilePic(this.userId).subscribe((value => {
-      this.imgSrc = 'data:image/png;base64,' + value.profilePic;
-    }));
+    if(sessionStorage.getItem('profilePicture') != 'null'){
+      this.profilePicture = 'data:image/png;base64,' + sessionStorage.getItem('profilePicture')
+    }else{
+      this.profilePicture = environment.defaultDP;
+    }
   }
 
   openDialog() {
@@ -36,27 +40,27 @@ export class HomeComponent implements OnInit {
       // right: '0',
       // bottom: '0'
     };
-    
+
 
     this.dialog.open(SearchTabComponent, dialogConfig);
 
   }
-  gotoads(): void{
+  gotoads(): void {
     this.router.navigateByUrl('/home/ads')
   }
-  gotosuggestions(): void{
+  gotosuggestions(): void {
     this.router.navigateByUrl('/home/suggestions')
   }
 
-  gotocontactus(): void{
+  gotocontactus(): void {
     this.router.navigateByUrl('/home/contact-us')
   }
 
-  gotodonate(): void{
+  gotodonate(): void {
     this.router.navigateByUrl('/home/donate')
   }
 
-  gotomoreinfo(): void{
+  gotomoreinfo(): void {
     this.router.navigateByUrl('/home/more-info')
   }
 
@@ -72,5 +76,9 @@ export class HomeComponent implements OnInit {
     }
 
     return value;
+  }
+
+  gotoSettings(): void {
+    this.router.navigateByUrl('/home/settings')
   }
 }

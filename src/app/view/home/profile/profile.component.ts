@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const userId = this.activatedRoute.snapshot.paramMap.get('userId');
+    const userId = sessionStorage.getItem("userId");
     console.log(userId);
     this.userService.getProfileInfo(userId).subscribe(value => {
       this.snackBar.open('This Page shown upon when someone searches your profile', 'Dismiss', {duration: 2000});

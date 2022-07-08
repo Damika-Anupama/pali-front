@@ -41,7 +41,8 @@
               "node_modules/admin-lte/dist/css/adminlte.min.css",
               "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
               "node_modules/admin-lte/plugins/daterangepicker/daterangepicker.css",
-              "node_modules/admin-lte/plugins/summernote/summernote-bs4.min.css"
+              "node_modules/admin-lte/plugins/summernote/summernote-bs4.min.css",
+              "node_modules/admin-lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css"
               
             ],
             "scripts": [
@@ -59,9 +60,11 @@
               "node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js",
               "node_modules/admin-lte/plugins/summernote/summernote-bs4.min.js",
               "node_modules/admin-lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "node_modules/admin-lte/plugins/sweetalert2/sweetalert2.min.js",
               "node_modules/admin-lte/dist/js/adminlte.js",
               "node_modules/admin-lte/dist/js/demo.js",
-              "node_modules/admin-lte/dist/js/pages/dashboard.js"
+              "node_modules/admin-lte/dist/js/pages/dashboard.js",
+              "node_modules/emoji-slider/bin/emoji-slider.js"
             ],
             "allowedCommonJsDependencies": [
               "$.widget.bridge('uibutton', $.ui.button)",
