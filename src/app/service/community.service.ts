@@ -17,9 +17,9 @@ export class communityService {
         body.append('description', description);
         body.append('title', title);
         body.append('groupIcon', groupIcon);
-        body.append('wallIcon', wallIcon);
+        body.append('wallpaper', wallIcon);
         // @ts-ignore
-        body.append('user', userId);
+        body.append('userId', userId);
         console.log(groupIcon,wallIcon)
         return this.http.post<HttpResponse<any>>(environment.baseUrl + '/api/v1/community', body, {
             observe: 'response'

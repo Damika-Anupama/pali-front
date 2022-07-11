@@ -38,15 +38,15 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.launchService.getAllLaunches().subscribe(launch => {
-    //   this.launches = launch;
-    // }, error => {
-    //   if (error.status === 400) {
-    //     this.snackBar.open('Invalid details!', 'Dismiss', {duration: 2000});
-    //   } else {
-    //     this.snackBar.open('500 Something went wrong!', 'Dismiss', {duration: 2000});
-    //   }
-    // });
+    this.launchService.getAllLaunches().subscribe(launch => {
+      this.launches = launch;
+    }, error => {
+      if (error.status === 400) {
+        this.snackBar.open('Invalid details!', 'Dismiss', { duration: 2000 });
+      } else {
+        this.snackBar.open('500 Something went wrong!', 'Dismiss', { duration: 2000 });
+      }
+    });
   }
 
   formatLabel(value: number): any {
