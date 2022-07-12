@@ -3,6 +3,9 @@ import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/n
 import { Router } from "@angular/router";
 import {MatDialog} from '@angular/material/dialog';
 import { searchCommunityContentComponent } from './searchCommunityDialogBox/searchCommunityContent.component';
+import { communityService } from '@src/app/service/community.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ComBody } from '@src/app/model/ComBody';
 
 @Component({
   selector: 'app-menu',
@@ -16,14 +19,32 @@ export class MenuComponent implements OnInit {
   pauseOnIndicator = false;
   pauseOnHover = true;
   pauseOnFocus = true;
+  communityBodies: ComBody[] = [];
+  declare communityBody: ComBody;
   // @ts-ignore
   @ViewChild('carousel', { static: true }) carousel: NgbCarousel;
   step = 0;
 
-  constructor(private router: Router,public dialog: MatDialog) {
+  constructor(
+    private router: Router,
+    private dialog: MatDialog,
+    private communityService: communityService, 
+    private snackBar:MatSnackBar
+    ) {
   }
 
   ngOnInit(): void {
+    //@ts-ignore 
+    this.communityService.getAllCommunities().subscribe(value => {
+      console.log(value);
+      this.communityBodies  = value;
+      }, error => {
+      if (error.status === 400) {
+        this.snackBar.open('Invalid details!', 'Dismiss', { duration: 2000 });
+      } else {
+        this.snackBar.open('500 Something went wrong!', 'Dismiss', { duration: 2000 });
+      }
+    });
   }
 
   togglePaused(): void {

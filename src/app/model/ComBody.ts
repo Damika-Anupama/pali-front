@@ -5,9 +5,9 @@
 
  export interface ComBody {
     id: number;
-    createdDate: Date;
-    description: string;
     title: string;
+    description: string;
+    createdDate: Date;
     groupIcon: File;
     wallPaper: File;
   }

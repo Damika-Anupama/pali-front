@@ -46,6 +46,7 @@ export class BuildComponent implements OnInit {
   createCommunityPage(): void {
     //@ts-ignore 
     this.communityService.createCommunity(this.description, this.title, this.groupIcon, this.wallIcon).subscribe(value => {
+      console.log(value)
       this.snackBar.open('Congratulations 🤠\n Community created Successfully !!', 'Dismiss', { duration: 2000 });
       // this.mediaFile = null;
       // this.description = '';

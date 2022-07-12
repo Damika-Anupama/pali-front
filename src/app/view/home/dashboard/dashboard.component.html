@@ -49,8 +49,35 @@
             <img class="img-fluid pad" src="data:image/png;base64,{{launch.file}}" alt="Photo">
 
             <p [innerText]="launch.description"></p>
-            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
-            <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i> Like</button>
+            <div>
+              <nav class="row expanded">
+                <ul>
+                  <li>
+                    <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon"
+                      (click)="changeColor()">
+                      <mat-icon>{{react}}</mat-icon>
+                    </button>
+                    <nav class="row">
+                      <ul>
+                        <li *ngFor="let react of reacts">
+                          <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
+                            (click)="changeReactType(react)">
+                            <mat-icon>{{react}}</mat-icon>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                  </li>
+                </ul>
+              </nav>
+              <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
+                data-toggle="collapse" href="#collapseOne">
+                <mat-icon>textsms</mat-icon>
+              </button>
+              <button mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon>share</mat-icon>
+              </button>
+            </div>
             <span class="float-right text-muted">127 likes - 3 comments</span>
           </div>
           <!-- /.card-body -->
