@@ -64,7 +64,7 @@ export class UserService {
     body.append('username', username);
     body.append('email', email);
     body.append('shortDes', shortDes);
-    // body.append('profilePic', profilePic);
+    body.append('profilePic', profilePic);
     body.append('phoneNum', phoneNumber);
     console.log(userId,username,)
     return this.http.put(environment.baseUrl + `/api/v1/users/${userId}`, body,{

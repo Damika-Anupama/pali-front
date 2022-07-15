@@ -130,6 +130,14 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
+        <!-- <ng-template [ngIf]="profilePicture" [ngIfElse]="loading">
+          <img class="img-circle elevation-2" alt="User Image" src="data:image/png;base64,{{profilePicture}}">
+        </ng-template>
+
+        <ng-template #loading>
+          <img class="img-circle elevation-2" alt="User Image" src="assets/img/avatar-other.png" >
+        </ng-template> -->
+
         <img src="{{profilePicture}}" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
@@ -567,20 +575,25 @@
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img src="assets/img/hpic1.jpg" class="d-block w-100" alt="hpic1" style="max-height: 450px; max-width: 500px;">
+                      <img src="assets/img/hpic1.jpg" class="d-block w-100" alt="hpic1"
+                        style="max-height: 450px; max-width: 500px;">
                     </div>
                     <div class="carousel-item">
-                      <img src="assets/img/hpic2.jpg" class="d-block w-100" alt="hpic2" style="max-height: 450px; max-width: 500px;">
+                      <img src="assets/img/hpic2.jpg" class="d-block w-100" alt="hpic2"
+                        style="max-height: 450px; max-width: 500px;">
                     </div>
                     <div class="carousel-item">
-                      <img src="assets/img/hpic3.jpg" class="d-block w-100" alt="hpic3" style="max-height: 450px; max-width: 500px;">
+                      <img src="assets/img/hpic3.jpg" class="d-block w-100" alt="hpic3"
+                        style="max-height: 450px; max-width: 500px;">
                     </div>
                   </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                   </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                   </button>
@@ -589,11 +602,23 @@
               </div>
               <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel"
                 aria-labelledby="custom-tabs-four-profile-tab">
-                Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula
-                tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas
-                sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus.
-                Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.
+                <div class="input-media-box" style="text-align: center;text-align: center;
+                height: 300px;
+                outline: solid;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: robot;
+                font-size: 40px;
+                padding: 20px;
+                margin: 25px;"> drop your media here</div>
+                <div style="display: flex;justify-content:center;align-items: center;">
+                  <input type="text" name="" id="" style="margin: 10px;">
+                </div>
+                <br>
+                <div style="display: flex;justify-content:center;align-items: center;">
+                  <button>submit</button>
+                </div>
               </div>
             </div>
           </div>

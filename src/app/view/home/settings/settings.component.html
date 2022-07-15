@@ -30,7 +30,14 @@
               </svg>
               <span>Upload Your Profile Picture</span></label
             >
-            <img src="{{profilePic}}" alt="profile-picture">
+            <ng-template [ngIf]="profilePic" [ngIfElse]="loading">
+              <img alt="Avatar"  src="data:image/png;base64,{{profilePic}}"
+                >
+            </ng-template>
+
+            <ng-template #loading>
+              <img alt="Avatar" src="assets/img/avatar-other.png">
+            </ng-template>
           </div>
           <hr>
           <div class="callout callout-info">

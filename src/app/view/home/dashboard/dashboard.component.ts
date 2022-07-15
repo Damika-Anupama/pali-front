@@ -40,6 +40,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.launchService.getAllLaunches().subscribe(launch => {
       this.launches = launch;
+      console.log(launch);
     }, error => {
       if (error.status === 400) {
         this.snackBar.open('Invalid details!', 'Dismiss', { duration: 2000 });
@@ -148,6 +149,9 @@ export class DashboardComponent implements OnInit {
 
   addEmoji(emoji: any): void {
     this.emoji = emoji;
+  }
+  giveColour(arr: any):void{
+    
   }
 
 }

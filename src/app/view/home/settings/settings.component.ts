@@ -10,7 +10,7 @@ import { environment } from '@src/environments/environment';
 })
 export class SettingsComponent implements OnInit {
 
-  profilePic = environment.defaultDP;
+  profilePic: FileList|undefined;
   shortDes = '';
   username = '';
   email = '';
@@ -26,7 +26,7 @@ export class SettingsComponent implements OnInit {
     this.userService.getUserDetailsById(this.userId)
       .subscribe(value => {
         if (value.profilePicture !== null) {
-          this.profilePic = 'data:image/png;base64,' + value.profilePicture;
+          this.profilePic = value.profilePicture;
         }
         this.shortDes = value.shortDescription;
         this.username = value.username;
@@ -51,21 +51,16 @@ export class SettingsComponent implements OnInit {
   readURL(event: Event): void {
     // @ts-ignore
     this.profilePic = event.target.files[0];
+    const reader = new FileReader();
     // @ts-ignore
-    if (event.target.files && event.target.files[0]) {
-      // @ts-ignore
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      // @ts-ignore
-      reader.onload = e => this.profilePic = reader.result;
-      reader.readAsDataURL(file);
-    }
+    reader.onload = e => this.profilePic = reader.result;
   }
 
   updateUserDetails(): void {
     if (this.userId === null){
       this.userId = 'no-userId'
     }
+    // @ts-ignore
     this.userService.updateUser(this.userId, this.profilePic, this.shortDes, this.username, this.email, this.phoneNumber)
       .subscribe(value => {
         this.snackBar.open('Your changes saved successfully 😊', 'Dismiss', { duration: 2000 });
