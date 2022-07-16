@@ -7,6 +7,7 @@ import { LaunchComment } from "./LaunchComment";
 import { LaunchReaction } from "./LaunchReaction";
 
 export interface LaunchBody {
+  launchId: Number;
   file: File;
   mediaType: string;
   description: string;
@@ -15,6 +16,7 @@ export interface LaunchBody {
   userName: string;
   shortDescription: string;
   profilePicture: string;
+  updatedTime: Date;
   reactions: LaunchReaction[];
   comments: LaunchComment[];
 }

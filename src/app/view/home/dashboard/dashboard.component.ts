@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { LaunchService } from '../../../service/launch.service';
 import { LaunchBody } from '../../../model/LaunchBody';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '@src/environments/environment';
 import { EmojiSlider } from 'emoji-slider';
+import { CommentService } from '@src/app/service/comment.service';
+import { ReactionService } from '@src/app/service/reaction.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,6 +13,8 @@ import { EmojiSlider } from 'emoji-slider';
 })
 
 export class DashboardComponent implements OnInit {
+  @ViewChild('commentBox') searchElement: ElementRef | undefined;
+
   launches: LaunchBody[] = [];
   launch!: LaunchBody;
   imgSrc = '';
@@ -32,9 +36,23 @@ export class DashboardComponent implements OnInit {
   audioSrc = '';
   userDP = environment.defaultDP;
   myDP = sessionStorage.getItem('profilePicture')
+  myUserId = sessionStorage.getItem('userId')
+  commentBox: any;
+  comment = '';
 
 
-  constructor(public launchService: LaunchService, private snackBar: MatSnackBar) {
+  constructor(
+    public launchService: LaunchService, 
+    private snackBar: MatSnackBar,
+    private commentService:CommentService,
+    private reactionService:ReactionService
+    ) {
+  }
+  getFocus():void{
+    setTimeout(()=>{ // this will make the execution after the above boolean has changed
+      // @ts-ignore
+      this.searchElement.nativeElement.focus();
+    },0);
   }
 
   ngOnInit(): void {
@@ -101,7 +119,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  changeColor(): void {
+  changeColor(launchId: Number): void {
     this.changeReact = !(this.changeReact);
     if (!this.changeReact) {
       this.reactColor = 'black';
@@ -109,6 +127,17 @@ export class DashboardComponent implements OnInit {
     } else {
       this.reactColor = 'warn';
     }
+    this.reactionService.saveReaction(this.react, launchId).subscribe(value => {
+      location.reload();
+    }, error => {
+      if (error.status === 400) {
+        alert("Invalid details!")
+        // this.snackBar.open('Invalid details!', 'Dismiss', {duration: 2000});
+      } else {
+        alert('500 Something went wrong!')
+        // this.snackBar.open('500 Something went wrong!', 'Dismiss', {duration: 2000});
+      }
+    });
   }
 
   changeReactType(react: string): void {
@@ -150,8 +179,18 @@ export class DashboardComponent implements OnInit {
   addEmoji(emoji: any): void {
     this.emoji = emoji;
   }
-  giveColour(arr: any):void{
-    
+  saveComment(comment:string,launchId: Number):void{
+    this.commentService.saveComment(comment, launchId).subscribe(value => {
+      location.reload();
+    }, error => {
+      if (error.status === 400) {
+        alert("Invalid details!")
+        // this.snackBar.open('Invalid details!', 'Dismiss', {duration: 2000});
+      } else {
+        alert('500 Something went wrong!')
+        // this.snackBar.open('500 Something went wrong!', 'Dismiss', {duration: 2000});
+      }
+    });
   }
 
 }

@@ -41,7 +41,8 @@
               </ng-template>
               <span class="username"><a href="#">{{launch.userName}}</a></span>
               <span class="description">{{launch.shortDescription}}</span>
-              <span class="description">Shared publicly - 7:30 PM Today</span>
+              <span *ngIf="launch.updatedTime != null" class="description">Shared publicly -
+                {{launch.updatedTime}}</span>
             </div>
             <!-- /.user-block -->
           </div>
@@ -58,15 +59,18 @@
               <nav class="row expanded">
                 <ul>
                   <li>
+                    <!-- <div *ngFor="let reaction of launch.reactions">
+                      <div *ngIf="reaction.userId == myUserId"></div>
+                    </div> -->
                     <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon"
-                      (click)="changeColor()">
+                      (click)="changeColor(launch.launchId)">
                       <mat-icon>{{react}}</mat-icon>
                     </button>
                     <nav class="row">
                       <ul>
                         <li *ngFor="let react of reacts">
                           <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
-                            (click)="changeReactType(react                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  )">
+                            (click)="changeReactType(react)">
                             <mat-icon>{{react}}</mat-icon>
                           </button>
                         </li>
@@ -76,172 +80,69 @@
                 </ul>
               </nav>
               <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
-                data-toggle="collapse" href="#collapseOne">
+                data-toggle="collapse" href="#collapseOne" (click)="getFocus()">
                 <mat-icon>textsms</mat-icon>
               </button>
-              <button mat-icon-button aria-label="Example icon-button with a heart icon">
-                <mat-icon>share</mat-icon>
-              </button>
+              <div class="btn-group">
+                <button mat-icon-button aria-label="Example icon-button with a heart icon" type="button"
+                  class="btn btn-default" data-toggle="dropdown">
+                  <mat-icon>share</mat-icon>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                  <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+                </ul>
+              </div>
             </div>
             <span class="float-right text-muted"> {{launch.reactions.length}} reactions - {{launch.comments.length}}
               comments</span>
           </div>
-          <div style="display: flex; justify-content: space-evenly;align-items: center;">
-            <a style="cursor: pointer; color: blue;">watch previous comments</a>
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer card-comments">
-            <div class="card-comment">
-              <!-- User image -->
-              <img class="img-circle img-sm" src="assets/img/user3-128x128.jpg" alt="User Image">
-
-              <div class="comment-text">
-                <span class="username">
-                  Maria Gonzales
-                  <span class="text-muted float-right">8:03 PM Today</span>
-                </span><!-- /.username -->
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-              </div>
-              <!-- /.comment-text -->
+          <div *ngIf="launch.comments.length != 0">
+            <div style="display: flex; justify-content: space-evenly;align-items: center;">
+              <a style="cursor: pointer; color: blue;">previous comments</a>
             </div>
-            <!-- /.card-comment -->
-            <div class="card-comment">
-              <!-- User image -->
-              <img class="img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="User Image">
+            <!-- /.card-body -->
+            <div class="card-footer card-comments">
+              <div class="direct-chat-messages" style="height: 80px;">
+                <div class="card-comment" *ngFor="let comment of launch.comments">
+                  <!-- User image -->
+                  <img *ngIf="!comment.userImage" class="img-circle img-sm" src="assets/img/avatar-other.png"
+                    alt="User Image">
+                  <img *ngIf="comment.userImage" class="img-circle img-sm"
+                    src="data:image/png;base64,{{comment.userImage}}" alt="User Image">
 
-              <div class="comment-text">
-                <span class="username">
-                  Luna Stark
-                  <span class="text-muted float-right">8:03 PM Today</span>
-                </span><!-- /.username -->
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
+                  <div class="comment-text">
+                    <span class="username">
+                      {{comment.userName}}
+                      <span class="text-muted float-right">{{comment.commentedDate}}</span>
+                    </span><!-- /.username -->
+                    {{comment.comment}}
+                  </div>
+                  <!-- /.comment-text -->
+                </div>
               </div>
-              <!-- /.comment-text -->
+              <!-- /.card-comment -->
             </div>
-            <!-- /.card-comment -->
           </div>
           <!-- /.card-footer -->
           <div class="card-footer">
             <form action="#" method="post">
-              <!-- <img class="img-fluid img-circle img-sm" src="data:image/png;base64,{{myDP}}" alt="Alt Text"> -->
-              <img class="img-fluid img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="Alt Text">
-              <!-- .img-push is used to add margin to elements next to floating images -->
-              <div class="img-push">
-                <input type="text" class="form-control form-control-sm" placeholder="Press enter to post comment">
+              <div class="img-group" style="display: flex">
+                <img *ngIf="myDP" class="img-fluid img-circle img-sm" src="data:image/png;base64,{{myDP}}"
+                  alt="Alt Text" style="margin: 5px;">
+                <img *ngIf="!myDP " class="img-fluid img-circle img-sm" src="assets/img/user4-128x128.jpg"
+                  alt="Alt Text" style="margin: 5px">
+                <!-- .img-push is used to add margin to elements next to floating images -->
+                <input type="text" name="message" placeholder="Comment here ..." class="form-control" #commentBox
+                  autofocus />
+                <button type="button" class="btn btn-warning"
+                  (click)="saveComment(commentBox.value,launch.launchId)">Comment</button>
               </div>
             </form>
           </div>
           <!-- /.card-footer -->
         </div>
-        <!-- 
-        <div class="main-content" *ngFor="let launch of launches" id="accordion">
-          <mat-card class="example-card">
-            <div class="ribbon-wrapper ribbon-xl">
-              <div class="menu-container">
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                  <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                  <button mat-menu-item>
-                    <mat-icon>bookmark_border</mat-icon>
-                    <span>Save</span>
-                  </button>
-                  <button mat-menu-item>
-                    <mat-icon>flag_circle</mat-icon>
-                    <span>Report</span>
-                  </button>
-                </mat-menu>
-              </div>
-              <div class="ribbon bg-danger text-xl">
-                <span class="feeling">{{launch.feeling}}</span>
-              </div>
-            </div>
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image">
-                <img *ngIf="launch.profilePicture == null ; else elseBlock" src="{{userDP}}"
-                  alt="launch-owner-profile-picture" class="launch-owner-profile-picture"
-                  style="height: 40px; width: 40px;">
 
-                <ng-template #elseBlock>
-                  <img [src]="('data:image/png;base64,' + launch.profilePicture)" alt="launch-owner-profile-picture"
-                    class="launch-owner-profile-picture" style="height: 40px; width: 40px;">
-                </ng-template>
-              </div>
-              <mat-card-title class="float-right">{{launch.userName}}</mat-card-title>
-              <mat-card-subtitle>{{launch.shortDescription}}</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <p [innerText]="launch.description"></p>
-            </mat-card-content>
-            <img src="data:image/png;base64,{{launch.file}}" class="image-view">
-            <mat-card-content>
-            </mat-card-content>
-            <hr>
-            <mat-card-actions>
-              <div>
-                <nav class="row expanded">
-                  <ul>
-                    <li>
-                      <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon"
-                        (click)="changeColor()">
-                        <mat-icon>{{react}}</mat-icon>
-                      </button>
-                      <nav class="row">
-                        <ul>
-                          <li *ngFor="let react of reacts">
-                            <button mat-icon-button color="warn" aria-label="Example icon-button with a heart icon"
-                              (click)="changeReactType(react)">
-                              <mat-icon>{{react}}</mat-icon>
-                            </button>
-                          </li>
-                        </ul>
-                      </nav>
-                    </li>
-                  </ul>
-                </nav>
-                <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon"
-                  data-toggle="collapse" href="#collapseOne">
-                  <mat-icon>textsms</mat-icon>
-                </button>
-                <button mat-icon-button aria-label="Example icon-button with a heart icon">
-                  <mat-icon>share</mat-icon>
-                </button>
-              </div>
-            </mat-card-actions>
-            <div id="collapseOne" class="collapse" data-parent="#accordion">
-              <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                3
-                wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                laborum
-                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                nulla
-                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                beer
-                farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                labore sustainable VHS.
-              </div>
-            </div>
-            <div class="card-footer">
-              <form action="#" method="post">
-                <div class="input-group">
-                  <span class="input-group-append"
-                    style="display: flex; justify-content: center; align-items: center;margin-right: 15px;">
-                    <mat-icon matBadgeColor="warn" style="cursor: pointer;">sentiment_very_satisfied</mat-icon>
-                  </span>
-                  <input type="text" name="message" placeholder="Comment here..." class="form-control">
-                  <span class="input-group-append">
-                    <button type="submit" class="btn btn-primary">Comment</button>
-                  </span>
-                </div>
-              </form>
-            </div>
-          </mat-card>
-        </div>
-         -->
       </div>
       <!-- /.col -->
 
@@ -626,7 +527,7 @@
                     Feeling with Launch :
 
                     <div class="btn-group">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      <button type="button" class="btn btn-default" data-toggle="dropdown">
                         <strong class="feeling-with-launch-icon">{{emoji}}</strong>
                       </button>
                       <div class="dropdown-menu" role="menu">

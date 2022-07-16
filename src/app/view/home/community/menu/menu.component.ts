@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgbCarousel, NgbSlideEvent, NgbSlideEventSource } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from "@angular/router";
 import {MatDialog} from '@angular/material/dialog';
-import { searchCommunityContentComponent } from './searchCommunityDialogBox/searchCommunityContent.component';
+// import { searchCommunityContentComponent } from './searchCommunityDialogBox/searchCommunityContent.component';
 import { communityService } from '@src/app/service/community.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ComBody } from '@src/app/model/ComBody';
@@ -56,9 +56,6 @@ export class MenuComponent implements OnInit {
     this.paused = !this.paused;
   }
 
-  gotopage(): any {
-    this.router.navigateByUrl('/home/com/page/ff')
-  }
   onSlide(slideEvent: NgbSlideEvent): void {
     if (this.unpauseOnArrow && slideEvent.paused &&
       (slideEvent.source === NgbSlideEventSource.ARROW_LEFT || slideEvent.source === NgbSlideEventSource.ARROW_RIGHT)) {
@@ -84,12 +81,8 @@ export class MenuComponent implements OnInit {
   routToBuildPage(): void {
     this.router.navigateByUrl('/home/com/build');
   }
-
-  openDialog() {
-    const dialogRef = this.dialog.open(searchCommunityContentComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  openPage(community:any):void{
+    // localStorage.setItem('comName',community.);
+    this.router.navigateByUrl('/home/com/page/' + localStorage.getItem('comName'))
   }
 }

@@ -20,7 +20,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { searchCommunityContentComponent } from './menu/searchCommunityDialogBox/searchCommunityContent.component';
 
 
 
@@ -28,9 +27,8 @@ import { searchCommunityContentComponent } from './menu/searchCommunityDialogBox
   declarations: [
     MenuComponent,
     PageComponent,
-    BuildComponent,
-    searchCommunityContentComponent
-  ],
+    BuildComponent
+    ],
   imports: [
     CommonModule,
     MatExpansionModule,
