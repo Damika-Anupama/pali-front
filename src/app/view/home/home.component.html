@@ -138,7 +138,7 @@
           <img class="img-circle elevation-2" alt="User Image" src="assets/img/avatar-other.png" >
         </ng-template> -->
 
-        <img src="{{profilePicture}}" class="img-circle elevation-2" alt="User Image">
+        <img src="{{profilePicture}}" class="img-circle elevation-2" alt="User Image" style="height: 33.59px; width: 33.59px">
       </div>
       <div class="info">
         <a routerLink="/home/profile" class="d-block">{{userName}}</a>
@@ -151,7 +151,7 @@
         <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a routerLink="home" class="nav-link " routerLinkActive="active">
+          <a routerLink="home" class="nav-link " routerLinkActive="active" >
             <i class="nav-icon fas fa-home"></i>
             <p>
               Home
@@ -159,7 +159,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLink="profile" class="nav-link" routerLinkActive="active">
+          <a routerLink="profile" class="nav-link" routerLinkActive="active" (click)="gotoProfile()">
             <i class="nav-icon far fa-user-circle"></i>
             <p>
               Profile
@@ -545,16 +545,22 @@
 <!-- Status -->
 <div class="modal fade" id="popup-status">
   <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" style="padding: 5px;">
-        <h4 class="modal-title">Status</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="height: 530px;">
-        <div class="card card-primary card-outline card-outline-tabs">
+        <div class="modal-content card card-primary card-outline card-outline-tabs">
+          
           <div class="card-header p-0 border-bottom-0">
+            <div class="card-tools" >
+
+              <div class="info-box bg-warning" style="margin: 0; padding:0;height: 60px;">
+                <span class="info-box-icon" style="height: 60px;"><i class="far fa-heart"></i></span>
+  
+                <div class="info-box-content" style="height: 60px;">
+                  <span class="info-box-text">Status</span>
+                  <span class="info-box-number">5,200</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+
+            </div>
             <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" id="custom-tabs-four-home-tab" data-toggle="pill"
@@ -567,6 +573,7 @@
                   aria-selected="false"> ➕</a>
               </li>
             </ul>
+            
           </div>
           <div class="card-body" style="height:465px">
             <div class="tab-content" id="custom-tabs-four-tabContent">
@@ -624,10 +631,5 @@
           </div>
           <!-- /.card -->
         </div>
-      </div>
-    </div>
-    <!-- /.modal-content -->
   </div>
-  <!-- /.modal-dialog -->
 </div>
-<!-- ./Status -->

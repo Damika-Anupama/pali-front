@@ -5,6 +5,7 @@ import { UserService } from "@src/app/service/user.service";
 import { SocialAuthService } from 'angularx-social-login';
 import { Router } from '@angular/router';
 import { environment } from '@src/environments/environment';
+import { profileObserverService } from '@src/app/service/profile.observer.service';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,16 @@ import { environment } from '@src/environments/environment';
 })
 export class HomeComponent implements OnInit {
   profilePicture = '';
-  userName = sessionStorage.getItem('userName');
-  userId = sessionStorage.getItem('userId');
+  userName = sessionStorage.getItem('userName')  || '{}';
+  userId = sessionStorage.getItem('userId')  || '{}';
 
-  constructor(public dialog: MatDialog, private userService: UserService, private router: Router, private authService: SocialAuthService) {
+  constructor(
+    public dialog: MatDialog, 
+    private userService: UserService, 
+    private router: Router, 
+    private authService: SocialAuthService,
+    private profileObserver: profileObserverService
+    ) {
   }
 
 
@@ -78,7 +85,11 @@ export class HomeComponent implements OnInit {
     return value;
   }
 
-  gotoSettings(): void {
+  gotoProfile(): void {
+    this.profileObserver.updateApprovalMessage(this.userId);
+    this.router.navigateByUrl('/home/profile')
+  }
+  gotoSettings():void {
     this.router.navigateByUrl('/home/settings')
   }
 }

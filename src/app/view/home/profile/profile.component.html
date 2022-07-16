@@ -7,19 +7,32 @@
         <div class="card card-primary card-outline">
           <div class="card-body box-profile">
             <div class="text-center">
-              <img class="profile-user-img img-fluid img-circle"
-                   src="assets/img/avatar-male.png"
-                   alt="User profile picture">
+              <img class="profile-user-img img-fluid img-circle" src="assets/img/avatar-male.png"
+                alt="User profile picture">
             </div>
 
-            <h3 class="profile-username text-center">Nina Mcintire</h3>
+            <h3 class="profile-username text-center">User Name</h3>
 
-            <p class="text-muted text-center">Software Engineer</p>
+            <p class="text-muted text-center">Full Name</p>
             <a href="#" class="btn btn-primary btn-block"><b>Add Friend</b></a>
           </div>
           <!-- /.card-body -->
         </div>
         <!-- /.card -->
+
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>32</h3>
+
+            <p>Launches</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <a routerLink="/home/comrades/1" class="small-box-footer">
+            Let's Watch <i class="fas fa-arrow-circle-right"></i>
+          </a>
+        </div>
 
         <div class="small-box bg-warning">
           <div class="inner">
@@ -49,21 +62,6 @@
           </a>
         </div>
 
-        <!-- <div class="small-box badge-danger">
-          <div class="inner">
-            <h3>53</h3>
-
-            <p>Pages</p>
-          </div>
-          <div class="icon">
-            <i class="fas fa-camera"></i>
-          </div>
-          <a routerLink="/home/pages" class="small-box-footer">
-            Let's Watch <i class="fas fa-arrow-circle-right"></i>
-          </a>
-        </div> -->
-
-        <!-- About Me Box -->
         <div class="card card-primary">
           <div class="card-header">
             <h3 class="card-title">About Me</h3>
@@ -96,27 +94,65 @@
 
             <hr>
 
-            <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+            <strong><i class="fas fa-envelope mr-1"></i> Email</strong>
 
-            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+            <p class="text-muted">
+              <span class="tag tag-danger">demo@gmail.com</span>
+            </p>
+
+            <hr>
+
+            <strong><i class="fas fa-phone -alt mr-1"></i> Contact Number</strong>
+
+            <p class="text-muted">
+              <span class="tag tag-danger">0123456789</span>
+            </p>
+
+            <hr>
+
+            <strong>
+              <svg style="height:16px; width:16px; margin-right: 3px;" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 496 512">
+                <!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                <path
+                  d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm114.6 226.4l-113 152.7-112.7-152.7c-8.7-11.9-19.1-50.4 13.6-72 28.1-18.1 54.6-4.2 68.5 11.9 15.9 17.9 46.6 16.9 61.7 0 13.9-16.1 40.4-30 68.1-11.9 32.9 21.6 22.6 60 13.8 72z" />
+              </svg>
+              Relationship</strong>
+
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.
+            </p>
+
+            <hr>
+
+            <strong><i class="fas fa-user mr-1"></i> Gender </strong>
+
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.
+            </p>
+            <hr>
+
+            <strong><i class="fas fa-bookmark mr-1"></i> Note </strong>
+
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.
+            </p>
+
           </div>
           <!-- /.card-body -->
         </div>
         <!-- /.card -->
 
-<!--        <div class="small-box bg-info">-->
-<!--          <div class="inner">-->
-<!--            <h3>150</h3>-->
+        <!--        <div class="small-box bg-info">-->
+        <!--          <div class="inner">-->
+        <!--            <h3>150</h3>-->
 
-<!--            <p>Pages</p>-->
-<!--          </div>-->
-<!--          <div class="icon">-->
-<!--            <i class="fas fa-pager"></i>-->
-<!--          </div>-->
-<!--          <a href="#" class="small-box-footer">-->
-<!--            Let's Watch <i class="fas fa-arrow-circle-right"></i>-->
-<!--          </a>-->
-<!--        </div>-->
+        <!--            <p>Pages</p>-->
+        <!--          </div>-->
+        <!--          <div class="icon">-->
+        <!--            <i class="fas fa-pager"></i>-->
+        <!--          </div>-->
+        <!--          <a href="#" class="small-box-footer">-->
+        <!--            Let's Watch <i class="fas fa-arrow-circle-right"></i>-->
+        <!--          </a>-->
+        <!--        </div>-->
       </div>
       <!-- /.col -->
       <div class="col-md-9">
@@ -128,90 +164,159 @@
                 <div class="timeline timeline-inverse">
                   <!-- timeline time label -->
                   <div class="time-label">
-                        <span class="bg-danger">
-                          10 Feb. 2014
-                        </span>
+                    <span class="bg-danger">
+                      10 Feb. 2014
+                    </span>
                   </div>
-                  <!-- /.timeline-label -->
-                  <!-- timeline item -->
-                  <div>
-                    <i class="fas fa-envelope bg-primary"></i>
 
-                    <div class="timeline-item">
-                      <span class="time"><i class="far fa-clock"></i> 12:05</span>
-
-                      <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                      <div class="timeline-body">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                        quora plaxo ideeli hulu weebly balihoo...
-                      </div>
-                      <div class="timeline-footer">
-                        <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- END timeline item -->
-                  <!-- timeline item -->
                   <div>
                     <i class="fas fa-user bg-info"></i>
 
                     <div class="timeline-item">
                       <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
 
-                      <h3 class="timeline-header border-0"><a href="#">Sarah Young</a> accepted your friend request
-                      </h3>
+                      <div class="timeline-header border-0">
+                        <h6 > 
+                          <img src="assets/img/user1-128x128.jpg" alt="friend-image"
+                          style="height: 40px; width: 40px; border-radius: 50%; margin-right: 10px; ">
+                          <b><a href="#">Sarah Young</a></b> accepted your friend request
+                        </h6>
+                      </div>
                     </div>
                   </div>
-                  <!-- END timeline item -->
-                  <!-- timeline item -->
+
                   <div>
-                    <i class="fas fa-comments bg-warning"></i>
+                    <i class="fas fa-user bg-info"></i>
 
                     <div class="timeline-item">
-                      <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
+                      <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
 
-                      <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                      <div class="timeline-body">
-                        Take me to your leader!
-                        Switzerland is small and neutral!
-                        We are more like Germany, ambitious and misunderstood!
-                      </div>
-                      <div class="timeline-footer">
-                        <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
+                      <div class="timeline-header border-0">
+                        <h6 > 
+                          You accepted <b><a href="#">Sarah Young</a></b>'s friend request
+                          <img src="assets/img/user1-128x128.jpg" alt="friend-image"
+                          style="height: 40px; width: 40px; border-radius: 50%; margin-left: 10px; ">
+                        </h6>
                       </div>
                     </div>
                   </div>
-                  <!-- END timeline item -->
-                  <!-- timeline time label -->
+
                   <div class="time-label">
-                        <span class="bg-success">
-                          3 Jan. 2014
-                        </span>
+                    <span class="bg-success">
+                      3 Jan. 2014
+                    </span>
                   </div>
                   <!-- /.timeline-label -->
-                  <!-- timeline item -->
                   <div>
                     <i class="fas fa-camera bg-purple"></i>
 
                     <div class="timeline-item">
+
+                      <!-- <div class=" card card-widget"> -->
                       <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
+                      <div class="card-header timeline-header">
+                        <div class="user-block">
+                          <img class="img-circle" src="assets/img/user1-128x128.jpg" alt="User Image"
+                            style="width: 40px;">
+                          <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
+                          <span class="description">Shared publicly - 7:30 PM Today</span>
+                        </div>
+                        <!-- /.user-block -->
+                      </div>
+                      <!-- /.card-header -->
+                      <div class="timeline-body card-body">
+                        <img class="img-fluid pad" src="assets/img/photo2.png" alt="Photo">
 
-                      <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+                        <p>I took this photo this morning. What do you guys think?</p>
+                        <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i> Share</button>
+                        <button type="button" class="btn btn-default btn-sm"><i class="far fa-thumbs-up"></i>
+                          Like</button>
+                        <span class="float-right text-muted">127 likes - 3 comments</span>
+                      </div>
+                      <!-- /.card-body -->
+                      <div class="card-footer card-comments">
+                        <div class="card-comment">
+                          <!-- User image -->
+                          <img class="img-circle img-sm" src="assets/img/user3-128x128.jpg" alt="User Image">
 
-                      <div class="timeline-body">
-                        <img src="assets/img/62-900x500.jpg" alt="..." style="width: 450px;">
-                        <img src="assets/img/83-900x500.jpg" alt="..." style="width: 450px;">
-                        <img src="assets/img/466-900x500.jpg" alt="..." style="width: 450px;">
-                        <img src="assets/img/965-900x500.jpg" alt="..." style="width: 450px;">
+                          <div class="comment-text">
+                            <span class="username">
+                              Maria Gonzales
+                              <span class="text-muted float-right">8:03 PM Today</span>
+                            </span><!-- /.username -->
+                            It is a long established fact that a reader will be distracted
+                            by the readable content of a page when looking at its layout.
+                          </div>
+                          <!-- /.comment-text -->
+                        </div>
+                        <!-- /.card-comment -->
+                        <div class="card-comment">
+                          <!-- User image -->
+                          <img class="img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="User Image">
+
+                          <div class="comment-text">
+                            <span class="username">
+                              Luna Stark
+                              <span class="text-muted float-right">8:03 PM Today</span>
+                            </span><!-- /.username -->
+                            It is a long established fact that a reader will be distracted
+                            by the readable content of a page when looking at its layout.
+                          </div>
+                          <!-- /.comment-text -->
+                        </div>
+                        <!-- /.card-comment -->
+                      </div>
+                      <!-- /.card-footer -->
+                      <div class="card-footer">
+                        <form action="#" method="post">
+                          <img class="img-fluid img-circle img-sm" src="assets/img/user4-128x128.jpg" alt="Alt Text"
+                            style="width: 30px;">
+                          <!-- .img-push is used to add margin to elements next to floating images -->
+                          <div class="img-push">
+                            <input type="text" class="form-control form-control-sm"
+                              placeholder="Press enter to post comment">
+                          </div>
+                        </form>
+                      </div>
+                      <!-- /.card-footer -->
+                      <!-- </div> -->
+                    </div>
+
+                  </div>
+                  <!-- END timeline item -->
+                  <div class="time-label">
+                    <span class="bg-danger">
+                      10 Feb. 2014
+                    </span>
+                  </div>
+
+                  <div>
+                    <i class="fas fa-users bg-success"></i>
+
+                    <div class="timeline-item">
+                      <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
+
+                      <h3 class="timeline-header border-0">You joined to the <a href="#">ABCD</a> group
+                      </h3>
+                      <div style="display: flex; justify-content: center; align-items: center;">
+                        <div class="col-md-12">
+                          <div style="position: absolute; top: 0px; right: 0px; z-index: 10; margin: 10px;">
+                            <img src="assets/img/symbol2.png" alt="groupIcon"
+                              style="height: 100px; width:100px;border-radius: 50%;">
+                          </div>
+                          <div class="card mb-2 bg-gradient-dark">
+                            <img class="card-img-top" src="assets/img/photo1.png" alt="Dist Photo 1">
+                            <div class="card-img-overlay d-flex flex-column justify-content-end">
+                              <h5 class="card-title text-primary text-white">Card Title</h5>
+                              <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit sed do eiusmod tempor.</p>
+                              <a href="#" class="text-white">Last update 2 mins ago</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <!-- END timeline item -->
                   <div>
                     <i class="far fa-clock bg-gray"></i>
                   </div>

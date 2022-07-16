@@ -35,6 +35,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { PagesComponent } from './pages/pages.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
@@ -78,6 +79,7 @@ import { MoreInfoComponent } from './more-info/more-info.component';
     MatInputModule,
     MatMenuModule,
     MatButtonModule,
+    MatDatepickerModule,
     CommunityModule,
     CommunityRoutingModule,
     MatDialogModule,
