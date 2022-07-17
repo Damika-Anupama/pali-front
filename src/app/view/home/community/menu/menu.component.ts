@@ -6,6 +6,8 @@ import {MatDialog} from '@angular/material/dialog';
 import { communityService } from '@src/app/service/community.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ComBody } from '@src/app/model/ComBody';
+import { observerService } from '@src/app/service/observer.service';
+import { ObserversModule } from '@angular/cdk/observers';
 
 @Component({
   selector: 'app-menu',
@@ -29,7 +31,8 @@ export class MenuComponent implements OnInit {
     private router: Router,
     private dialog: MatDialog,
     private communityService: communityService, 
-    private snackBar:MatSnackBar
+    private snackBar:MatSnackBar,
+    private observer:observerService
     ) {
   }
 
@@ -81,8 +84,8 @@ export class MenuComponent implements OnInit {
   routToBuildPage(): void {
     this.router.navigateByUrl('/home/com/build');
   }
-  openPage(community:any):void{
-    // localStorage.setItem('comName',community.);
-    this.router.navigateByUrl('/home/com/page/' + localStorage.getItem('comName'))
+  openPage(community: any):void{
+    this.observer.updateApprovalMessage(community.communityId +"");
+    this.router.navigateByUrl('/home/com/page/' + community.communityId)
   }
 }

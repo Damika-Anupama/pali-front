@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
-export class profileObserverService {
+export class observerService {
 
     private approvalStageMessage = new BehaviorSubject('Basic Approval is required!');
     currentApprovalStageMessage = this.approvalStageMessage.asObservable();

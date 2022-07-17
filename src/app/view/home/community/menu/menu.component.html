@@ -15,7 +15,7 @@
           <div class="card-body">
             <!-- Conversations are loaded here -->
             <div class="direct-chat-messages">
-              <div class="callout callout-danger" *ngFor="let communityBody of communityBodies" style="cursor: pointer;" (click) = "openPage(communityBody)">
+              <div class="callout callout-danger" *ngFor="let communityBody of communityBodies" (click) = "openPage(communityBody)" style="cursor: pointer;" >
                 <img src="data:image/png;base64,{{communityBody.groupIcon}}" class="image-view-revise" style="height:40px; width: 40px; border-radius:50%">
                 <h5>Group Theme : {{communityBody.title}}</h5>
                 <p>Description : {{communityBody.description}}</p>

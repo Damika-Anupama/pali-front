@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ActivatedRoute} from "@angular/router";
-import { profileObserverService } from '@src/app/service/profile.observer.service';
+import { observerService } from '@src/app/service/observer.service';
 import {UserService} from "@src/app/service/user.service";
 
 @Component({
@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
     private snackBar: MatSnackBar, 
     private activatedRoute: ActivatedRoute, 
     private userService: UserService,
-    private profileObserver: profileObserverService
+    private profileObserver: observerService
     ) {
   }
 

@@ -15,6 +15,16 @@ import { ReactionService } from '@src/app/service/reaction.service';
 export class DashboardComponent implements OnInit {
   @ViewChild('commentBox') searchElement: ElementRef | undefined;
 
+  visibleImage = true;
+  imageSrc = '';
+  visibleVideo = false;
+  videoSrc = '';
+  visibleAudio = false;
+  audioSrc = '';
+  description = '';
+  emoji = '😉';
+  emojis = ['😃', '😍', '😴', '😎', '😡', '🥶', '😞', '🤔', '😶'];
+
   launches: LaunchBody[] = [];
   launch!: LaunchBody;
   imgSrc = '';
@@ -22,18 +32,9 @@ export class DashboardComponent implements OnInit {
   changeReact = false;
   react = 'favorite';
   reacts = ['favorite', 'local_fire_department', 'sentiment_very_dissatisfied', 'auto_awesome', 'sick'];
-  imageSrc = '';
-  description = '';
-  emoji = '😉';
   // @ts-ignore
   mediaFile: FileList;
   launchImg = '';
-  emojis = ['😃', '😍', '😴', '😎', '😡', '🥶', '😞', '🤔', '😶'];
-  visibleImage = true;
-  visibleVideo = false;
-  videoSrc = '';
-  visibleAudio = false;
-  audioSrc = '';
   userDP = environment.defaultDP;
   myDP = sessionStorage.getItem('profilePicture')
   myUserId = sessionStorage.getItem('userId')
@@ -56,16 +57,16 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.launchService.getAllLaunches().subscribe(launch => {
-    //   this.launches = launch;
-    //   console.log(launch);
-    // }, error => {
-    //   if (error.status === 400) {
-    //     this.snackBar.open('Invalid details!', 'Dismiss', { duration: 2000 });
-    //   } else {
-    //     this.snackBar.open('500 Something went wrong!', 'Dismiss', { duration: 2000 });
-    //   }
-    // });
+    this.launchService.getAllLaunches().subscribe(launch => {
+      this.launches = launch;
+      console.log(launch);
+    }, error => {
+      if (error.status === 400) {
+        this.snackBar.open('Invalid details!', 'Dismiss', { duration: 2000 });
+      } else {
+        this.snackBar.open('500 Something went wrong!', 'Dismiss', { duration: 2000 });
+      }
+    });
   }
 
   formatLabel(value: number): any {

@@ -5,7 +5,7 @@ import { UserService } from "@src/app/service/user.service";
 import { SocialAuthService } from 'angularx-social-login';
 import { Router } from '@angular/router';
 import { environment } from '@src/environments/environment';
-import { profileObserverService } from '@src/app/service/profile.observer.service';
+import { observerService } from '@src/app/service/observer.service';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     private userService: UserService, 
     private router: Router, 
     private authService: SocialAuthService,
-    private profileObserver: profileObserverService
+    private profileObserver: observerService
     ) {
   }
 

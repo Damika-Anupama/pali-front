@@ -3,13 +3,17 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '@src/environments/environment';
 import { ComBody } from '../model/ComBody';
+import { FullCommunityBody } from '../model/FullCommunityBody';
 @Injectable({
     providedIn: 'root'
 })
 export class communityService {
-
     constructor(private http: HttpClient) {
     }
+    getCommunityDetails(comunityId: string | null) {
+        return this.http.get<FullCommunityBody>(environment.baseUrl + `/api/v1/community/${comunityId}`);
+    }
+
 
     createCommunity(description: string, title: string, groupIcon: File, wallIcon: File): Observable<HttpResponse<any>> {
         const userId: string | null = sessionStorage.getItem('userId');
