@@ -4,7 +4,7 @@
  **/
 
 import { LaunchCommunity } from "./LaunchCommunity";
-import { miniUserCom } from "./miniUserCom";
+import { miniUserCom } from "./MiniUserCom";
 
  export interface FullCommunityBody {
     id: number;

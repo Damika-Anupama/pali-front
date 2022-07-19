@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '@src/environments/environment';
-import {User} from '@src/app/model/User';
+import {UserProfileBody} from '@src/app/model/UserProfileBody';
 
 
 @Injectable({
@@ -75,7 +75,7 @@ export class UserService {
   }
   // return this.http.put(environment.baseUrl + `/api/v1/users/${userId}`, body,{
   
-  getProfileInfo(userId: string | null): Observable<any> {
-    return this.http.get(environment.baseUrl + '/api/v1/users/info/' + userId);
+  getProfileInfo(userId: string | null): Observable<UserProfileBody> {
+    return this.http.get<UserProfileBody>(environment.baseUrl + '/api/v1/users/info/' + userId);
   }
 }

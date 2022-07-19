@@ -16,6 +16,12 @@ export class SettingsComponent implements OnInit {
   email = '';
   phoneNumber = '';
   password = '';
+  fullName = '';
+  dob = '';
+  education = '';
+  skills = '';
+  gender = '';
+  relationship = '';
   userId = sessionStorage.getItem('userId');
 
   constructor(private userService: UserService, private snackBar: MatSnackBar) {
@@ -25,6 +31,7 @@ export class SettingsComponent implements OnInit {
 
     this.userService.getUserDetailsById(this.userId)
       .subscribe(value => {
+        console.log(value)
         if (value.profilePicture !== null) {
           this.profilePic = value.profilePicture;
         }
@@ -33,6 +40,12 @@ export class SettingsComponent implements OnInit {
         this.email = value.email;
         this.phoneNumber = value.contactNum;
         this.password = value.password;
+        this.fullName = this.fullName;
+        this.dob = this.dob;
+        this.education = this.education;
+        this.skills = this.skills;
+        this.gender = this.gender;
+        this.relationship = this.relationship;
       }, error => {
         console.log(error)
         if (error.status === 400) {
@@ -61,7 +74,7 @@ export class SettingsComponent implements OnInit {
       this.userId = 'no-userId'
     }
     // @ts-ignore
-    this.userService.updateUser(this.userId, this.profilePic, this.shortDes, this.username, this.email, this.phoneNumber)
+    this.userService.updateUser(this.userId, this.profilePic, this.shortDes, this.username, this.email, this.phoneNumber,)
       .subscribe(value => {
         this.snackBar.open('Your changes saved successfully 😊', 'Dismiss', { duration: 2000 });
         this.userService.authenticate(this.username, this.password)
