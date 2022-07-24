@@ -1,3 +1,5 @@
+<img src="https://media.giphy.com/media/3o6UBpHgaXFDNAuttm/giphy.gif">
+<img src="https://media.giphy.com/media/  afcgyMA2255Kg/giphy.gif">
 <section class="content">
   <div class="container-fluid">
     <!-- Main row -->
@@ -62,8 +64,12 @@
                     <!-- <div *ngFor="let reaction of launch.reactions">
                       <div *ngIf="reaction.userId == myUserId"></div>
                     </div> -->
-                    <button mat-icon-button [color]=[reactColor] aria-label="Example icon-button with a heart icon"
-                      (click)="changeColor(launch.launchId)">
+                    <button mat-icon-button *ngIf="launch.reactType" [color]=[reactColor]
+                      aria-label="Example icon-button with a heart icon" (click)="changeColor(launch.launchId)">
+                      <mat-icon>{{react}}</mat-icon>
+                    </button>
+                    <button mat-icon-button *ngIf="launch.reactType != ''" [color]=[reactColor]
+                      aria-label="Example icon-button with a heart icon" (click)="changeColor(launch.launchId)">
                       <mat-icon>{{react}}</mat-icon>
                     </button>
                     <nav class="row">
@@ -85,7 +91,7 @@
               </button>
               <div class="btn-group">
                 <button mat-icon-button aria-label="Example icon-button with a heart icon" type="button"
-                  class="btn btn-default" data-toggle="dropdown">
+                  class="btn btn-default" data-toggle="dropdown" style="background-color: unset;border-radius: 50%;">
                   <mat-icon>share</mat-icon>
                 </button>
                 <ul class="dropdown-menu">
@@ -105,11 +111,16 @@
             <div class="card-footer card-comments">
               <div class="direct-chat-messages" style="height: 80px;">
                 <div class="card-comment" *ngFor="let comment of launch.comments">
-                  <!-- User image -->
-                  <img *ngIf="!comment.userImage" class="img-circle img-sm" src="assets/img/avatar-other.png"
-                    alt="User Image">
-                  <img *ngIf="comment.userImage" class="img-circle img-sm"
-                    src="data:image/png;base64,{{comment.userImage}}" alt="User Image">
+                  <div class="wrapper" style="position: relative;">
+                    <div class="onlineStatus"
+                      style="position: absolute;height: 7.8px; width: 7.8px; border-radius: 50%; background-color: green;left:18px;top:24px;z-index: 10;">
+                    </div>
+                    <!-- User image -->
+                    <img *ngIf="!comment.userImage" class="img-circle img-sm" src="assets/img/avatar-other.png"
+                      alt="User Image">
+                    <img *ngIf="comment.userImage" class="img-circle img-sm"
+                      src="data:image/png;base64,{{comment.userImage}}" alt="User Image">
+                  </div>
 
                   <div class="comment-text">
                     <span class="username">
@@ -127,16 +138,25 @@
           <!-- /.card-footer -->
           <div class="card-footer">
             <form action="#" method="post">
+              <div class="onlineStatus"
+                style="position: absolute;height: 7.8px; width: 7.8px; border-radius: 50%; background-color: green; left: 43px; bottom: 14px; z-index: 10;">
+              </div>
               <div class="img-group" style="display: flex">
                 <img *ngIf="myDP" class="img-fluid img-circle img-sm" src="data:image/png;base64,{{myDP}}"
                   alt="Alt Text" style="margin: 5px;">
-                <img *ngIf="!myDP " class="img-fluid img-circle img-sm" src="assets/img/user4-128x128.jpg"
-                  alt="Alt Text" style="margin: 5px">
+                <img *ngIf="!myDP " class="img-fluid img-circle img-sm" src="assets/img/avatar-other.png" alt="Alt Text"
+                  style="margin: 5px">
                 <!-- .img-push is used to add margin to elements next to floating images -->
-                <input type="text" name="message" placeholder="Comment here ..." class="form-control" #commentBox
+                <input type="text-area" name="message" placeholder="Comment here ..." class="form-control" #commentBox
                   autofocus />
-                <button type="button" class="btn btn-warning"
-                  (click)="saveComment(commentBox.value,launch.launchId)">Comment</button>
+                <button type="button" class="btn btn-warning" (click)="saveComment(commentBox.value,launch.launchId)"
+                  style="height: 38px;margin-left: 2px;">
+                  <mat-icon>comment</mat-icon>
+                </button>
+                <button type="button" class="btn btn-warning" (click)="saveComment(commentBox.value,launch.launchId)"
+                  style="height: 38px;margin-left: 2px;">
+                  <mat-icon>comment</mat-icon>
+                </button>
               </div>
             </form>
           </div>

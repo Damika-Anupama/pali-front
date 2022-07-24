@@ -3,14 +3,14 @@
  * @since : 07/18/2022
  **/
 
-import { ObjectType } from "typescript";
 import { LaunchComment } from "./LaunchComment";
 import { LaunchReaction } from "./LaunchReaction";
 import { onlineStatus } from "./OnlineStatus";
+import { ProfileObjectType } from "./ProfileObjectType";
 
 export interface DateDescendObject {
-    createdDate: Date;
-    type: ObjectType;
+    createdDate: string;
+    type: string;
     id: number;
     // from community
     title: string;
@@ -18,7 +18,7 @@ export interface DateDescendObject {
     groupIcon: File;
     wallpaper: File;
     //from friend
-    username: string;
+    friendusername: string;
     asked: boolean; // whether the friend requested and you accepted or you asked friend accepted
     profilePicture: File;
     //from launch

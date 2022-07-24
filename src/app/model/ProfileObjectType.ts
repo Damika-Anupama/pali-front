@@ -3,7 +3,7 @@
  * @since : 07/18/2022
  **/
 
- export enum ObjectType {
+ export enum ProfileObjectType {
     LAUNCH,
     COMMUNITY,
     FRIEND,

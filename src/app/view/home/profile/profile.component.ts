@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { DateDescendObject } from '@src/app/model/DateDescendObject';
 import { Gender } from '@src/app/model/Gender';
 import { onlineStatus } from '@src/app/model/OnlineStatus';
+import { ProfileObjectType } from '@src/app/model/ProfileObjectType';
 import { Relationship } from '@src/app/model/Relationship';
 import { Role } from '@src/app/model/Role';
 import { observerService } from '@src/app/service/observer.service';
@@ -16,9 +17,10 @@ import { UserService } from "@src/app/service/user.service";
 })
 export class ProfileComponent implements OnInit {
   message: string = "";
+  userId = sessionStorage.getItem('userId');
   // implicitly setting data
   id: Number = 0;
-  createdDate: Date = new Date(2018, 11, 24, 10, 33, 30, 0);
+  createdDate: string = '';
   isActive: boolean = false;
   role: Role = Role.USER;
   updatedDate: Date = new Date(2018, 11, 24, 10, 33, 30, 0);
@@ -39,12 +41,17 @@ export class ProfileComponent implements OnInit {
   dob: Date = new Date(2018, 11, 24, 10, 33, 30, 0);
   relationship: Relationship = Relationship.SINGLE;
   dateDescendObjects: DateDescendObject[] = [];
+  ht: Map<Date, DateDescendObject[]> = new Map<Date, DateDescendObject[]>();
+  dateArr: string[] = [];
 
   //other details of the user
   noOfCommunities: Number = 0;
   noOfFriends: Number = 0;
   noOfLaunches: Number = 0;
-
+  friendType = ProfileObjectType.FRIEND;
+  launchType = ProfileObjectType.LAUNCH;
+  communityType = ProfileObjectType.COMMUNITY;
+  pageType = ProfileObjectType.PAGE;
 
   constructor(
     private snackBar: MatSnackBar,
@@ -80,7 +87,16 @@ export class ProfileComponent implements OnInit {
       this.noOfCommunities = value.noOfCommunities;
       this.noOfFriends = value.noOfFriends;
       this.noOfLaunches = value.noOfLaunches;
-      this.dateDescendObjects = value.dateDescendObjects
+      this.dateDescendObjects = value.dateDescendObjects;
+      // iterate dateDecendObjects
+      value.dateDescendObjects.forEach(e => {
+        console.log(e);
+        if(!this.dateArr.includes(e.createdDate.substring(0,9))){
+          this.dateArr.push(e.createdDate.substring(0,9));
+        }
+      });
+      console.log(this.dateArr)
+
     }, error => {
       if (error.status === 400) {
         this.snackBar.open('Invalid details!', 'Dismiss', { duration: 2000 });

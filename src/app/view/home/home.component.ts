@@ -13,7 +13,8 @@ import { observerService } from '@src/app/service/observer.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  profilePicture = '';
+  profilePic: string | undefined;
+  defaultDP = environment.defaultDP;
   userName = sessionStorage.getItem('userName')  || '{}';
   userId = sessionStorage.getItem('userId')  || '{}';
 
@@ -28,11 +29,9 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(sessionStorage.getItem('profilePicture') != 'null'){
-      this.profilePicture = 'data:image/png;base64,' + sessionStorage.getItem('profilePicture')
-    }else{
-      this.profilePicture = environment.defaultDP;
-    }
+    // @ts-ignore// @ts-ignore
+    this.profilePic = sessionStorage.getItem('profilePicture');
+    
   }
 
   openDialog() {
@@ -67,8 +66,8 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/home/donate')
   }
 
-  gotomoreinfo(): void {
-    this.router.navigateByUrl('/home/more-info')
+  gotoreport(): void {
+    this.router.navigateByUrl('/home/report')
   }
 
   logout(): void {

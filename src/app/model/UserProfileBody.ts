@@ -12,7 +12,7 @@ import { Role } from "./Role";
  export interface UserProfileBody {
     // implicitly setting data
     id:Number;
-    createdDate:Date;
+    createdDate:string;
     isActive:boolean;
     role:Role;
     updatedDate:Date;

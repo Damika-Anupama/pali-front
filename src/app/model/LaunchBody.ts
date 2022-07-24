@@ -17,6 +17,7 @@ export interface LaunchBody {
   shortDescription: string;
   profilePicture: string;
   updatedTime: Date;
+  reactType: string; // whether the user has already reacted to this launch, then what is the type
   reactions: LaunchReaction[];
   comments: LaunchComment[];
 }

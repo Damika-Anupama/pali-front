@@ -32,6 +32,11 @@
     </li>
     <li class="nav-item top-nav-item">
       <a class="nav-link" role="button" mat-button routerLink="/home/comrades">
+        <mat-icon matBadgeColor="warn">online_prediction</mat-icon>
+      </a>
+    </li>
+    <li class="nav-item top-nav-item">
+      <a class="nav-link" role="button" mat-button routerLink="/home/comrades">
         <mat-icon matBadgeColor="warn">diversity_2</mat-icon>
       </a>
     </li>
@@ -87,22 +92,19 @@
           <mat-icon> settings</mat-icon>
           <span>Settings</span>
         </button>
-        <button mat-menu-item class="mat-menu-sub-button" (click)="gotomoreinfo()">
-          <mat-icon> dialpad</mat-icon>
-          <span>More Info</span>
+        <button mat-menu-item class="mat-menu-sub-button" (click)="gotosuggestions()">
+          <mat-icon>alternate_email</mat-icon>
+          <span>Suggetions</span>
+        </button>
+        <button mat-menu-item class="mat-menu-sub-button" (click)="gotoreport()">
+          <mat-icon> warning</mat-icon>
+          <span>Report</span>
         </button>
         <!-- <button mat-menu-item class="mat-menu-sub-button"  (click)="gotoads()">
               <mat-icon> campaign</mat-icon>
               <span>Ads</span>
             </button> -->
-        <!-- <button mat-menu-item class="mat-menu-sub-button" (click)="gotodonate()">
-          <mat-icon> money</mat-icon>
-          <span>Donate</span>
-        </button> -->
-        <button mat-menu-item class="mat-menu-sub-button" (click)="gotosuggestions()">
-          <mat-icon>alternate_email</mat-icon>
-          <span>Suggetions</span>
-        </button>
+        
         <!-- <button mat-menu-item class="mat-menu-sub-button" (click)="gotocontactus()">
           <mat-icon>support_agent</mat-icon>
           <span>Contact Us</span>
@@ -138,7 +140,8 @@
           <img class="img-circle elevation-2" alt="User Image" src="assets/img/avatar-other.png" >
         </ng-template> -->
 
-        <img src="{{profilePicture}}" class="img-circle elevation-2" alt="User Image" style="height: 33.59px; width: 33.59px">
+        <img *ngIf="profilePic != ''" src="data:image/png;base64,{{profilePic}}" class="img-circle elevation-2" alt="User Image" style="height: 33.59px; width: 33.59px">
+        <img *ngIf="profilePic == ''" src="assets/img/avatar-other.png" class="img-circle elevation-2" alt="User Image" style="height: 33.59px; width: 33.59px">
       </div>
       <div class="info">
         <a routerLink="/home/profile" class="d-block">{{userName}}</a>
