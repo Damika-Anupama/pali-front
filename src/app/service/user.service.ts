@@ -9,6 +9,13 @@ import {UserProfileBody} from '@src/app/model/UserProfileBody';
   providedIn: 'root'
 })
 export class UserService {
+  sendVerificationCode(num: number, email: string) {
+    const body = {
+      num, email
+    }
+    this.http.post(environment.baseUrl + `/api/v1/users/verify`, body)
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient) {
   }
 
@@ -41,7 +48,11 @@ export class UserService {
       .append('ignoreProgressBar', '');
     return this.http.get<string>(environment.baseUrl + `/api/v1/users/name/` + query);
   }
-
+  findEmail(query: string): Observable<string> {
+    const httpParams = new HttpParams().append('q', query)
+      .append('ignoreProgressBar', '');
+    return this.http.get<string>(environment.baseUrl + `/api/v1/users/email/` + query);
+  }
   getUserDetailsById(query: string | null): Observable<any> {
     return this.http.get<any>(environment.baseUrl + `/api/v1/users/${query}`);
   }

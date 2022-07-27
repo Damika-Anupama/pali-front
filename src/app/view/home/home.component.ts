@@ -91,4 +91,7 @@ export class HomeComponent implements OnInit {
   gotoSettings():void {
     this.router.navigateByUrl('/home/settings')
   }
+  getStatus():void{
+    
+  }
 }

@@ -60,7 +60,8 @@
       <label for="inputName2" class="col-sm-2 col-form-label">Date of Birth</label>
       <div class="col-sm-10">
         <div class="input-group date" id="reservationdate" data-target-input="nearest">
-          <input type="text" placeholder="Date of Birth" class="form-control datetimepicker-input" data-target="#reservationdate" matInput [matDatepicker]="picker" required [(ngModel)]="dob"/>
+          <input type="text" placeholder="Date of Birth" class="form-control datetimepicker-input" 
+          data-target="#reservationdate" matInput [matDatepicker]="picker" required [(ngModel)]="dob"/>
           <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>

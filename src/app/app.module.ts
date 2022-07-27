@@ -36,6 +36,7 @@ import { MatMenuModule } from "@angular/material/menu";
 import { ForgotPasswordComponent } from './view/forgot-password/forgot-password.component';
 import { ServerErrorComponent } from './view/server-error/server-error.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatMenuModule,
     NgbCarouselModule,
     ReactiveFormsModule,
+    MatDatepickerModule,
     //for google authentication
     SocialLoginModule,
 
