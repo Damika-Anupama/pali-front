@@ -61,7 +61,21 @@
             Let's Watch <i class="fas fa-arrow-circle-right"></i>
           </a>
         </div>
+        <!-- /.card -->
 
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>150</h3>
+
+            <p>Pages</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-pager"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+            Let's Watch <i class="fas fa-arrow-circle-right"></i>
+          </a>
+        </div>
         <div class="small-box bg-success">
           <div class="inner">
             <h3>{{noOfCommunities}}</h3>
@@ -152,21 +166,11 @@
           </div>
           <!-- /.card-body -->
         </div>
-        <!-- /.card -->
+        <div class="button-wrapper" style="display: flex; justify-content: center; align-items: center;">
+          <button type="button" class="center col-md-8 btn btn-block btn-outline-success"
+            style="margin: 0 10px 10px;">Change Your Details</button>
+        </div>
 
-        <!--        <div class="small-box bg-info">-->
-        <!--          <div class="inner">-->
-        <!--            <h3>150</h3>-->
-
-        <!--            <p>Pages</p>-->
-        <!--          </div>-->
-        <!--          <div class="icon">-->
-        <!--            <i class="fas fa-pager"></i>-->
-        <!--          </div>-->
-        <!--          <a href="#" class="small-box-footer">-->
-        <!--            Let's Watch <i class="fas fa-arrow-circle-right"></i>-->
-        <!--          </a>-->
-        <!--        </div>-->
       </div>
       <!-- /.col -->
       <div class="col-md-9">
@@ -239,7 +243,9 @@
                                 <div class="onlineStatus"
                                   style="position: absolute;height: 10px; width: 10px; border-radius: 50%; background-color: green;left: -20px; bottom:-41px;z-index: 10;">
                                 </div>
-                                <img src="data:image/png;base64,{{obj.userprofilePicture}}" alt="friend-image"
+                                <img *ngIf="obj.userprofilePicture" src="data:image/png;base64,{{obj.userprofilePicture}}" alt="friend-image"
+                                  style="height: 40px; width: 40px; border-radius: 50%; margin-right: 10px; ">
+                                  <img *ngIf="! obj.userprofilePicture" src="assets/img/avatar-other.png" alt="friend-image"
                                   style="height: 40px; width: 40px; border-radius: 50%; margin-right: 10px; ">
                               </span>
                               <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
@@ -328,11 +334,12 @@
                           <div style="display: flex; justify-content: center; align-items: center;">
                             <div class="col-md-12">
                               <div style="position: absolute; top: 0px; right: 0px; z-index: 10; margin: 10px;">
-                                <img src="data:image/png;base64,{{obj.groupIcon}}"alt="groupIcon"
+                                <img src="data:image/png;base64,{{obj.groupIcon}}" alt="groupIcon"
                                   style="height: 100px; width:100px;border-radius: 50%;">
                               </div>
                               <div class="card mb-2 bg-gradient-dark">
-                                <img class="card-img-top" src="data:image/png;base64,{{obj.wallpaper}}" alt="Dist Photo 1">
+                                <img class="card-img-top" src="data:image/png;base64,{{obj.wallpaper}}"
+                                  alt="Dist Photo 1">
                                 <div class="card-img-overlay d-flex flex-column justify-content-end">
                                   <h5 class="card-title text-primary text-white">Card Title</h5>
                                   <p class="card-text text-white pb-2 pt-1">Lorem ipsum dolor sit amet, consectetur

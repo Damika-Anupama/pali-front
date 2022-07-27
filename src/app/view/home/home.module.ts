@@ -36,11 +36,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { PagesComponent } from './pages/pages.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DonateComponent } from './donate/donate.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [
@@ -64,14 +64,15 @@ import { MoreInfoComponent } from './more-info/more-info.component';
   ],
   imports: [
     // MatSlideToggleModule,
+    HomeRoutingModule,
     MatSliderModule,
     MatIconModule,
     MatBadgeModule,
     MatCardModule,
-    HomeRoutingModule,
-    FormsModule,
     MatSnackBarModule,
+    FormsModule,
     PickerModule,
+    // BrowserModule,
     CommonModule,
     NgbCarouselModule,
     MatOptionModule,

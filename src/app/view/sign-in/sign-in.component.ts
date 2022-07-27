@@ -4,6 +4,7 @@ import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-social-login';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-sign-in',
@@ -76,7 +77,7 @@ export class SignInComponent implements OnInit {
 
   loginWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(data => {
-
+      console.log(data)
       this.userService.findUser(data.name).subscribe(value => {
         this.login(data.name, data.id)
       }, error => {
@@ -101,6 +102,7 @@ export class SignInComponent implements OnInit {
 
   loginWithFacebook(): void {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then(data => {
+      console.log(data)
       this.userService.findUser(data.name).subscribe(value => {
         this.login(data.name, data.id)
       }, error => {

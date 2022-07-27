@@ -40,7 +40,8 @@ export class DashboardComponent implements OnInit {
   myUserId = sessionStorage.getItem('userId')
   commentBox: any;
   comment = '';
-
+  isEmojiPickerVisible: boolean = false;
+  commentBoxValue = '';
 
   constructor(
     public launchService: LaunchService, 
@@ -179,6 +180,9 @@ export class DashboardComponent implements OnInit {
 
   addEmoji(emoji: any): void {
     this.emoji = emoji;
+  }
+  addCommentEmoji(emoji:any):void{
+    this.commentBoxValue = this.commentBoxValue + emoji.emoji.native;
   }
   saveComment(comment:string,launchId: Number):void{
     this.commentService.saveComment(comment, launchId).subscribe(value => {

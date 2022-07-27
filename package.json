@@ -41,6 +41,7 @@
     "font-awesome": "^4.7.0",
     "ionicons": "^5.2.3",
     "jquery": "^3.5.1",
+    "react-input-emoji": "^4.1.0",
     "reflect-metadata": "~0.1.12",
     "rxjs": "^6.6.0",
     "tslib": "^2.0.0",

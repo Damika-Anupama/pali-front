@@ -82,6 +82,8 @@ export class SettingsComponent implements OnInit {
             sessionStorage.clear();
             sessionStorage.setItem(`token`, token.jwt);
             sessionStorage.setItem(`userId`, token.userId);
+            sessionStorage.setItem(`profilePicture`, token.profilePicture);
+            sessionStorage.setItem(`userName`, token.userName);
           });
       }, error => {
         if (error.status === 400) {

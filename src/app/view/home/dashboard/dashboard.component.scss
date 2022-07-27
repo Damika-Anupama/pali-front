@@ -2,7 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Mountains+of+Christmas:wght@700&display=swap');
 
 
-// posts adding button
+// flex parent
+.flex-parent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 // this is just here to center the button
 .centering_container {
@@ -415,4 +420,14 @@ card {
 .dropdown-toggle {
   padding: 0;
   border: none;
+}
+
+.sticker-button {
+  height: 30px;
+  width: 30px;
+  margin-left: 2px;
+  border-radius: 50%;
+}
+.sticker-button-panel{
+  margin: 0 5px 0;
 }

@@ -3,13 +3,16 @@
  * @since : 07/17/2022
  **/
 
+import { onlineStatus } from "./OnlineStatus";
+
  export interface miniUserCom {
-    id: number;
+    userId: number;
     username: string;
-    profilePicture: File;
     shortDescription: string;
+    profilePicture: File;
+    onlineStatus: onlineStatus;
     joinedDate: Date;
-    role: string;
     updatedDate: Date;
+    role: string;
   }
   

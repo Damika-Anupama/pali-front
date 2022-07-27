@@ -1,5 +1,3 @@
-<img src="https://media.giphy.com/media/3o6UBpHgaXFDNAuttm/giphy.gif">
-<img src="https://media.giphy.com/media/  afcgyMA2255Kg/giphy.gif">
 <section class="content">
   <div class="container-fluid">
     <!-- Main row -->
@@ -148,14 +146,27 @@
                   style="margin: 5px">
                 <!-- .img-push is used to add margin to elements next to floating images -->
                 <input type="text-area" name="message" placeholder="Comment here ..." class="form-control" #commentBox
-                  autofocus />
+                  autofocus [(ngModel)]="commentBoxValue"/>
+                <span class="flex-parent sticker-button-panel">
+
+                  <button type="button" class="btn btn-warning sticker-button emoji flex-parent" data-toggle="dropdown"
+                    (click)="isEmojiPickerVisible = !isEmojiPickerVisible;">
+                    <mat-icon>mood</mat-icon>
+                  </button>
+                  <div class="dropdown-menu" role="menu" style="padding: 0;">
+                    <emoji-mart class="emoji-mart" *ngIf="isEmojiPickerVisible" (emojiSelect)="addCommentEmoji($event)"
+                      title="Choose your emoji"></emoji-mart>
+                  </div>
+                  <button type="button" class="btn btn-danger sticker-button gifs flex-parent">
+                    <mat-icon>gif</mat-icon>
+                  </button>
+                  <button type="button" class="btn btn-success sticker-button stickers flex-parent">
+                    <img src="assets/img/sticker.png" alt="stickers" style="height: 19px">
+                  </button>
+                </span>
                 <button type="button" class="btn btn-warning" (click)="saveComment(commentBox.value,launch.launchId)"
-                  style="height: 38px;margin-left: 2px;">
-                  <mat-icon>comment</mat-icon>
-                </button>
-                <button type="button" class="btn btn-warning" (click)="saveComment(commentBox.value,launch.launchId)"
-                  style="height: 38px;margin-left: 2px;">
-                  <mat-icon>comment</mat-icon>
+                  style="height: 38px;margin-left: 2px; ">
+                  <mat-icon style="margin: 0 6px 0; width: 30px;">comment</mat-icon>
                 </button>
               </div>
             </form>
