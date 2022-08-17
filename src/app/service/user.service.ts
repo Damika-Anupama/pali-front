@@ -11,10 +11,11 @@ import {UserProfileBody} from '@src/app/model/UserProfileBody';
 export class UserService {
   sendVerificationCode(num: number, email: string) {
     const body = {
-      num, email
+      recipient: email,
+      msgBody: num,
+      subject: 'Verification Code - Palindrome Sign-up',
     }
-    this.http.post(environment.baseUrl + `/api/v1/users/verify`, body)
-    throw new Error('Method not implemented.');
+    this.http.post(environment.baseUrl + `/api/v1/mails/sendMail`, body)
   }
   constructor(private http: HttpClient) {
   }
@@ -62,10 +63,9 @@ export class UserService {
   }
 
   authenticate(uname: string, pwd: string): Observable<any> {
-    const body = {
-      username: uname,
-      password: pwd
-    };
+    const body: FormData = new FormData();
+    body.append('username',uname)
+    body.append('password',pwd)
     return this.http.post(environment.baseUrl + `/api/v1/authenticate`, body);
   }
 

@@ -8,11 +8,11 @@ export class observerService {
 
     private approvalStageMessage = new BehaviorSubject('Basic Approval is required!');
     currentApprovalStageMessage = this.approvalStageMessage.asObservable();
-
+    
     constructor() {
 
     }
-    updateApprovalMessage(message: string) {
+    updateApprovalMessage(message: any) {
         this.approvalStageMessage.next(message)
     }
 }

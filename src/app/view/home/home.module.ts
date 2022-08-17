@@ -41,6 +41,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { DonateComponent } from './donate/donate.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { BrowserModule } from '@angular/platform-browser';
     PagesComponent,
     ContactUsComponent,
     DonateComponent,
-    MoreInfoComponent
+    MoreInfoComponent,
+    GamesComponent
   ],exports: [
     // MatSlideToggleModule,
   ],

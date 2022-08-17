@@ -37,6 +37,7 @@ import { ForgotPasswordComponent } from './view/forgot-password/forgot-password.
 import { ServerErrorComponent } from './view/server-error/server-error.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { VerifyAccountComponent } from './view/verify-account/verify-account.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     SignUpComponent,
     NotFoundComponent,
     ForgotPasswordComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    VerifyAccountComponent
   ],
   imports: [
     BrowserModule,

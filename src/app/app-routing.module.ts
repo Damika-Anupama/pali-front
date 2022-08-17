@@ -8,6 +8,7 @@ import { HomeGuard } from './guard/home.guard';
 import { HomeComponent } from './view/home/home.component';
 import { ForgotPasswordComponent } from './view/forgot-password/forgot-password.component';
 import { ServerErrorComponent } from './view/server-error/server-error.component';
+import { VerifyAccountComponent } from './view/verify-account/verify-account.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,9 @@ const routes: Routes = [
   {
     component: SignUpComponent,
     path: 'sign-up'
+  },{
+    component: VerifyAccountComponent,
+    path: 'verify-account'
   },
   {
     component: SignInComponent,

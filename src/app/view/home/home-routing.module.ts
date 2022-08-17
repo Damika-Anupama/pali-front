@@ -15,6 +15,7 @@ import { PagesComponent } from './pages/pages.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MoreInfoComponent } from './more-info/more-info.component';
 import { DonateComponent } from './donate/donate.component';
+import { GamesComponent } from './games/games.component';
 
 const heroRoutes: Routes = [
   {
@@ -37,6 +38,7 @@ const heroRoutes: Routes = [
       {component: ContactUsComponent, path: 'contact-us'},
       {component: MoreInfoComponent, path: 'more-info'},
       {component: DonateComponent, path: 'donate'},
+      {component: GamesComponent, path: 'games'},
       {
         path: 'com',
         loadChildren: () => import('./community/community.module').then(value => value.CommunityModule)

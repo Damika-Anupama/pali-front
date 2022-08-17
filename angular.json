@@ -48,7 +48,9 @@
               "node_modules/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css",
               "node_modules/admin-lte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css",
               "node_modules/admin-lte/plugins/bs-stepper/css/bs-stepper.min.css",
-              "node_modules/admin-lte/plugins/dropzone/min/dropzone.min.css"
+              "node_modules/admin-lte/plugins/dropzone/min/dropzone.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
               
             ],
             "scripts": [
@@ -70,7 +72,8 @@
               "node_modules/admin-lte/dist/js/adminlte.js",
               "node_modules/admin-lte/dist/js/demo.js",
               "node_modules/admin-lte/dist/js/pages/dashboard.js",
-              "node_modules/emoji-slider/bin/emoji-slider.js"
+              "node_modules/emoji-slider/bin/emoji-slider.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "allowedCommonJsDependencies": [
               "$.widget.bridge('uibutton', $.ui.button)",

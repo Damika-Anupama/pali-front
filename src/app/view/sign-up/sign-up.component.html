@@ -11,7 +11,7 @@
       </span>
 
       <div class="card-body">
-        <form #frm="ngForm" (ngSubmit)="createAccount()">
+        <form #frm="ngForm" (ngSubmit)="verifyAccount()">
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Username" (input)="findUser()" #txtUsername
               name="txt-username" required [minlength]="3" pattern="[A-Za-z]+" [(ngModel)]="username" id="txt-username"
