@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { SearchTabComponent } from '../pop-ups/search-tab/search-tab.component';
-import { UserService } from "@src/app/service/user.service";
-import { SocialAuthService } from 'angularx-social-login';
 import { Router } from '@angular/router';
-import { environment } from '@src/environments/environment';
 import { observerService } from '@src/app/service/observer.service';
+import { UserService } from "@src/app/service/user.service";
+import { environment } from '@src/environments/environment';
+import { SocialAuthService } from 'angularx-social-login';
+import { SearchTabComponent } from '../pop-ups/search-tab/search-tab.component';
 
 @Component({
   selector: 'app-home',
@@ -15,23 +15,24 @@ import { observerService } from '@src/app/service/observer.service';
 export class HomeComponent implements OnInit {
   profilePic: string | undefined;
   defaultDP = environment.defaultDP;
-  userName = sessionStorage.getItem('userName')  || '{}';
-  userId = sessionStorage.getItem('userId')  || '{}';
+  userName = sessionStorage.getItem('userName') || '{}';
+  userId = sessionStorage.getItem('userId') || '{}';
 
   constructor(
-    public dialog: MatDialog, 
-    private userService: UserService, 
-    private router: Router, 
+    public dialog: MatDialog,
+    private userService: UserService,
+    private router: Router,
     private authService: SocialAuthService,
     private profileObserver: observerService
-    ) {
+  ) {
   }
+
 
 
   ngOnInit(): void {
     // @ts-ignore// @ts-ignore
     this.profilePic = sessionStorage.getItem('profilePicture');
-    
+
   }
 
   openDialog() {
@@ -88,10 +89,10 @@ export class HomeComponent implements OnInit {
     this.profileObserver.updateApprovalMessage(this.userId);
     this.router.navigateByUrl('/home/profile')
   }
-  gotoSettings():void {
+  gotoSettings(): void {
     this.router.navigateByUrl('/home/settings')
   }
-  getStatus():void{
-    
+  getStatus(): void {
+
   }
 }
